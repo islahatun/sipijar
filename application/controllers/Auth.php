@@ -6,6 +6,8 @@ class Auth extends CI_Controller
 
     public function index()
     {
-        $this->load->view('');
+        $this->load->view('templates/a_header');
+        $this->load->view('auth/login');
+        $this->load->view('templates/a_footer');
     }
 }
