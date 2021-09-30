@@ -3,7 +3,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Operator extends CI_Controller
 {
-
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('M_pns', 'pns');
+    }
     public function index()
     {
         $this->load->view('templates/header');
@@ -14,7 +18,6 @@ class Operator extends CI_Controller
     }
     public function list_pns()
     {
-        $this->load->library('pagination');
 
         $config['base_url'] = 'http://localhost:8080/sipijar/Operator/list_pns';
         $config['total_rows'] = 200;
