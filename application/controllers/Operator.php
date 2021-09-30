@@ -73,12 +73,12 @@ class Operator extends CI_Controller
     {
         $this->pns->insert_pns();
 
-        return ('Operator/list_pns');
+        redirect('Operator/list_pns');
     }
     public function delete($id_pns)
     {
         $this->pns->delete_pns($id_pns);
 
-        return ('Operator/list_pns');
+        redirect('Operator/list_pns');
     }
 }
