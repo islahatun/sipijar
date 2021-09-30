@@ -14,10 +14,21 @@ class Operator extends CI_Controller
     }
     public function list_pns()
     {
+        $this->load->library('pagination');
+
+        $config['base_url'] = 'http://localhost:8080/sipijar/Operator/list_pns';
+        $config['total_rows'] = 200;
+        $config['per_page'] = 20;
+
+        $this->pagination->initialize($config);
+
+
+
+
         $this->load->view('templates/header');
         $this->load->view('templates/topbar');
         $this->load->view('templates/sidebar');
-        // $this->load->view('operator/list_pns');
+        $this->load->view('operator/list_pns');
         $this->load->view('templates/footer');
     }
 }
