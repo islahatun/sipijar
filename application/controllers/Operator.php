@@ -81,4 +81,9 @@ class Operator extends CI_Controller
 
         redirect('Operator/list_pns');
     }
+    public function update()
+    {
+        $this->pns->update_pns();
+        redirect('Operator/list_pns');
+    }
 }

@@ -32,4 +32,23 @@ class M_pns extends CI_Model
         $this->db->where('id_pns', $id_pns);
         $this->db->delete('t_pns');
     }
+    public function update_pns()
+    {
+        $id_pns = $this->input->post('id_pns');
+        $nip = $this->input->post('nip');
+        $no_karpeg = $this->input->post('no_karpeg');
+        $nama = $this->input->post('nama');
+        $unit_kerja = $this->input->post('unit_kerja');
+        $gol = $this->input->post('gol');
+        $jk = $this->input->post('jk');
+
+        $this->db->set('nip', $nip);
+        $this->db->set('no_karpeg', $no_karpeg);
+        $this->db->set('nama', $nama);
+        $this->db->set('unit_kerja', $unit_kerja);
+        $this->db->set('gol', $gol);
+        $this->db->set('jk', $jk);
+        $this->db->where('id_pns', $id_pns);
+        $this->db->update('t_pns');
+    }
 }
