@@ -22,7 +22,8 @@ class M_pns extends CI_Model
             'nip' => $this->input->post('nip'),
             'no_karpeg' => $this->input->post('no_karpeg'),
             'nama' => $this->input->post('nama'),
-            'status_kepegawaian' => $this->input->post('status_kepegawaian')
+            'unit_kerja' => $this->input->post('unit_kerja'),
+            'gol' => $this->input->post('gol'),
         ];
         $this->db->insert('t_pns', $data);
     }

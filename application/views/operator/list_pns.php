@@ -13,7 +13,8 @@
                         <th scope="col">NIP</th>
                         <th scope="col">NO KARPEG</th>
                         <th scope="col">NAMA LENGKAP</th>
-                        <th scope="col">STATUS KEPEGAWAIAN</th>
+                        <th scope="col">UNIT KERJA</th>
+                        <th scope="col">GOLONGAN</th>
                         <th scope="col">ACTION</th>
                     </tr>
                 </thead>
@@ -24,7 +25,8 @@
                             <td><?= $l['nip'] ?></td>
                             <td><?= $l['no_karpeg'] ?></td>
                             <td><?= $l['nama'] ?></td>
-                            <td><?= $l['status_kepegawaian'] ?></td>
+                            <td><?= $l['unit_kerja'] ?></td>
+                            <td><?= $l['gol'] ?></td>
                             <td class="text-center">
                                 <a href="" class="btn btn-primary"><i class="far fa-edit"></i> UBAH</a>
                                 <a href="<?= base_url('Operator/delete/' . $l['id_pns']) ?>" class="btn btn-danger"><i class="far fa-trash-alt"></i> HAPUS</a>
@@ -78,10 +80,18 @@
                         </div>
                         <div class="row  ">
                             <div class="col-4 mt-2">
-                                <label for="inputtext" class="col-form-label"> KEPEGAWAIAN</label>
+                                <label for="inputtext" class="col-form-label"> UNIT KERJA</label>
                             </div>
                             <div class="col">
-                                <input type="text" id="inputtext" class="form-control" name="status_kepegawaian" required>
+                                <input type="text" id="inputtext" class="form-control" name="unit_kerja" required>
+                            </div>
+                        </div>
+                        <div class="row  ">
+                            <div class="col-4 mt-2">
+                                <label for="inputtext" class="col-form-label"> GOLONGAN</label>
+                            </div>
+                            <div class="col">
+                                <input type="text" id="inputtext" class="form-control" name="gol" required>
                             </div>
                         </div>
                 </div>
