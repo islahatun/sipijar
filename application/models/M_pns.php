@@ -54,7 +54,6 @@ class M_pns extends CI_Model
     }
     public function regis()
     {
-        $id_pns = $this->input->post('id_pns');
         $nip = $this->input->post('nip');
         $nama = $this->input->post('nama');
         $email = $this->input->post('email');
@@ -62,13 +61,12 @@ class M_pns extends CI_Model
         $jabatan = $this->input->post('jabatan');
         $sandi = password_hash($this->input->post('sandi'), PASSWORD_DEFAULT);
 
-        $this->db->set('nip', $nip);
         $this->db->set('nama', $nama);
         $this->db->set('email', $email);
         $this->db->set('unit_kerja', $unit_kerja);
         $this->db->set('jabatan', $jabatan);
         $this->db->set('sandi', $sandi);
-        $this->db->where('id_pns', $id_pns);
+        $this->db->where('nip', $nip);
         $this->db->update('t_pns');
     }
 }

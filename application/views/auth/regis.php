@@ -26,9 +26,9 @@
                                     <?= form_error('unit_kerja', '<small class="text-danger pl-3">', '</small>') ?>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input class="form-control" id="inputtext" type="text" placeholder="Jabatan" name="jabatan" />
+                                    <input class="form-control" id="inputtext" type="text" placeholder="jabatan" name="jabatan" />
                                     <label for="inputtext">Jabatan</label>
-                                    <?= form_error('email', '<small class="text-danger pl-3">', '</small>') ?>
+                                    <?= form_error('jabatan', '<small class="text-danger pl-3">', '</small>') ?>
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="inputtext" type="text" placeholder="email" name="email" />
