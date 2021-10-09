@@ -11,18 +11,14 @@
                             <div class="card-body">
                                 <form>
                                     <div class="col-auto">
-                                        <div class="input-group mb-2">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text m-lg-1"><i class="far fa-user"></i></div>
-                                            </div>
-                                            <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="NIP" name="nip">
+                                        <div class="input-group flex-nowrap mb-2">
+                                            <span class="input-group-text" id="addon-wrapping"><i class="fas fa-user"></i></span>
+                                            <input type="text" class="form-control" placeholder="Nomor Induk Pegawai" aria-label="Username" aria-describedby="addon-wrapping">
                                         </div>
                                         <div class="col-auto">
-                                            <div class="input-group mb-2">
-                                                <div class="input-group-prepend">
-                                                    <div class="input-group-text m-lg-1"><i class="fas fa-unlock-alt"></i></div>
-                                                </div>
-                                                <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="sandi" name="sandi">
+                                            <div class="input-group flex-nowrap">
+                                                <span class="input-group-text" id="addon-wrapping"><i class="fas fa-key"></i></span>
+                                                <input type="text" class="form-control" placeholder="Sandi" aria-label="Username" aria-describedby="addon-wrapping">
                                             </div>
                                             <div class="d-flex align-items-center justify-content-end mt-4 mb-3">
                                                 <a class="btn btn-primary" href="index.html">Login</a>
