@@ -95,7 +95,7 @@ class Auth extends CI_Controller
             if ($user) {
                 if ($user['nama'] == $nama) {
                     $this->pns->regis();
-                    $this->session->set_flashdata('message', '<div class="alert alert-info alert-dismissible fade show" role="alert">
+                    $this->session->set_flashdata('message', '<div class="alert alert-info alert-dismissible fade show ml-1 mr-1" role="alert">
                     <strong>Registrasi Berhasil</strong> 
                     </div>');
                     redirect('Auth');
@@ -106,9 +106,13 @@ class Auth extends CI_Controller
                     redirect('Auth/regist');
                 }
             } else {
-                $this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <strong>NIP tidak terdaftar</strong> 
-                </div>');
+                $this->session->set_flashdata('message', '
+                <div class="alert alert-danger d-flex align-items-center" role="alert">
+                <i class="fas fa-exclamation-triangle"></i>
+                <div>
+                   NIP TIDAK TERDAFTAR
+                </div>
+              </div>');
                 redirect('Auth/regist');
             }
         }
