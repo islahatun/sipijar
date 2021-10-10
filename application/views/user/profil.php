@@ -1,6 +1,7 @@
 <div id="layoutSidenav_content">
 
     <div class="container-fluid mt-3">
+
         <?php echo form_open_multipart('User/update'); ?>
         <div class="row">
             <div class="col-6">
@@ -29,7 +30,7 @@
                 <div class="row mb-3">
                     <div class="col-md-6">
                         <div class="form-floating mb-3 mb-md-0">
-                            <input class="form-control" id="inputFirstName" type="text" name="temp_lahir" value="<?= $session['tmpt_lahir'] ?>" required />
+                            <input class="form-control" id="inputFirstName" type="text" name="tmpt_lahir" value="<?= $session['tmpt_lahir'] ?>" required />
                             <label for="inputFirstName">Tempat Lahir</label>
                         </div>
                     </div>
@@ -44,10 +45,10 @@
                     <div class="col-md-6">
                         <div class="form-floating mb-3 mb-md-0">
                             <select class="form-control" id="inputPassword" name="jk">
-                                <option value=""><?= $session['jk'] ?></option>
-                                <option value=""></option>
-                                <option value="">LAKI-LAKI</option>
-                                <option value="">PEREMPUAN</option>
+                                <option><?= $session['jk'] ?></option>
+                                <option></option>
+                                <option>LAKI-LAKI</option>
+                                <option>PEREMPUAN</option>
                             </select>
                             <label for="inputFirstName">Jenis Kelamin</label>
                         </div>
@@ -55,9 +56,13 @@
                     <div class="col-md-6">
                         <div class="form-floating">
                             <select class="form-control" id="inputPassword" name="agama">
-                                <option value=""><?= $session['agama'] ?></option>
-                                <option value="">Islam</option>
-                                <option value="">Keristen</option>
+                                <option><?= $session['agama'] ?></option>
+                                <option>ISLAM</option>
+                                <option>KATOLIK</option>
+                                <option>PROTESTAN</option>
+                                <option>HINDU</option>
+                                <option>BUDHA</option>
+                                <option>KONGUCHU</option>
                             </select>
                             <label for="inputLastName">Agama</label>
                         </div>
@@ -99,12 +104,12 @@
                     <div class="col-md-6">
                         <div class="form-floating mb-3 mb-md-0">
                             <select class="form-control" id="inputPassword" name="gol">
-                                <option value=""><?= $session['gol'] ?></option>
+                                <option><?= $session['gol'] ?></option>
                                 <?php
                                 $gol = $this->db->get('m_golongan')->result_array();
                                 foreach ($gol as $g) :
                                 ?>
-                                    <option value=""><?= $g['golongan'] ?></option>
+                                    <option><?= $g['golongan'] ?></option>
                                 <?php endforeach ?>
                             </select>
                             <label for="inputFirstName">Golongan</label>
@@ -121,13 +126,13 @@
                     <div class="col-md-6">
                         <div class="form-floating">
                             <select class="form-control" id="inputPassword" name="pendidikan">
-                                <option value=""><?= $session['pendidikan'] ?></option>
+                                <option><?= $session['pendidikan'] ?></option>
                                 <?php
                                 $pendidikan = $this->db->get('m_pendidikan')->result_array();
 
                                 foreach ($pendidikan as $p) :
                                 ?>
-                                    <option value=""><?= $p['pendidikan'] ?></option>
+                                    <option><?= $p['pendidikan'] ?></option>
                                 <?php endforeach; ?>
                             </select>
                             <label for="inputLastName">Pendidikan Terakhir</label>
@@ -156,23 +161,23 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <img src="<?= base_url('assets/assets/img/default.png') ?>" class="img-thumbnail" alt="..." width="200" height="200">
+                        <img src="<?= base_url('assets/assets/img/') . $session['profil'] ?>" class="img-thumbnail" alt="..." width="200" height="200">
                     </div>
                     <div class="col">
                         <div class="col">
                             <div class="form-floating">
                                 <select class="form-control" id="inputPassword" name="status_kawin">
-                                    <option value=""><?= $session['status_kawin'] ?></option>
-                                    <option value="">MENIKAH</option>
-                                    <option value="">BELUM NENIKAH</option>
-                                    <option value="">JANDA</option>
-                                    <option value="">DUDA</option>
+                                    <option><?= $session['status_kawin'] ?></option>
+                                    <option>MENIKAH</option>
+                                    <option>BELUM NENIKAH</option>
+                                    <option>JANDA</option>
+                                    <option>DUDA</option>
                                 </select>
                                 <label for="inputLastName">Status Nikah</label>
                             </div>
                         </div>
                         <div class=" mt-3">
-                            <input class="form-control" type="file" id="formFile" name="profil" required>
+                            <input class="form-control" type="file" id="formFile" name="profil">
                         </div>
                     </div>
                 </div>

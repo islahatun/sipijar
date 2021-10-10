@@ -77,7 +77,7 @@ class M_pns extends CI_Model
     {
         $foto = $_FILES['profil']['name'];
         if ($foto) {
-            $config['upload_path']          = './assets/img/profil/';
+            $config['upload_path']          = './assets/assets/img/';
             $config['allowed_types']        = 'gif|jpg|png|jpeg';
             $config['max_size']             = 2048;
             $this->load->library('upload', $config);
@@ -134,10 +134,8 @@ class M_pns extends CI_Model
                 $this->db->set('gol', $gol);
                 $this->db->set('jurusan', $jurusan);
                 $this->db->set('profil', $profil);
-                $this->db->where('nik', $nip);
+                $this->db->where('nip', $nip);
                 $this->db->update('t_pns');
-                // var_dump($data);
-                // die;
             }
         }
     }
