@@ -1,7 +1,7 @@
 <div id="layoutSidenav_content">
 
     <div class="container-fluid mt-3">
-
+        <?= $this->session->flashdata('message') ?>
         <?php echo form_open_multipart('User/update'); ?>
         <div class="row">
             <div class="col-6">
@@ -10,19 +10,19 @@
                     <label for="inputEmail">Nomor Induk Pegawai</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input class="form-control" id="inputEmail" type="text" name="nama" value="<?= $session['nama'] ?>" required />
+                    <input class="form-control" id="inputEmail" type="text" name="nama" value="<?= $session['nama'] ?>" />
                     <label for=" inputEmail">Nama Lengkap</label>
                 </div>
                 <div class="row mb-3">
                     <div class="col-md-6">
                         <div class="form-floating mb-3 mb-md-0">
-                            <input class="form-control" id="inputFirstName" type="text" name="gelar_depan" value="<?= $session['gelar_depan'] ?>" required />
+                            <input class="form-control" id="inputFirstName" type="text" name="gelar_depan" value="<?= $session['gelar_depan'] ?>" />
                             <label for="inputFirstName">Gelar Awal</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input class="form-control" id="inputLastName" type="text" name="gelar_belakang" value="<?= $session['gelar_belakang'] ?>" required />
+                            <input class="form-control" id="inputLastName" type="text" name="gelar_belakang" value="<?= $session['gelar_belakang'] ?>" />
                             <label for="inputLastName">Gelar Akhir</label>
                         </div>
                     </div>
@@ -30,7 +30,7 @@
                 <div class="row mb-3">
                     <div class="col-md-6">
                         <div class="form-floating mb-3 mb-md-0">
-                            <input class="form-control" id="inputFirstName" type="text" name="tmpt_lahir" value="<?= $session['tmpt_lahir'] ?>" required />
+                            <input class="form-control" id="inputFirstName" type="text" name="tmpt_lahir" value="<?= $session['tmpt_lahir'] ?>" />
                             <label for="inputFirstName">Tempat Lahir</label>
                         </div>
                     </div>
@@ -95,7 +95,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input class="form-control" id="inputLastName" type="text" name="pangkat" value="<?= $session['pangkat'] ?>" required />
+                            <input class="form-control" id="inputLastName" type="text" name="pangkat" value="<?= $session['pangkat'] ?>" />
                             <label for="inputLastName">Pangkat</label>
                         </div>
                     </div>
@@ -117,7 +117,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input class="form-control" id="inputLastName" type="text" name="jabatan" value="<?= $session['jabatan'] ?>" required />
+                            <input class="form-control" id="inputLastName" type="text" name="jabatan" value="<?= $session['jabatan'] ?>" />
                             <label for="inputLastName">Jabatan</label>
                         </div>
                     </div>
@@ -140,22 +140,8 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating mb-3 mb-md-0">
-                            <input class="form-control" id="inputFirstName" type="text" name="jurusan" value="<?= $session['jurusan'] ?>" required />
+                            <input class="form-control" id="inputFirstName" type="text" name="jurusan" value="<?= $session['jurusan'] ?>" />
                             <label for="inputFirstName">Jurusan</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <div class="col-md-6">
-                        <div class="form-floating mb-3 mb-md-0">
-                            <input class="form-control" id="inputFirstName" type="text" name="sandi1" />
-                            <label for="inputFirstName">Sandi</label>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-floating">
-                            <input class="form-control" id="inputLastName" type="text" name="sandi" />
-                            <label for="inputLastName">Sandi Baru</label>
                         </div>
                     </div>
                 </div>

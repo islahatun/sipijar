@@ -105,7 +105,6 @@ class M_pns extends CI_Model
         // $status = $this->input->post('status');
 
         $nama = $this->input->post('nama');
-        $sandi = password_hash($this->input->post('sandi'), PASSWORD_DEFAULT);
         $gelar_depan = $this->input->post('gelar_depan');
         $gelar_belakang = $this->input->post('gelar_belakang');
         $jk = $this->input->post('jk');
@@ -126,7 +125,6 @@ class M_pns extends CI_Model
 
 
         $this->db->set('nama', $nama);
-        $this->db->set('sandi', $sandi);
         $this->db->set('jk', $jk);
         $this->db->set('gelar_depan', $gelar_depan);
         $this->db->set('gelar_belakang', $gelar_belakang);

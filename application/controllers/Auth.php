@@ -124,7 +124,6 @@ class Auth extends CI_Controller
 
         $this->session->set_flashdata('message', '
                 <div class="alert alert-danger d-flex align-items-center" role="alert">
-                <i class="fas fa-exclamation-triangle"></i>
                 <div>
                   Berhasil Keluar
                 </div>
