@@ -36,10 +36,10 @@ class Auth extends CI_Controller
                         ];
                         $this->session->set_userdata($data);
                         switch ($user['level']) {
-                            case 'user';
+                            case 'User';
                                 redirect('User');
                                 break;
-                            case 'pimpinan';
+                            case 'Pimpinan';
                                 redirect('Pimpinan');
                                 break;
                             default:
@@ -116,5 +116,12 @@ class Auth extends CI_Controller
                 redirect('Auth/regist');
             }
         }
+    }
+    public function logout()
+    {
+        $this->session->unset_userdata('nip');
+        $this->session->unset_userdata('level');
+
+        redirect('Auth');
     }
 }

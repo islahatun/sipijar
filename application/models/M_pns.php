@@ -3,6 +3,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class M_pns extends CI_Model
 {
+    public function session()
+    {
+    }
     public function list_pns($limit, $start)
     {
         return $this->db->get('t_pns', $limit, $start)->result_array();

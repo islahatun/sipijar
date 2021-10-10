@@ -13,7 +13,7 @@ class Operator extends CI_Controller
         $this->load->view('templates/header');
         $this->load->view('templates/topbar');
         $this->load->view('templates/sidebar');
-        $this->load->view('dashboard/dashboard');
+        $this->load->view('dashboard/dashboard_user');
         $this->load->view('templates/footer');
     }
     public function profile()
