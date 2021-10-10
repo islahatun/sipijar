@@ -157,4 +157,8 @@ class M_pengajuan extends CI_Model
         ];
         $this->db->insert('t_pengajuan', $data);
     }
+    public function list_pengajuan()
+    {
+        return $this->db->get('t_pengajuan')->result_array();
+    }
 }
