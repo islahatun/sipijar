@@ -6,8 +6,11 @@
                     <div class="card shadow-lg border-0 rounded-lg mt-5">
                         <div class="card-header">
                             <h3 class="text-center font-weight-light my-4">Buat Akun</h3>
+                            <div class="mr-1 ml-1">
+                                <?= $this->session->flashdata('message') ?>
+                            </div>
                         </div>
-                        <?= $this->session->flashdata('message') ?>
+
                         <div class="card-body">
                             <form action="<?= base_url('Auth/regist') ?>" method="post">
                                 <div class="form-floating mb-3">

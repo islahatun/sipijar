@@ -47,22 +47,22 @@ class Auth extends CI_Controller
                                 break;
                         }
                     } else {
-                        $this->session->set_flashdata('message', '<div class="alert alert-dangerterdaftar alert-dismissible fade show" role="alert">
-                     <strong>Kata sandi salah</strong> 
+                        $this->session->set_flashdata('message', '<div class="alert alert-danger talert-dismissible fade show" role="alert">
+                     <strong>Kata sandi Atau NIP  salah</strong> 
                      </div>');
-                        redirect('auth/login');
+                        redirect('Auth');
                     }
                 } else {
                     $this->session->set_flashdata('message', '<div class="alert alert-dangerterdaftar alert-dismissible fade show" role="alert">
                  <strong>pengguna tidak aktif</strong> 
                  </div>');
-                    redirect('auth/login');
+                    redirect('Auth');
                 }
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-             <strong>NIK tidak terdaftar</strong> 
+             <strong>NIP tidak terdaftar silahkan hubungi operator</strong> 
              </div>');
-                redirect('auth/login');
+                redirect('Auth');
             }
         }
     }
@@ -122,6 +122,13 @@ class Auth extends CI_Controller
         $this->session->unset_userdata('nip');
         $this->session->unset_userdata('level');
 
+        $this->session->set_flashdata('message', '
+                <div class="alert alert-danger d-flex align-items-center" role="alert">
+                <i class="fas fa-exclamation-triangle"></i>
+                <div>
+                  Berhasil Keluar
+                </div>
+              </div>');
         redirect('Auth');
     }
 }
