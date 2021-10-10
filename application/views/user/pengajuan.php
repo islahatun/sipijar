@@ -4,9 +4,10 @@
         <?= $this->session->flashdata('message') ?>
         <?php echo form_open_multipart('User/insert_pengajuan'); ?>
         <div class="mb-3 row">
+            <input type="text" class="form-control" id="staticEmail" name="nip" value="<?= $session['nip'] ?>">
             <label for="staticEmail" class="col-sm-2 col-form-label">NIP</label>
             <div class="col-sm-10">
-                <input type="text" readonly class="form-control" id="staticEmail" value="<?= $session['nip'] ?>">
+                <input type="text" readonly class="form-control" id="staticEmail" name="nip" value="<?= $session['nip'] ?>">
             </div>
         </div>
         <div class="mb-3 row">
@@ -46,8 +47,19 @@
             </div>
         </div>
         <div class="mb-3 row">
+            <label for="staticEmail" class="col-sm-2 col-form-label">Program Kuliah</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="staticEmail" value="Proses Pengajuan" hidden>
+                <input type="text" class="form-control" id="staticEmail" name="program_kuliah">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="staticEmail" name="status" value="Proses Pengajuan" hidden>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="staticEmail" name="tgl_pengajuan" value="<?= date('Y/m/d') ?>">
             </div>
         </div>
         <div class="text-end">

@@ -150,6 +150,7 @@ class M_pengajuan extends CI_Model
     public function pengajuan()
     {
         $data = [
+            'nip' => $this->input->post('nip'),
             'tgl_pengajuan' => $this->input->post('tgl_pengajuan'),
             'program_kuliah' => $this->input->post('program_kuliah'),
             'status' => $this->input->post('status')

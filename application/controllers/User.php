@@ -54,5 +54,21 @@ class User extends CI_Controller
     }
     public function insert_pengajuan()
     {
+        $this->pengajuan->pengajuan();
+        $this->pengajuan->sk_pns();
+        $this->pengajuan->sk_rekom();
+        $this->pengajuan->skp();
+        $this->pengajuan->sk_ptn();
+        $this->pengajuan->jadwal_kuliah();
+        $this->pengajuan->sk_akreditasi();
+
+        $this->session->set_flashdata('message', '
+                <div class="alert alert-success d-flex align-items-center" role="alert">
+                <i class="fas fa-check-circle"></i> 
+                <div>
+                  Berhasil Mengajukan
+                </div>
+              </div>');
+        redirect('User/pengajuan');
     }
 }
