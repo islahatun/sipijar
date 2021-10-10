@@ -10,24 +10,25 @@ class User extends CI_Controller
     }
     public function index()
     {
+        $data['session'] = $this->pns->session();
         $this->load->view('templates/header');
-        $this->load->view('templates/topbar');
+        $this->load->view('templates/topbar', $data);
         $this->load->view('templates/sidebar');
-        $this->load->view('dashboard/dashboard_user');
+        $this->load->view('dashboard/dashboard_user', $data);
         $this->load->view('templates/footer');
     }
     public function profile()
     {
 
 
-        $data['list'] = $this->pns->getpns();
+        $data['session'] = $this->pns->session();
 
 
 
         $this->load->view('templates/header');
-        $this->load->view('templates/topbar');
+        $this->load->view('templates/topbar', $data);
         $this->load->view('templates/sidebar');
-        $this->load->view('operator/list_pns', $data);
+        $this->load->view('user/profil', $data);
         $this->load->view('templates/footer');
     }
 }

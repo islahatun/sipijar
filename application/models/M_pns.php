@@ -5,6 +5,7 @@ class M_pns extends CI_Model
 {
     public function session()
     {
+        return  $this->db->get_where('t_pns', ['nip' => $this->session->userdata('nip')])->row_array();
     }
     public function list_pns($limit, $start)
     {
