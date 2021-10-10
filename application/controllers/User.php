@@ -7,6 +7,7 @@ class User extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_pns', 'pns');
+        $this->load->model('M_pengajuan', 'pengajuan');
     }
     public function index()
     {
@@ -34,11 +35,21 @@ class User extends CI_Controller
 
         $this->session->set_flashdata('message', '
                 <div class="alert alert-success d-flex align-items-center" role="alert">
-                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-check-circle"></i> 
                 <div>
                   Berhasil Mengubah Data
                 </div>
               </div>');
         redirect('User/profile');
+    }
+    public function pengajuan()
+    {
+        $data['session'] = $this->pns->session();
+
+        $this->load->view('templates/header');
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('user/pengajuan', $data);
+        $this->load->view('templates/footer');
     }
 }
