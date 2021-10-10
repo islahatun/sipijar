@@ -3,7 +3,7 @@
     <div class="container-fluid mt-3">
         <form>
             <div class="row">
-                <div class="col-8">
+                <div class="col-6">
                     <div class="form-floating mb-3">
                         <input class="form-control" id="inputEmail" type="email" placeholder="name@example.com" />
                         <label for="inputEmail">Nomor Induk Pegawai</label>
@@ -62,7 +62,7 @@
                     </div>
                     <div class="form-floating mb-3">
                         <input class="form-control" id="inputEmail" type="email" placeholder="name@example.com" />
-                        <label for="inputEmail">Email address</label>
+                        <label for="inputEmail">Alamat</label>
                     </div>
                     <div class="row mb-3">
                         <div class="col-md-6">
@@ -83,6 +83,52 @@
                     </div>
                 </div>
                 <div class="col">
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="inputEmail" type="email" placeholder="name@example.com" />
+                        <label for="inputEmail">Penempatan Kerja</label>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3 mb-md-0">
+                                <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" />
+                                <label for="inputFirstName">Unit Kerja</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" />
+                                <label for="inputLastName">Pangkat</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3 mb-md-0">
+                                <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" />
+                                <label for="inputFirstName">Golongan</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" />
+                                <label for="inputLastName">Jabatan</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3 mb-md-0">
+                                <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" />
+                                <label for="inputFirstName">SK PNS</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" />
+                                <label for="inputLastName">Pendidikan Terakhir</label>
+                            </div>
+                        </div>
+                    </div>
                     <img src="<?= base_url('assets/assets/img/default.png') ?>" class="img-thumbnail" alt="..." width="200" height="200">
                     <div class="mt-1">
                         <input class="form-control" type="file" id="formFile">
