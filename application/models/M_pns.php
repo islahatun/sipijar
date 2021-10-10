@@ -24,7 +24,7 @@ class M_pns extends CI_Model
     {
         $data = [
             'nip' => $this->input->post('nip'),
-            'no_karpeg' => $this->input->post('no_karpeg'),
+            'level' => $this->input->post('level'),
             'nama' => $this->input->post('nama'),
             'unit_kerja' => $this->input->post('unit_kerja'),
             'gol' => $this->input->post('gol'),
