@@ -148,13 +148,13 @@
                 <div class="row mb-3">
                     <div class="col-md-6">
                         <div class="form-floating mb-3 mb-md-0">
-                            <input class="form-control" id="inputFirstName" type="text" name="sandi1" required />
+                            <input class="form-control" id="inputFirstName" type="text" name="sandi1" />
                             <label for="inputFirstName">Sandi</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input class="form-control" id="inputLastName" type="text" name="sandi" required />
+                            <input class="form-control" id="inputLastName" type="text" name="sandi" />
                             <label for="inputLastName">Sandi Baru</label>
                         </div>
                     </div>
