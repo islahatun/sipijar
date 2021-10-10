@@ -1,18 +1,57 @@
 <div id="layoutSidenav_content">
-    <div class="container-fluid">
-        <form action="">
-            <div class="mb-3 row">
-                <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
-                <div class="col-sm-10">
-                    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
-                </div>
+    <div class="container-fluid mt-3">
+
+        <?= $this->session->flashdata('message') ?>
+        <?php echo form_open_multipart('User/insert_pengajuan'); ?>
+        <div class="mb-3 row">
+            <label for="staticEmail" class="col-sm-2 col-form-label">NIP</label>
+            <div class="col-sm-10">
+                <input type="text" readonly class="form-control" id="staticEmail" value="<?= $session['nip'] ?>">
             </div>
-            <div class="mb-3 row">
-                <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-                <div class="col-sm-10">
-                    <input type="password" class="form-control" id="inputPassword">
-                </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="staticEmail" class="col-sm-2 col-form-label">Nama</label>
+            <div class="col-sm-10">
+                <input type="text" readonly class="form-control" id="staticEmail" value="<?= $session['nama'] ?>">
             </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="staticEmail" class="col-sm-2 col-form-label">SK PNS</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="file" id="formFile" name="sk_pns">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="staticEmail" class="col-sm-2 col-form-label">SK Rekomendasi</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="file" id="formFile" name="sk_rekom">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="staticEmail" class="col-sm-2 col-form-label">SK PTN</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="file" id="formFile" name="sk_ptn">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="staticEmail" class="col-sm-2 col-form-label">Jadwal Kuliah</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="file" id="formFile" name="jadwal_kuliah">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="staticEmail" class="col-sm-2 col-form-label">Sk Akreditasi</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="file" id="formFile" name="sk_akreditasi">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="staticEmail" value="Proses Pengajuan" hidden>
+            </div>
+        </div>
+        <div class="text-end">
+            <button class="btn btn-primary" type="submit">Pengajuan</button>
+        </div>
         </form>
     </div>
-</div>

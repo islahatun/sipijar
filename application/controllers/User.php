@@ -52,4 +52,7 @@ class User extends CI_Controller
         $this->load->view('user/pengajuan', $data);
         $this->load->view('templates/footer');
     }
+    public function insert_pengajuan()
+    {
+    }
 }
