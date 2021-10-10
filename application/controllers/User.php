@@ -19,16 +19,15 @@ class User extends CI_Controller
     }
     public function profile()
     {
-
-
         $data['session'] = $this->pns->session();
-
-
 
         $this->load->view('templates/header');
         $this->load->view('templates/topbar', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('user/profil', $data);
         $this->load->view('templates/footer');
+    }
+    public function update()
+    {
     }
 }
