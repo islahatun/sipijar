@@ -161,6 +161,12 @@ class M_pengajuan extends CI_Model
     }
     public function list_pengajuan()
     {
-        return $this->db->get('t_pengajuan')->result_array();
+        $query = "SELECT *, t_pns.nama, t_pns.gol, t_pns.pangkat FROM t_pengajuan JOIN t_pns ON t_pns.nip = t_pengajuan.nip";
+        return $this->db->query($query)->result_array();
+    }
+    public function getPengajuanById($id_pengajuan)
+    {
+        $query = "SELECT *, t_pns.nama, t_pns.gol, t_pns.pangkat FROM t_pengajuan JOIN t_pns ON t_pns.nip = t_pengajuan.nip WHERE t_pengajuan.id_pengajuan=$id_pengajuan";
+        return $this->db->query($query)->row_array();
     }
 }

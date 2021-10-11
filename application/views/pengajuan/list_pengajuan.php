@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <table class="table table-bordered mt-3">
                 <thead>
-                    <tr>
+                    <tr class="text-center">
                         <th scope="col">NO</th>
                         <th scope="col">NIP</th>
                         <th scope="col">NAMA</th>
@@ -18,9 +18,9 @@
                     <tr>
                         <th scope="row"><?= $i ?></th>
                         <td><?= $p['nip'] ?></td>
-                        <td>Otto</td>
-                        <td>
-                            <button></button>
+                        <td><?= $p['nama'] ?></td>
+                        <td class="text-center">
+                            <a href="<?= base_url('Pengajuan/detail_pengajuan/' . $p['id_pengajuan']) ?>" class="btn btn-primary"><i class="far fa-folder-open"></i> Lihat Dokumen</a>
                         </td>
                         <td><?= $p['status'] ?></td>
                         <td><?= $p['komentar'] ?></td>
