@@ -19,9 +19,11 @@
                         <th scope="row"><?= $i ?></th>
                         <td><?= $p['nip'] ?></td>
                         <td>Otto</td>
-                        <td>@mdo</td>
+                        <td>
+                            <button></button>
+                        </td>
                         <td><?= $p['status'] ?></td>
-                        <td>@mdo</td>
+                        <td><?= $p['komentar'] ?></td>
 
                     </tr>
                 </tbody>

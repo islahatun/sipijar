@@ -153,6 +153,8 @@ class M_pengajuan extends CI_Model
             'nip' => $this->input->post('nip'),
             'tgl_pengajuan' => $this->input->post('tgl_pengajuan'),
             'program_kuliah' => $this->input->post('program_kuliah'),
+            'jenjang_pendidikan' => $this->input->post('jenjang_pendidikan'),
+            'instansi_pendidikan' => $this->input->post('instansi_pendidikan'),
             'status' => $this->input->post('status')
         ];
         $this->db->insert('t_pengajuan', $data);
