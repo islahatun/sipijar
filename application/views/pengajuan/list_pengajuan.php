@@ -20,7 +20,7 @@
                         <td><?= $p['nip'] ?></td>
                         <td><?= $p['nama'] ?></td>
                         <td class="text-center">
-                            <a href="<?= base_url('Pengajuan/detail_pengajuan/' . $p['id_pengajuan']) ?>" class="btn btn-primary"><i class="far fa-folder-open"></i> Lihat Dokumen</a>
+                            <a href="<?= base_url('Pengajuan/detail_pengajuan/' . $p['id_pengajuan']) ?>" class="btn btn-primary"><i class="fas fa-file-alt"></i> Lihat Dokumen</a>
                         </td>
                         <td><?= $p['status'] ?></td>
                         <td><?= $p['komentar'] ?></td>

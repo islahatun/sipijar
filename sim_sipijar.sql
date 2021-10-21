@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 10, 2021 at 06:06 PM
+-- Generation Time: Oct 21, 2021 at 04:16 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.30
 
@@ -156,6 +156,8 @@ CREATE TABLE `t_pengajuan` (
   `sk_rekom` varchar(50) NOT NULL,
   `skp` varchar(50) NOT NULL,
   `sk_ptn` varchar(50) NOT NULL,
+  `instansi_pendidikan` varchar(100) NOT NULL,
+  `jenjang_pendidikan` varchar(3033) NOT NULL,
   `jadwal_kuliah` varchar(50) NOT NULL,
   `sk_akreditasi` varchar(50) NOT NULL,
   `program_kuliah` varchar(50) NOT NULL,
@@ -167,8 +169,8 @@ CREATE TABLE `t_pengajuan` (
 -- Dumping data for table `t_pengajuan`
 --
 
-INSERT INTO `t_pengajuan` (`id_pengajuan`, `nip`, `tgl_pengajuan`, `sk_pns`, `sk_rekom`, `skp`, `sk_ptn`, `jadwal_kuliah`, `sk_akreditasi`, `program_kuliah`, `status`, `komentar`) VALUES
-(5, '1234567891234566', '2021-10-10', 'Islahatun_Nufusi_Lamaran_Kerja.pdf', 'Islahatun_Nufusi_cv.pdf', '', 'cv_islahatunnufusi.pdf', 'ACFrOgDdDilpNrB7XNMM6oURLSe8Qs4xgoTMOw9qBXnFtJXVKE', 'ACFrOgAeOf7RecBWaMDtbCfC10-p9u36asxCl7kztYWO__d1Ht', 'SISTEM INFORMASI', 'Proses Pengajuan', '');
+INSERT INTO `t_pengajuan` (`id_pengajuan`, `nip`, `tgl_pengajuan`, `sk_pns`, `sk_rekom`, `skp`, `sk_ptn`, `instansi_pendidikan`, `jenjang_pendidikan`, `jadwal_kuliah`, `sk_akreditasi`, `program_kuliah`, `status`, `komentar`) VALUES
+(5, '1234567891234566', '2021-10-10', 'Islahatun_Nufusi_Lamaran_Kerja.pdf', 'Islahatun_Nufusi_cv.pdf', '', 'cv_islahatunnufusi.pdf', '', '', 'ACFrOgDdDilpNrB7XNMM6oURLSe8Qs4xgoTMOw9qBXnFtJXVKE', 'ACFrOgAeOf7RecBWaMDtbCfC10-p9u36asxCl7kztYWO__d1Ht', 'SISTEM INFORMASI', 'Proses Pengajuan', '');
 
 -- --------------------------------------------------------
 
