@@ -80,7 +80,7 @@
         </div>
         <div class="mb-3 row">
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="staticEmail" name="tgl_pengajuan" value="<?= date('Y/m/d') ?>">
+                <input type="text" class="form-control" id="staticEmail" name="tgl_pengajuan" value="<?= date('Y/m/d') ?>" hidden>
             </div>
         </div>
         <div class="text-end">

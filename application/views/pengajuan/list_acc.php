@@ -3,7 +3,7 @@
         <div class="container-fluid">
 
             <div class="card text-dark bg-light mb-3 mt-3">
-                <div class="card-header">Daftar Pengajuan</div>
+                <div class="card-header">Daftar Pengajuan Acc</div>
                 <div class="row">
 
                     <div class="col-4 mt-3 ml-3">
@@ -11,16 +11,16 @@
                     </div>
                 </div>
                 <div class="card-body">
-
+                    <div class="mb-3">
+                        <a href="<?= base_url('Pengajuan/print') ?>" class="btn btn-primary"><i class="fas fa-print"></i> Print Laporan</a>
+                    </div>
                     <table class="table table-bordered">
                         <thead>
                             <tr class="text-center">
                                 <th scope="col">NO</th>
                                 <th scope="col">NIP</th>
                                 <th scope="col">NAMA</th>
-                                <th scope="col">DETAIL</th>
                                 <th scope="col">STATUS</th>
-                                <th scope="col">KOMENTAR</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -31,10 +31,19 @@
                                 <td><?= $p['nip'] ?></td>
                                 <td><?= $p['nama'] ?></td>
                                 <td class="text-center">
-                                    <a href="<?= base_url('Pengajuan/detail_pengajuan/' . $p['id_pengajuan']) ?>" class="btn btn-primary"><i class="fas fa-file-alt"></i> Lihat Dokumen</a>
+                                    <?php if ($p['komentar'] == 'Acc') { ?>
+                                        <div>
+                                            Acc
+                                        </div>
+                                    <?php } else { ?>
+                                        <form action="<?= base_url('Pengajuan/accPimpinan/' . $p['id_pengajuan']) ?>" method="post">
+                                            <input type="text" value="<?= $p['id_pengajuan'] ?>" hidden>
+                                            <input type="text" value="Acc" name="komentar" hidden>
+                                            <input type="text" value="Acc" name="status" hidden>
+                                            <button class="btn btn-primary">Acc</button>
+                                        </form>
+                                    <?php } ?>
                                 </td>
-                                <td><?= $p['status'] ?></td>
-                                <td><?= $p['komentar'] ?></td>
 
                             </tr>
                         </tbody>

@@ -45,6 +45,16 @@ class User extends CI_Controller
     public function pengajuan()
     {
         $data['session'] = $this->pns->session();
+        $pengajuan = $this->pengajuan->getPengajuanByUser();
+        if ($pengajuan['status'] == "Menunggu Perbaikan Pengajuan") {
+            $this->session->set_flashdata('message', '
+                <div class="alert alert-success d-flex align-items-center" role="alert">
+                <i class="fas fa-check-circle"></i> 
+                <div>
+                  <a href="'<?=base_url('User/edit_pengajuan/'$pengajuan['id_pengajaun'])?>'">'$pengajaun['komentar']' Klik di Sini Untuk Memperbaiki</a>
+                </div>
+              </div>');
+        }
 
         $this->load->view('templates/header');
         $this->load->view('templates/topbar', $data);
