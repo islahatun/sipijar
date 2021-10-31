@@ -11,6 +11,15 @@ class M_pns extends CI_Model
     {
         return $this->db->get('t_pns', $limit, $start)->result_array();
     }
+    public function menu()
+    {
+        $pengguna = $this->db->get_where('t_pns', ['nip' => $this->session->userdata('nip')])->row_array();
+        $p = $pengguna['level'];
+
+        $menu = "SELECT * FROM m_menu JOIN m_akses_user ON m_akses_user.id_menu = m_menu.id_menu where m_akses_user.level = '$p'";
+
+        return $this->db->query($menu)->result_array();
+    }
     public function count_pns()
     {
         return $this->db->get('t_pns')->num_rows();

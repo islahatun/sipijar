@@ -11,6 +11,7 @@ class Pengajuan extends CI_Controller
     }
     public function list_pengajuan()
     {
+        $data['menu'] = $this->pns->menu();
         $data['session'] = $this->pns->session();
         $data['pengajuan'] = $this->pengajuan->list_pengajuan();
 
@@ -21,6 +22,7 @@ class Pengajuan extends CI_Controller
     }
     public function detail_pengajuan($id_pengajuan)
     {
+        $data['menu'] = $this->pns->menu();
         $data['session'] = $this->pns->session();
         $data['detail'] = $this->pengajuan->getPengajuanById($id_pengajuan);
         $this->load->view('templates/header');
@@ -41,6 +43,7 @@ class Pengajuan extends CI_Controller
     }
     public function pimpinan()
     {
+        $data['menu'] = $this->pns->menu();
         $data['session'] = $this->pns->session();
         $data['pengajuan'] = $this->pengajuan->list_acc_pimpinan();
 

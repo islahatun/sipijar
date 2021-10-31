@@ -10,6 +10,7 @@ class Pimpinan extends CI_Controller
     }
     public function index()
     {
+        $data['menu'] = $this->pns->menu();
         $data['session'] = $this->pns->session();
         $this->load->view('templates/header');
         $this->load->view('templates/topbar', $data);

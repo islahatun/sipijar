@@ -187,6 +187,9 @@ class M_pengajuan extends CI_Model
     }
     public function getPengajuanByUser()
     {
-        return  $this->db->get_where('t_pengajuan', ['nip' => $this->session->userdata('nip')])->row_array();
+        return  $this->db->get_where('t_pengajuan', ['nip' => $this->session->userdata('nip')])->result_array();
+    }
+    public function edit_pengajuan()
+    {
     }
 }

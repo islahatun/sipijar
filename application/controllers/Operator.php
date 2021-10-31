@@ -10,10 +10,11 @@ class Operator extends CI_Controller
     }
     public function index()
     {
+        $data['menu'] = $this->pns->menu();
         $data['session'] = $this->pns->session();
         $this->load->view('templates/header');
         $this->load->view('templates/topbar', $data);
-        $this->load->view('templates/sidebar');
+        $this->load->view('templates/sidebar', $data);
         $this->load->view('dashboard/dashboard');
         $this->load->view('templates/footer');
     }
@@ -61,7 +62,7 @@ class Operator extends CI_Controller
         // $data['id'] = $this->pns->getpns();
 
         $data['list'] = $this->pns->getpns();
-
+        $data['menu'] = $this->pns->menu();
         $data['session'] = $this->pns->session();
 
         $this->load->view('templates/header');
