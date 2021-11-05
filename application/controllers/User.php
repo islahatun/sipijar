@@ -91,10 +91,11 @@ class User extends CI_Controller
               </div>');
     redirect('User/pengajuan');
   }
-  public function edit_pengajuan()
+  public function edit_pengajuan($id_pengajuan)
   {
     $data['menu'] = $this->pns->menu();
     $data['session'] = $this->pns->session();
+    $data['pengajuan'] = $this->pengajuan->getPengajuanById($id_pengajuan);
 
     $this->load->view('templates/header');
     $this->load->view('templates/topbar', $data);
