@@ -194,6 +194,7 @@ class M_pengajuan extends CI_Model
     }
     public function laporan()
     {
-        return $this->db->get_where('t_pengajuan', ['status' => 'Acc'])->result_array();
+        $query = "SELECT *, t_pns.nama, t_pns.nip, t_pns.pangkat FROM t_pengajuan JOIN t_pns ON t_pns.nip = t_pengajuan.nip WHERE t_pengajuan.status='Acc'";
+        return $this->db->query($query)->result_array();
     }
 }

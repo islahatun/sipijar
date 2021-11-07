@@ -25,27 +25,28 @@
                         </thead>
                         <tbody>
                             <?php $i = 1 ?>
-                            <?php foreach ($pengajuan as $p); ?>
-                            <tr>
-                                <th scope="row"><?= $i ?></th>
-                                <td><?= $p['nip'] ?></td>
-                                <td><?= $p['nama'] ?></td>
-                                <td class="text-center">
-                                    <?php if ($p['komentar'] == 'Acc') { ?>
-                                        <div>
-                                            <button class="btn btn-success" disabled><i class="fas fa-check"></i></button>
-                                        </div>
-                                    <?php } else { ?>
-                                        <form action="<?= base_url('Pengajuan/accPimpinan/' . $p['id_pengajuan']) ?>" method="post">
-                                            <input type="text" value="<?= $p['id_pengajuan'] ?>" hidden>
-                                            <input type="text" value="Acc" name="komentar" hidden>
-                                            <input type="text" value="Acc" name="status" hidden>
-                                            <button class="btn btn-primary">Acc</button>
-                                        </form>
-                                    <?php } ?>
-                                </td>
-
-                            </tr>
+                            <?php foreach ($pengajuan as $p) : ?>
+                                <tr>
+                                    <th scope="row"><?= $i ?></th>
+                                    <td><?= $p['nip'] ?></td>
+                                    <td><?= $p['nama'] ?></td>
+                                    <td class="text-center">
+                                        <?php if ($p['komentar'] == 'Acc') { ?>
+                                            <div>
+                                                <button class="btn btn-success" disabled><i class="fas fa-check"></i></button>
+                                            </div>
+                                        <?php } else { ?>
+                                            <form action="<?= base_url('Pengajuan/accPimpinan/' . $p['id_pengajuan']) ?>" method="post">
+                                                <input type="text" value="<?= $p['id_pengajuan'] ?>" hidden>
+                                                <input type="text" value="Acc" name="komentar" hidden>
+                                                <input type="text" value="Acc" name="status" hidden>
+                                                <button class="btn btn-primary">Acc</button>
+                                            </form>
+                                        <?php } ?>
+                                    </td>
+                                </tr>
+                                <?php $i++ ?>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>
