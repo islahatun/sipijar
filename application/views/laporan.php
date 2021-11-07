@@ -12,7 +12,7 @@
     <center>
         <h1>Laporan Pengajuan Surat Izin Belajar</h1>
     </center>
-    <table>
+    <table border="1">
         <tr>
             <th>No</th>
             <th>Nama</th>
@@ -20,7 +20,14 @@
             <th>Tahun Pengajuan</th>
         </tr>
         <tr>
-            <td></td>
+            <?php $i = 0; ?>
+            <?php foreach ($laporan as $l) : ?>
+                <td><?= $i; ?></td>
+                <td><?= $l['nama'] ?></td>
+                <td><?= $l['jenjang_pendidikan'], ['instansi_pendidikan'], ['program_kuliah'] ?></td>
+                <td><?= $l['tahun_pengajuan'] ?></td>
+                <?php $i++; ?>
+            <?php endforeach; ?>
         </tr>
     </table>
 </body>
