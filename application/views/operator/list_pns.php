@@ -31,8 +31,8 @@
                                 <a href="<?= base_url('Operator/list/' . $l['id_pns']) ?>" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ubahdata" <?= $l['id_pns'] ?>><i class="far fa-edit"></i> UBAH</a>
                                 <a href="<?= base_url('Operator/delete/' . $l['id_pns']) ?>" class="btn btn-danger"><i class="far fa-trash-alt"></i> HAPUS</a>
                             </td>
-                        <?php endforeach; ?>
                         </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
             <?= $this->pagination->create_links(); ?>

@@ -51,30 +51,30 @@ class M_pengajuan extends CI_Model
             }
         }
     }
-    public function skp()
-    {
-        $skp = $_FILES['skp']['name'];
-        if ($skp) {
-            $config['upload_path']          = './assets/assets/pengajuan/';
-            $config['allowed_types']        = 'pdf';
-            $config['max_size']             = 2048;
-            $this->load->library('upload', $config);
-            if (!$this->upload->do_upload('skp')) {
-                $error = array('error' => $this->upload->display_errors());
+    // public function skp()
+    // {
+    //     $skp = $_FILES['skp']['name'];
+    //     if ($skp) {
+    //         $config['upload_path']          = './assets/assets/pengajuan/';
+    //         $config['allowed_types']        = 'pdf';
+    //         $config['max_size']             = 2048;
+    //         $this->load->library('upload', $config);
+    //         if (!$this->upload->do_upload('skp')) {
+    //             $error = array('error' => $this->upload->display_errors());
 
-                $this->load->view('upload_form', $error);
-            } else {
-                $new_logo = $this->upload->data('file_name');
-                $n = $this->db->get_where('t_pns', ['nip' => $this->session->userdata('nip')])->row_array();
-                $nip = $n['nip'];
+    //             $this->load->view('upload_form', $error);
+    //         } else {
+    //             $new_logo = $this->upload->data('file_name');
+    //             $n = $this->db->get_where('t_pns', ['nip' => $this->session->userdata('nip')])->row_array();
+    //             $nip = $n['nip'];
 
-                $skp = $new_logo;
-                $this->db->set('skp', $skp);
-                $this->db->where('nip', $nip);
-                $this->db->update('t_pengajuan');
-            }
-        }
-    }
+    //             $skp = $new_logo;
+    //             $this->db->set('skp', $skp);
+    //             $this->db->where('nip', $nip);
+    //             $this->db->update('t_pengajuan');
+    //         }
+    //     }
+    // }
     public function sk_ptn()
     {
         $sk_ptn = $_FILES['sk_ptn']['name'];
@@ -191,5 +191,9 @@ class M_pengajuan extends CI_Model
     }
     public function edit_pengajuan()
     {
+    }
+    public function laporan()
+    {
+        return $this->db->get_where('t_pengajuan', ['status' => 'Acc'])->result_array();
     }
 }

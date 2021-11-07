@@ -12,7 +12,7 @@
                 </div>
                 <div class="card-body">
                     <div class="mb-3">
-                        <a href="<?= base_url('Pengajuan/print') ?>" class="btn btn-primary"><i class="fas fa-print"></i> Print Laporan</a>
+                        <a href="<?= base_url('Pengajuan/pdf') ?>" target="blank" class="btn btn-primary"><i class="fas fa-print"></i> Print Laporan</a>
                     </div>
                     <table class="table table-bordered">
                         <thead>
@@ -33,7 +33,7 @@
                                 <td class="text-center">
                                     <?php if ($p['komentar'] == 'Acc') { ?>
                                         <div>
-                                            Acc
+                                            <button class="btn btn-success" disabled><i class="fas fa-check"></i></button>
                                         </div>
                                     <?php } else { ?>
                                         <form action="<?= base_url('Pengajuan/accPimpinan/' . $p['id_pengajuan']) ?>" method="post">

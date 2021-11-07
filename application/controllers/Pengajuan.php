@@ -63,4 +63,21 @@ class Pengajuan extends CI_Controller
 
         redirect('Pengajuan/pimpinan');
     }
+    public function pdf()
+    {
+        $this->load->library('dompdf_gen');
+
+        $data['pengajuan'] = $this->pengajuan->laporan();
+
+        $this->load->view('laporan', $data);
+
+        $paper_size = 'A4';
+        $orientation = 'potret';
+        $html = $this->output->get_output();
+        $this->dompdf->set_paper($paper_size, $orientation);
+
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream("Laporan Pengajua Izin Belajar.pdf", array('Attachment' => 0));
+    }
 }

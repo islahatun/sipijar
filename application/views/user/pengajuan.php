@@ -18,37 +18,37 @@
         <div class="mb-3 row">
             <label for="staticEmail" class="col-sm-2 col-form-label">SK PNS</label>
             <div class="col-sm-10">
-                <input class="form-control" type="file" id="formFile" name="sk_pns">
+                <input class="form-control" type="file" id="formFile" name="sk_pns" required>
             </div>
         </div>
         <div class="mb-3 row">
             <label for="staticEmail" class="col-sm-2 col-form-label">SK Rekomendasi</label>
             <div class="col-sm-10">
-                <input class="form-control" type="file" id="formFile" name="sk_rekom">
+                <input class="form-control" type="file" id="formFile" name="sk_rekom" required>
             </div>
         </div>
         <div class="mb-3 row">
             <label for="staticEmail" class="col-sm-2 col-form-label">SK PTN</label>
             <div class="col-sm-10">
-                <input class="form-control" type="file" id="formFile" name="sk_ptn">
+                <input class="form-control" type="file" id="formFile" name="sk_ptn" required>
             </div>
         </div>
         <div class="mb-3 row">
             <label for="staticEmail" class="col-sm-2 col-form-label">Jadwal Kuliah</label>
             <div class="col-sm-10">
-                <input class="form-control" type="file" id="formFile" name="jadwal_kuliah">
+                <input class="form-control" type="file" id="formFile" name="jadwal_kuliah" required>
             </div>
         </div>
         <div class="mb-3 row">
             <label for="staticEmail" class="col-sm-2 col-form-label">Sk Akreditasi</label>
             <div class="col-sm-10">
-                <input class="form-control" type="file" id="formFile" name="sk_akreditasi">
+                <input class="form-control" type="file" id="formFile" name="sk_akreditasi" required>
             </div>
         </div>
         <div class="mb-3 row">
             <label for="staticEmail" class="col-sm-2 col-form-label">Jenjang Pendidikan</label>
             <div class="col-sm-10">
-                <select class="form-control" id="inputPassword" name="jenjang_pendidikan">
+                <select class="form-control" id="inputPassword" name="jenjang_pendidikan" required>
                     <option></option>
                     <?php
                     $pendidikan = $this->db->get('m_pendidikan')->result_array();
@@ -63,13 +63,13 @@
         <div class="mb-3 row">
             <label for="staticEmail" class="col-sm-2 col-form-label">Nama Sekolah / Universitas</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="staticEmail" name="instansi_pendidikan">
+                <input type="text" class="form-control" id="staticEmail" name="instansi_pendidikan" required>
             </div>
         </div>
         <div class="mb-3 row">
             <label for="staticEmail" class="col-sm-2 col-form-label">Program Kuliah</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="staticEmail" name="program_kuliah">
+                <input type="text" class="form-control" id="staticEmail" name="program_kuliah" required>
             </div>
         </div>
         <div class="mb-3 row">
