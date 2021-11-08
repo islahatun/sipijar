@@ -5,55 +5,151 @@
                 <div class="mt-3">
                     <h2>Detail Pengajuan</h2>
                 </div>
+                <div class="row align-items-center">
+                    <div class="col-3">
+                        <label for="inputPassword6" class="col-form-label">NIP</label>
+                    </div>
+                    <div class="col-auto">
+                        <label for="inputPassword6" class="col-form-label"><?= $detail['nip'] ?></label>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-3">
+                        <label for="inputPassword6" class="col-form-label">NAMA</label>
+                    </div>
+                    <div class="col-auto">
+                        <label for="inputPassword6" class="col-form-label"><?= $detail['nama'] ?></label>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-3">
+                        <label for="inputPassword6" class="col-form-label">INSTANSI PENDIDIKAN</label>
+                    </div>
+                    <div class="col-auto">
+                        <label for="inputPassword6" class="col-form-label"><?= $detail['instansi_pendidikan'] ?></label>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-3">
+                        <label for="inputPassword6" class="col-form-label">PROGRAM KULIAH</label>
+                    </div>
+                    <div class="col-auto">
+                        <label for="inputPassword6" class="col-form-label"><?= $detail['program_kuliah'] ?></label>
+                    </div>
+                </div>
                 <div class="col">
-                    <table class="table table-bordered  mt-3">
-                        <tr>
-                            <th style="width: 250px;">NIP</th>
-                            <td><?= $detail['nip'] ?></td>
-                        </tr>
-                        <tr>
-                            <th>Nama</th>
-                            <td><?= $detail['nama'] ?></td>
-                        </tr>
-                        <tr>
-                            <th>Nama Instansi Pendidikan</th>
-                            <td><?= $detail['instansi_pendidikan'] ?></td>
-                        </tr>
-                        <tr>
-                            <th>Jenjang Pendidikan</th>
-                            <td><?= $detail['jenjang_pendidikan'] ?></td>
-                        </tr>
-                        <tr>
-                            <th>Jurusan</th>
-                            <td><?= $detail['program_kuliah'] ?></td>
-                        </tr>
-                        <tr>
-                            <th>SK PNS</th>
-                            <td>
-                                <a href="<?= base_url('assets/assets/pengajuan/' . $detail['sk_pns']) ?>" class="btn btn-primary">Lihat </a> <?= $detail['sk_pns'] ?>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>SK Rekomendasi</th>
-                            <td><a href="<?= base_url('assets/assets/pengajuan/' . $detail['sk_rekom']) ?>" class="btn btn-primary">Lihat</a> </a> <?= $detail['sk_rekom'] ?>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>SK PTN</th>
-                            <td><a href="<?= base_url('assets/assets/pengajuan/' . $detail['sk_ptn']) ?>" class="btn btn-primary">Lihat</a> </a> <?= $detail['sk_ptn'] ?>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Jadwal Kuliah</th>
-                            <td><a href="<?= base_url('assets/assets/pengajuan/' . $detail['jadwal_kuliah']) ?>" class="btn btn-primary">Lihat</a> </a> <?= $detail['jadwal_kuliah'] ?>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>SK Akreditasi</th>
-                            <td><a href="<?= base_url('assets/assets/pengajuan/' . $detail['sk_akreditasi']) ?>" class="btn btn-primary">Lihat</a> </a> <?= $detail['sk_akreditasi'] ?>
-                            </td>
-                        </tr>
-                    </table>
+                    <form action="">
+                        <table class="table table-bordered  mt-3">
+
+                            <tr>
+                                <th>SK PNS</th>
+                                <td>
+                                    <a href="<?= base_url('assets/assets/pengajuan/' . $detail['sk_pns']) ?>" class="btn btn-primary">Lihat </a> <?= $detail['sk_pns'] ?>
+                                </td>
+                                <td>
+
+                                    <?php if ($sts['sts_sk_pns'] == 1) { ?>
+                                        <div>
+                                            <button class="btn btn-success" disabled><i class="fas fa-check"></i></button>
+                                        </div>
+                                    <?php } else if ($sts['sts_sk_pns'] == 0) { ?>
+                                        <button class="btn btn-success" disabled><i class="fas fa-times"></i></button>
+                                    <?php } else { ?>
+                                        <form action="<?= base_url('Pengajuan/sk') ?>" method="post">
+                                            <input type="text" value="<?= $detail['id_pengajuan'] ?>" hidden>
+                                            <input type="text" value="<?= $detai['nip'] ?>" hidden>
+                                            <input type="text" value="1" name="sts_sk_pns" hidden>
+                                            <button class="btn btn-primary">Acc</button>
+                                        </form>
+                                    <?php } ?>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>SK Rekomendasi</th>
+                                <td><a href="<?= base_url('assets/assets/pengajuan/' . $detail['sk_rekom']) ?>" class="btn btn-primary">Lihat</a> </a> <?= $detail['sk_rekom'] ?>
+                                </td>
+                                <td>
+                                    <?php if ($sts['sts_sk_rekom'] == 1) { ?>
+                                        <div>
+                                            <button class="btn btn-success" disabled><i class="fas fa-check"></i></button>
+                                        </div>
+                                    <?php } else if ($sts['sts_sk_rekom'] == 0) { ?>
+                                        <button class="btn btn-success" disabled><i class="fas fa-times"></i></button>
+                                    <?php } else { ?>
+                                        <form action="<?= base_url('Pengajuan/sk') ?>" method="post">
+                                            <input type="text" value="<?= $detail['id_pengajuan'] ?>" hidden>
+                                            <input type="text" value="<?= $detai['nip'] ?>" hidden>
+                                            <input type="text" value="1" name="sts_sk_rekom" hidden>
+                                            <button class="btn btn-primary">Acc</button>
+                                        </form>
+                                    <?php } ?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>SK PTN</th>
+                                <td><a href="<?= base_url('assets/assets/pengajuan/' . $detail['sk_ptn']) ?>" class="btn btn-primary">Lihat</a> </a> <?= $detail['sk_ptn'] ?>
+                                </td>
+                                <td><?php if ($sts['sts_sk_ptn'] == 1) { ?>
+                                        <div>
+                                            <button class="btn btn-success" disabled><i class="fas fa-check"></i></button>
+                                        </div>
+                                    <?php } else if ($sts['sts_sk_ptn'] == 0) { ?>
+                                        <button class="btn btn-success" disabled><i class="fas fa-times"></i></button>
+                                    <?php } else { ?>
+                                        <form action="<?= base_url('Pengajuan/sk') ?>" method="post">
+                                            <input type="text" value="<?= $detail['id_pengajuan'] ?>" hidden>
+                                            <input type="text" value="<?= $detai['nip'] ?>" hidden>
+                                            <input type="text" value="1" name="sts_sk_ptn" hidden>
+                                            <button class="btn btn-primary">Acc</button>
+                                        </form>
+                                    <?php } ?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Jadwal Kuliah</th>
+                                <td><a href="<?= base_url('assets/assets/pengajuan/' . $detail['jadwal_kuliah']) ?>" class="btn btn-primary">Lihat</a> </a> <?= $detail['jadwal_kuliah'] ?>
+                                </td>
+                                <td>
+                                    <?php if ($sts['sts_jadwal_kuliah'] == 1) { ?>
+                                        <div>
+                                            <button class="btn btn-success" disabled><i class="fas fa-check"></i></button>
+                                        </div>
+                                    <?php } else if ($sts['sts_jadwal_kuliah'] == 0) { ?>
+                                        <button class="btn btn-success" disabled><i class="fas fa-times"></i></button>
+                                    <?php } else { ?>
+                                        <form action="<?= base_url('Pengajuan/sk') ?>" method="post">
+                                            <input type="text" value="<?= $detail['id_pengajuan'] ?>" hidden>
+                                            <input type="text" value="<?= $detai['nip'] ?>" hidden>
+                                            <input type="text" value="1" name="sts_jadwal_kuliah" hidden>
+                                            <button class="btn btn-primary">Acc</button>
+                                        </form>
+                                    <?php } ?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>SK Akreditasi</th>
+                                <td><a href="<?= base_url('assets/assets/pengajuan/' . $detail['sk_akreditasi']) ?>" class="btn btn-primary">Lihat</a> </a> <?= $detail['sk_akreditasi'] ?>
+                                </td>
+                                <td>
+                                    <?php if ($sts['sts_akreditasi'] == 1) { ?>
+                                        <div>
+                                            <button class="btn btn-success" disabled><i class="fas fa-check"></i></button>
+                                        </div>
+                                    <?php } else if ($sts['sts_akreditasi'] == 0) { ?>
+                                        <button class="btn btn-success" disabled><i class="fas fa-times"></i></button>
+                                    <?php } else { ?>
+                                        <form action="<?= base_url('Pengajuan/sk') ?>" method="post">
+                                            <input type="text" value="<?= $detail['id_pengajuan'] ?>" hidden>
+                                            <input type="text" value="<?= $detai['nip'] ?>" hidden>
+                                            <input type="text" value="1" name="sts_akreditasi" hidden>
+                                            <button class="btn btn-primary">Acc</button>
+                                        </form>
+                                    <?php } ?>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
                 </div>
             </div>
             <div>
