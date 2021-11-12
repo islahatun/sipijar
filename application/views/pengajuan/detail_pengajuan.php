@@ -75,7 +75,7 @@
                                             <button class="btn btn-success" disabled><i class="fas fa-check"></i></button>
                                         </div>
                                     <?php } else if ($sts['sts_sk_rekom'] == 0) { ?>
-                                        <button class="btn btn-success" disabled><i class="fas fa-times"></i></button>
+                                        <button class="btn btn-danger" disabled><i class="fas fa-times"></i></button>
                                     <?php } else { ?>
                                         <form action="<?= base_url('Pengajuan/sk') ?>" method="post">
                                             <input type="text" value="<?= $detail['id_pengajuan'] ?>" hidden>
@@ -95,7 +95,7 @@
                                             <button class="btn btn-success" disabled><i class="fas fa-check"></i></button>
                                         </div>
                                     <?php } else if ($sts['sts_sk_ptn'] == 0) { ?>
-                                        <button class="btn btn-success" disabled><i class="fas fa-times"></i></button>
+                                        <button class="btn btn-danger" disabled><i class="fas fa-times"></i></button>
                                     <?php } else { ?>
                                         <form action="<?= base_url('Pengajuan/sk') ?>" method="post">
                                             <input type="text" value="<?= $detail['id_pengajuan'] ?>" hidden>
@@ -116,7 +116,7 @@
                                             <button class="btn btn-success" disabled><i class="fas fa-check"></i></button>
                                         </div>
                                     <?php } else if ($sts['sts_jadwal_kuliah'] == 0) { ?>
-                                        <button class="btn btn-success" disabled><i class="fas fa-times"></i></button>
+                                        <button class="btn btn-danger" disabled><i class="fas fa-times"></i></button>
                                     <?php } else { ?>
                                         <form action="<?= base_url('Pengajuan/sk') ?>" method="post">
                                             <input type="text" value="<?= $detail['id_pengajuan'] ?>" hidden>
@@ -137,7 +137,7 @@
                                             <button class="btn btn-success" disabled><i class="fas fa-check"></i></button>
                                         </div>
                                     <?php } else if ($sts['sts_akreditasi'] == 0) { ?>
-                                        <button class="btn btn-success" disabled><i class="fas fa-times"></i></button>
+                                        <button class="btn btn-danger" disabled><i class="fas fa-times"></i></button>
                                     <?php } else { ?>
                                         <form action="<?= base_url('Pengajuan/sk') ?>" method="post">
                                             <input type="text" value="<?= $detail['id_pengajuan'] ?>" hidden>
@@ -161,7 +161,7 @@
                         <button class="btn btn-primary" name="acc" type="submit">Pengajuan Sudah Lengkap</button>
                     </span>
                     <span>
-                        <a href="" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#komentar">Pengajuan Bleum Lengkap</a>
+                        <a href="" class="btn btn-danger" data-toggle="modal" data-target="#komentar">Pengajuan Belum Lengkap</a>
                     </span>
                 </form>
             </div>
@@ -169,7 +169,41 @@
         </div>
     </main>
 
-    <div class="modal fade" id="komentar" tabindex="-1" aria-labelledby="tambahdataLabel" aria-hidden="true">
+    <!-- Button trigger modal -->
+    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#komentar">
+        Launch demo modal
+    </button> -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="komentar" tabindex="-1" aria-labelledby="komentarLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="komentarLabel">Komentar</h5>
+
+                </div>
+                <div class="modal-body">
+                    <form action="<?= base_url('Pengajuan/acc/' . $detail['id_pengajuan']) ?>" method="post">
+                        <div class="row  ">
+                            <div class="row  ">
+                                <input type="text" value="<?= $detail['id_pengajuan'] ?>" hidden>
+                                <input type="text" value="Menunggu Perbaikan Pengajuan" name="status" hidden>
+                                <div class="col">
+                                    <textarea type="text" id="inputtext" class="form-control" name="komentar" required></textarea>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Kirim Komentar</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="modal fade" id="tolak" tabindex="-1" aria-labelledby="tambahdataLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -194,4 +228,4 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div> -->

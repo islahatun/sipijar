@@ -19,7 +19,7 @@ class M_pengajuan extends CI_Model
                 $new_logo = $this->upload->data('file_name');
                 $n = $this->db->get_where('t_pns', ['nip' => $this->session->userdata('nip')])->row_array();
                 $nip = $n['nip'];
-
+                // $id_pengajuan = $this->input->post('id_pengajuan');
                 $sk_pns = $new_logo;
                 $this->db->set('sk_pns', $sk_pns);
                 $this->db->where('nip', $nip);
@@ -43,6 +43,8 @@ class M_pengajuan extends CI_Model
                 $new_logo = $this->upload->data('file_name');
                 $n = $this->db->get_where('t_pns', ['nip' => $this->session->userdata('nip')])->row_array();
                 $nip = $n['nip'];
+
+                // $id_pengajuan = $this->input->post('id_pengajuan');
 
                 $sk_rekom = $new_logo;
                 $this->db->set('sk_rekom', $sk_rekom);
@@ -91,7 +93,7 @@ class M_pengajuan extends CI_Model
                 $new_logo = $this->upload->data('file_name');
                 $n = $this->db->get_where('t_pns', ['nip' => $this->session->userdata('nip')])->row_array();
                 $nip = $n['nip'];
-
+                // $id_pengajuan = $this->input->post('id_pengajuan');
                 $sk_ptn = $new_logo;
                 $this->db->set('sk_ptn', $sk_ptn);
                 $this->db->where('nip', $nip);
@@ -115,7 +117,7 @@ class M_pengajuan extends CI_Model
                 $new_logo = $this->upload->data('file_name');
                 $n = $this->db->get_where('t_pns', ['nip' => $this->session->userdata('nip')])->row_array();
                 $nip = $n['nip'];
-
+                // $id_pengajuan = $this->input->post('id_pengajuan');
                 $jadwal_kuliah = $new_logo;
                 $this->db->set('jadwal_kuliah', $jadwal_kuliah);
                 $this->db->where('nip', $nip);
@@ -139,7 +141,7 @@ class M_pengajuan extends CI_Model
                 $new_logo = $this->upload->data('file_name');
                 $n = $this->db->get_where('t_pns', ['nip' => $this->session->userdata('nip')])->row_array();
                 $nip = $n['nip'];
-
+                // $id_pengajuan = $this->input->post('id_pengajuan');
                 $sk_akreditasi = $new_logo;
                 $this->db->set('sk_akreditasi', $sk_akreditasi);
                 $this->db->where('nip', $nip);
@@ -191,6 +193,19 @@ class M_pengajuan extends CI_Model
     }
     public function edit_pengajuan()
     {
+
+        $id_pengajuan = $this->input->post('id_pengajuan');
+        $program_kuliah = $this->input->post('program_kuliah');
+        $jenjang_pendidikan = $this->input->post('jenjang_pendidikan');
+        $instansi_pendidikan = $this->input->post('instansi_pendidikan');
+        $status = $this->input->post('status');
+
+        $this->db->set('program_kuliah', $program_kuliah);
+        $this->db->set('jenjang_pendidikan', $jenjang_pendidikan);
+        $this->db->set('instansi_pendidikan', $instansi_pendidikan);
+        $this->db->set('status', $status);
+        $this->db->where('id_pengajuan', $id_pengajuan);
+        $this->db->update('t_pengajuan');
     }
     public function laporan()
     {

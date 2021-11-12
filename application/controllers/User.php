@@ -103,4 +103,23 @@ class User extends CI_Controller
     $this->load->view('user/edit_pengajuan', $data);
     $this->load->view('templates/footer');
   }
+  public function kirim_edit_pengajuan()
+  {
+    $this->pengajuan->edit_pengajuan();
+    $this->pengajuan->sk_pns();
+    $this->pengajuan->sk_rekom();
+    // $this->pengajuan->skp();
+    $this->pengajuan->sk_ptn();
+    $this->pengajuan->jadwal_kuliah();
+    $this->pengajuan->sk_akreditasi();
+
+    $this->session->set_flashdata('message', '
+                <div class="alert alert-success d-flex align-items-center" role="alert">
+                <i class="fas fa-check-circle"></i> 
+                <div>
+                  Berhasil Mengajukan
+                </div>
+              </div>');
+    redirect('User');
+  }
 }

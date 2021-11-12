@@ -3,10 +3,10 @@
         <div class="container-fluid px-4 ">
             <div class="row mt-3">
                 <div class="col">
-                    <a href="" class="btn btn-primary fw-bold" data-bs-toggle="modal" data-bs-target="#tambahdata"><i class="fa fa-plus"></i> TAMBAH</a>
+                    <a href="" class="btn btn-primary fw-bold mb-2" data-bs-toggle="modal" data-bs-target="#tambahdata"><i class="fa fa-plus"></i> TAMBAH</a>
                 </div>
             </div>
-            <table class="table table-bordered mt-3 table-responsive-sm">
+            <table id="table" class="table table-bordered mt-3 table-responsive-sm">
                 <thead>
                     <tr class="bg-primary text-center">
                         <th scope="col">NO</th>

@@ -155,7 +155,7 @@
                                 <select class="form-control" id="inputPassword" name="status_kawin">
                                     <option><?= $session['status_kawin'] ?></option>
                                     <option>MENIKAH</option>
-                                    <option>BELUM NENIKAH</option>
+                                    <option>BELUM MENIKAH</option>
                                     <option>JANDA</option>
                                     <option>DUDA</option>
                                 </select>

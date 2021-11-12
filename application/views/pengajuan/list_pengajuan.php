@@ -12,7 +12,7 @@
                 </div>
                 <div class="card-body">
 
-                    <table class="table table-bordered">
+                    <table id="table" class="table table-bordered">
                         <thead>
                             <tr class="text-center">
                                 <th scope="col">NO</th>

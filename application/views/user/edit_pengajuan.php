@@ -1,9 +1,9 @@
 <div id="layoutSidenav_content">
-    <div class="container-fluid mt-3">
+    <div class="container-fluid pt-3">
         <?= $this->session->flashdata('message') ?>
-        <?php echo form_open_multipart('User/edit_pengajuan/' . $pengajuan['id_pengajuan']); ?>
+        <?php echo form_open_multipart('User/kirim_edit_pengajuan/' . $pengajuan['id_pengajuan']); ?>
         <div class="mb-3 row">
-            <input type="text" class="form-control" id="staticEmail" name="nip" value="<?= $session['nip'] ?>" hidden>
+            <input type="text" class="form-control" id="staticEmail" name="id_pengajuan" value="<?= $pengajuan['id_pengajuan'] ?>" hidden>
             <label for="staticEmail" class="col-sm-2 col-form-label">NIP</label>
             <div class="col-sm-10">
                 <input type="text" readonly class="form-control" id="staticEmail" name="nip" value="<?= $session['nip'] ?>">
