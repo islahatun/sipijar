@@ -216,4 +216,21 @@ class M_pengajuan extends CI_Model
     {
         return $this->db->get_where('t_sts_pengajuan', ['id_pengajuan' => $id_pengajuan])->row_array();
     }
+
+    public function listAcc()
+    {
+        return  $this->db->get_where('t_pengajuan', ['status' => 'Acc'])->num_rows();
+    }
+    public function listValidasi()
+    {
+        return  $this->db->get_where('t_pengajuan', ['status' => 'Validasi Pengajuan'])->num_rows();
+    }
+    public function listPerbaikan()
+    {
+        return  $this->db->get_where('t_pengajuan', ['status' => 'Menunggu Perbaikan Pengajuan'])->num_rows();
+    }
+    public function listPengajuan()
+    {
+        return  $this->db->get_where('t_pengajuan', ['status' => 'Proses Pengajuan'])->num_rows();
+    }
 }

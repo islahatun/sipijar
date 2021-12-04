@@ -3,7 +3,7 @@
         <div class="container-fluid px-4 ">
             <div class="row mt-3">
                 <div class="col">
-                    <a href="" class="btn btn-primary fw-bold mb-2" data-bs-toggle="modal" data-bs-target="#tambahdata"><i class="fa fa-plus"></i> TAMBAH</a>
+                    <a href="" class="btn btn-primary fw-bold mb-2" data-toggle="modal" data-target="#tambahdata"><i class="fa fa-plus"></i> TAMBAH</a>
                 </div>
             </div>
             <table id="table" class="table table-bordered mt-3 table-responsive-sm">
@@ -19,9 +19,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($list as $l) : ?>
+                    <?php
+                    $i = 1;
+                    foreach ($list as $l) : ?>
                         <tr>
-                            <th scope="row" class="text-center">1</th>
+                            <th scope="row" class="text-center"><?= $i; ?></th>
                             <td><?= $l['nip'] ?></td>
                             <td><?= $l['nama'] ?></td>
                             <td><?= $l['unit_kerja'] ?></td>
@@ -32,10 +34,11 @@
                                 <a href="<?= base_url('Operator/delete/' . $l['id_pns']) ?>" class="btn btn-danger"><i class="far fa-trash-alt"></i> HAPUS</a>
                             </td>
                         </tr>
+                        <?php $i++ ?>
                     <?php endforeach; ?>
                 </tbody>
             </table>
-            <?= $this->pagination->create_links(); ?>
+            <!-- <?= $this->pagination->create_links(); ?> -->
         </div>
     </main>
 
@@ -45,12 +48,85 @@
     </button> -->
 
     <!-- Modal -->
-    <div class="modal fade" id="tambahdata" tabindex="-1" aria-labelledby="tambahdataLabel" aria-hidden="true">
+    <!-- <div class="modal fade" id="tambahdata" tabindex="-1" aria-labelledby="tambahdataLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="tambahdataLabel">TAMBAH DATA</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="<?= base_url('Operator/insert') ?>" method="post">
+                        <div class="row  ">
+                            <div class="col-4 mt-2">
+                                <label for="inputtext" class="col-form-label">NIP</label>
+                            </div>
+                            <div class="col">
+                                <input type="text" id="inputtext" class="form-control" name="nip" required minlength="16" maxlength="16">
+                            </div>
+                        </div>
+                        <div class="row  ">
+                            <div class="col-4 mt-2">
+                                <label for="inputtext" class="col-form-label">NAMA LENGKAP</label>
+                            </div>
+                            <div class="col">
+                                <input type="text" id="inputtext" class="form-control" name="nama" required>
+                            </div>
+                        </div>
+                        <div class="row  ">
+                            <div class="col-4 mt-2">
+                                <label for="inputtext" class="col-form-label"> UNIT KERJA</label>
+                            </div>
+                            <div class="col">
+                                <input type="text" id="inputtext" class="form-control" name="unit_kerja" required>
+                            </div>
+                        </div>
+                        <div class="row  ">
+                            <div class="col-4 mt-2">
+                                <label for="inputtext" class="col-form-label"> GOLONGAN</label>
+                            </div>
+                            <div class="col">
+                                <select name="gol" class="form-control">
+                                    <option></option>
+                                    <?php
+                                    $gol = $this->db->get('m_golongan')->result_array();
+                                    foreach ($gol as $g) :
+                                    ?>
+                                        <option><?= $g['golongan'] ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row  ">
+                            <div class="col-4 mt-2">
+                                <label for="inputtext" class="col-form-label">LEVEL</label>
+                            </div>
+                            <div class="col">
+                                <select name="level" class="form-control" id="inputPassword">
+                                    <option></option>
+                                    <?php
+                                    $level = $this->db->get('m_level')->result_array();
+                                    foreach ($level as $l) :
+                                    ?>
+                                        <option><?= $l['level'] ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">TAMBAH DATA</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="modal fade" id="tambahdata" tabindex="-1" aria-labelledby="komentarLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="komentarLabel">Komentar</h5>
                 </div>
                 <div class="modal-body">
                     <form action="<?= base_url('Operator/insert') ?>" method="post">

@@ -48,7 +48,7 @@
                                 </td>
                                 <td>
 
-                                    <?php if ($sts['sts_sk_pns'] == 1) { ?>
+                                    <!-- <?php if ($sts['sts_sk_pns'] == 1) { ?>
                                         <div>
                                             <button class="btn btn-success" disabled><i class="fas fa-check"></i></button>
                                         </div>
@@ -61,7 +61,7 @@
                                             <input type="text" value="1" name="sts_sk_pns" hidden>
                                             <button class="btn btn-primary">Acc</button>
                                         </form>
-                                    <?php } ?>
+                                    <?php } ?> -->
 
                                 </td>
                             </tr>
@@ -70,7 +70,7 @@
                                 <td><a href="<?= base_url('assets/assets/pengajuan/' . $detail['sk_rekom']) ?>" class="btn btn-primary">Lihat</a> </a> <?= $detail['sk_rekom'] ?>
                                 </td>
                                 <td>
-                                    <?php if ($sts['sts_sk_rekom'] == 1) { ?>
+                                    <!-- <?php if ($sts['sts_sk_rekom'] == 1) { ?>
                                         <div>
                                             <button class="btn btn-success" disabled><i class="fas fa-check"></i></button>
                                         </div>
@@ -83,14 +83,14 @@
                                             <input type="text" value="1" name="sts_sk_rekom" hidden>
                                             <button class="btn btn-primary">Acc</button>
                                         </form>
-                                    <?php } ?>
+                                    <?php } ?> -->
                                 </td>
                             </tr>
                             <tr>
                                 <th>SK PTN</th>
                                 <td><a href="<?= base_url('assets/assets/pengajuan/' . $detail['sk_ptn']) ?>" class="btn btn-primary">Lihat</a> </a> <?= $detail['sk_ptn'] ?>
                                 </td>
-                                <td><?php if ($sts['sts_sk_ptn'] == 1) { ?>
+                                <!-- <td><?php if ($sts['sts_sk_ptn'] == 1) { ?>
                                         <div>
                                             <button class="btn btn-success" disabled><i class="fas fa-check"></i></button>
                                         </div>
@@ -103,7 +103,7 @@
                                             <input type="text" value="1" name="sts_sk_ptn" hidden>
                                             <button class="btn btn-primary">Acc</button>
                                         </form>
-                                    <?php } ?>
+                                    <?php } ?> -->
                                 </td>
                             </tr>
                             <tr>
@@ -111,7 +111,7 @@
                                 <td><a href="<?= base_url('assets/assets/pengajuan/' . $detail['jadwal_kuliah']) ?>" class="btn btn-primary">Lihat</a> </a> <?= $detail['jadwal_kuliah'] ?>
                                 </td>
                                 <td>
-                                    <?php if ($sts['sts_jadwal_kuliah'] == 1) { ?>
+                                    <!-- <?php if ($sts['sts_jadwal_kuliah'] == 1) { ?>
                                         <div>
                                             <button class="btn btn-success" disabled><i class="fas fa-check"></i></button>
                                         </div>
@@ -124,7 +124,7 @@
                                             <input type="text" value="1" name="sts_jadwal_kuliah" hidden>
                                             <button class="btn btn-primary">Acc</button>
                                         </form>
-                                    <?php } ?>
+                                    <?php } ?> -->
                                 </td>
                             </tr>
                             <tr>
@@ -132,7 +132,7 @@
                                 <td><a href="<?= base_url('assets/assets/pengajuan/' . $detail['sk_akreditasi']) ?>" class="btn btn-primary">Lihat</a> </a> <?= $detail['sk_akreditasi'] ?>
                                 </td>
                                 <td>
-                                    <?php if ($sts['sts_akreditasi'] == 1) { ?>
+                                    <!-- <?php if ($sts['sts_akreditasi'] == 1) { ?>
                                         <div>
                                             <button class="btn btn-success" disabled><i class="fas fa-check"></i></button>
                                         </div>
@@ -145,7 +145,7 @@
                                             <input type="text" value="1" name="sts_akreditasi" hidden>
                                             <button class="btn btn-primary">Acc</button>
                                         </form>
-                                    <?php } ?>
+                                    <?php } ?> -->
                                 </td>
                             </tr>
                         </table>

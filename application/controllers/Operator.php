@@ -7,15 +7,20 @@ class Operator extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_pns', 'pns');
+        $this->load->model('M_pengajuan', 'pengajuan');
     }
     public function index()
     {
         $data['menu'] = $this->pns->menu();
         $data['session'] = $this->pns->session();
+        $data['Acc'] = $this->pengajuan->listAcc();
+        $data['Pengajuan'] = $this->pengajuan->listPengajuan();
+        $data['Perbaikan'] = $this->pengajuan->listPerbaikan();
+        $data['Validasi'] = $this->pengajuan->listValidasi();
         $this->load->view('templates/header');
         $this->load->view('templates/topbar', $data);
         $this->load->view('templates/sidebar', $data);
-        $this->load->view('dashboard/dashboard');
+        $this->load->view('dashboard/dashboard', $data);
         $this->load->view('templates/footer');
     }
     public function list_pns()

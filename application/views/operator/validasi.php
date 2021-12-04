@@ -19,9 +19,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($list as $l) : ?>
+                    <?php
+                    $i = 1;
+                    foreach ($list as $l) : ?>
                         <tr>
-                            <th scope="row" class="text-center">1</th>
+                            <th scope="row" class="text-center"><?= $i; ?></th>
                             <td><?= $l['nip'] ?></td>
                             <td><?= $l['no_karpeg'] ?></td>
                             <td><?= $l['nama'] ?></td>
@@ -31,7 +33,9 @@
                                 <a href="<?= base_url('Operator/list/' . $l['id_pns']) ?>" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ubahdata" <?= $l['id_pns'] ?>><i class="far fa-edit"></i> UBAH</a>
                                 <a href="<?= base_url('Operator/delete/' . $l['id_pns']) ?>" class="btn btn-danger"><i class="far fa-trash-alt"></i> HAPUS</a>
                             </td>
-                        <?php endforeach; ?>
+                        <?php
+                        $i++;
+                    endforeach; ?>
                         </tr>
                 </tbody>
             </table>

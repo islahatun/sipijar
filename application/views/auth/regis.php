@@ -24,12 +24,25 @@
                                     <?= form_error('nama', '<small class="text-danger pl-3">', '</small>') ?>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input class="form-control" id="inputtext" type="text" placeholder="Unit Kerja" name="unit_kerja" />
-                                    <label for="inputtext">Unit Kerja </label>
+                                    <select class="form-control" id="unit_kerja" name="unit_kerja">
+                                        <option selected>-- Pilih Unit Kerja --</option>
+                                        <?php
+                                        $unit = $this->db->get('m_unit_kerja')->result_array();
+                                        foreach ($unit as $u) : ?>
+                                            <option value="1"><?= $u['unit_kerja'] ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
                                     <?= form_error('unit_kerja', '<small class="text-danger pl-3">', '</small>') ?>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input class="form-control" id="inputtext" type="text" placeholder="jabatan" name="jabatan" />
+                                    <select class="form-control" id="inputGroupSelect01" name="unit_kerja">
+                                        <option selected>-- Pilih Jabatan --</option>
+                                        <?php
+                                        $jabatan = $this->db->get('m_jabatan')->result_array();
+                                        foreach ($jabatan as $u) : ?>
+                                            <option value="1"><?= $u['jabatan'] ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
                                     <label for="inputtext">Jabatan</label>
                                     <?= form_error('jabatan', '<small class="text-danger pl-3">', '</small>') ?>
                                 </div>
