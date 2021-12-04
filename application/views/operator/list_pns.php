@@ -126,7 +126,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="komentarLabel">Komentar</h5>
+                    <h5 class="modal-title" id="komentarLabel">Data PNS</h5>
                 </div>
                 <div class="modal-body">
                     <form action="<?= base_url('Operator/insert') ?>" method="post">
@@ -135,7 +135,7 @@
                                 <label for="inputtext" class="col-form-label">NIP</label>
                             </div>
                             <div class="col">
-                                <input type="text" id="inputtext" class="form-control" name="nip" required minlength="16" maxlength="16">
+                                <input type="text" id="inputtext" class="form-control" name="nip" required minlength="18" maxlength="18">
                             </div>
                         </div>
                         <div class="row  ">

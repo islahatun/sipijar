@@ -16,6 +16,12 @@
             </div>
         </div>
         <div class="mb-3 row">
+            <label for="staticEmail" class="col-sm-2 col-form-label">Nomor SK Rekomendasi</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="staticEmail" name="no_sk" value="<?= $pengajuan['no_sk'] ?>">
+            </div>
+        </div>
+        <div class="mb-3 row">
             <label for="staticEmail" class="col-sm-2 col-form-label">SK PNS</label>
             <div class="col-sm-5">
                 <input class="form-control" type="file" id="formFile" name="sk_pns" value="<?= $pengajuan['sk_pns'] ?>">

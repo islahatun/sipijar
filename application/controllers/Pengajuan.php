@@ -103,4 +103,27 @@ class Pengajuan extends CI_Controller
         $data['laporan'] = $this->pengajuan->laporan();
         $this->load->view('laporan', $data);
     }
+    public function cetak($id_pengajuan)
+    {
+
+
+        $data['cetak'] = $this->pengajuan->cetakById($id_pengajuan);
+        // $n = $this->pengajuan->cetakById($id_pengajuan);
+        // var_dump($n);
+        // die;
+        $this->load->view('cetak', $data);
+    }
+    public function qrcode()
+    {
+        $pimpinan = "SELECT * FROM m_pimpinan";
+        $p = $this->db->query($pimpinan)->row_array();
+        // generete qrcode
+        qrcode::png(
+            $kode = $p,
+            $outfile = false,
+            $level = QR_ECLEVEL_H,
+            $size = 4,
+            $margin = 1
+        );
+    }
 }

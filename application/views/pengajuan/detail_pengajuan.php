@@ -37,6 +37,14 @@
                         <label for="inputPassword6" class="col-form-label"><?= $detail['program_kuliah'] ?></label>
                     </div>
                 </div>
+                <div class="row align-items-center">
+                    <div class="col-3">
+                        <label for="inputPassword6" class="col-form-label">NO SK REKOMENDASI</label>
+                    </div>
+                    <div class="col-auto">
+                        <label for="inputPassword6" class="col-form-label"><?= $detail['no_sk'] ?></label>
+                    </div>
+                </div>
                 <div class="col">
                     <form action="">
                         <table class="table table-bordered  mt-3">

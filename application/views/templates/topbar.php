@@ -6,11 +6,10 @@
 
     <!-- Navbar-->
     <ul class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-        <li class=" nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><?= $session['nama'] ?> </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="<?= base_url('Auth/logout') ?>">Logout</a></li>
-            </ul>
-        </li>
+
+        <a class="nav-link " role="button" aria-expanded="false"><?= $session['nama'] ?> </a>
+
+        <a class="text-primary" href="<?= base_url('Auth') ?>"><i class="fas fa-sign-out-alt text-primary"></i>Logout</a>
+
     </ul>
 </nav>

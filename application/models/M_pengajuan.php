@@ -153,6 +153,7 @@ class M_pengajuan extends CI_Model
     {
         $data = [
             'nip' => $this->input->post('nip'),
+            'no_sk' => $this->input->post('no_sk'),
             'tgl_pengajuan' => $this->input->post('tgl_pengajuan'),
             'program_kuliah' => $this->input->post('program_kuliah'),
             'jenjang_pendidikan' => $this->input->post('jenjang_pendidikan'),
@@ -168,13 +169,13 @@ class M_pengajuan extends CI_Model
     }
     public function list_acc_pimpinan()
     {
-        $query = "SELECT *, t_pns.nama, t_pns.gol, t_pns.pangkat FROM t_pengajuan JOIN t_pns ON t_pns.nip = t_pengajuan.nip WHERE t_pengajuan.komentar ='Persyaratan Sudah Lengkap' or t_pengajuan.komentar ='Acc'";
+        $query = "SELECT *, t_pns.nama, t_pns.gol, t_pns.pangkat FROM t_pengajuan JOIN t_pns ON t_pns.nip = t_pengajuan.nip WHERE t_pengajuan.komentar ='Persyaratan Sudah Lengkap' or t_pengajuan.komentar ='Acc'  ";
 
         return $this->db->query($query)->result_array();
     }
     public function getPengajuanById($id_pengajuan)
     {
-        $query = "SELECT *, t_pns.nama, t_pns.gol, t_pns.pangkat FROM t_pengajuan JOIN t_pns ON t_pns.nip = t_pengajuan.nip WHERE t_pengajuan.id_pengajuan=$id_pengajuan";
+        $query = "SELECT *, t_pns.nama, t_pns.gol, t_pns.pangkat, t_pns.nip FROM t_pengajuan JOIN t_pns ON t_pns.nip = t_pengajuan.nip WHERE t_pengajuan.id_pengajuan=$id_pengajuan";
         return $this->db->query($query)->row_array();
     }
     public function acc_operator($id_pengajuan)
@@ -195,11 +196,13 @@ class M_pengajuan extends CI_Model
     {
 
         $id_pengajuan = $this->input->post('id_pengajuan');
+        $no_sk = $this->input->post('no_sk');
         $program_kuliah = $this->input->post('program_kuliah');
         $jenjang_pendidikan = $this->input->post('jenjang_pendidikan');
         $instansi_pendidikan = $this->input->post('instansi_pendidikan');
         $status = $this->input->post('status');
 
+        $this->db->set('no_sk', $no_sk);
         $this->db->set('program_kuliah', $program_kuliah);
         $this->db->set('jenjang_pendidikan', $jenjang_pendidikan);
         $this->db->set('instansi_pendidikan', $instansi_pendidikan);
@@ -232,5 +235,11 @@ class M_pengajuan extends CI_Model
     public function listPengajuan()
     {
         return  $this->db->get_where('t_pengajuan', ['status' => 'Proses Pengajuan'])->num_rows();
+    }
+    public function cetakById($id_pengajuan)
+    {
+        $query = "SELECT *, t_pns.nama, t_pns.gol, t_pns.pangkat FROM t_pengajuan JOIN t_pns ON t_pns.nip = t_pengajuan.nip WHERE t_pengajuan.id_pengajuan = $id_pengajuan";
+
+        return $this->db->query($query)->row_array();
     }
 }
