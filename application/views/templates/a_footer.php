@@ -18,8 +18,11 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 <script src="<?= base_url('assets/') ?>js/scripts.js"></script>
 <script>
-    $('#unit_kerja').select2({
-
+    $('#id_unit_kerja').select2({
+        theme: "bootstrap-5"
+    });
+    $('#jabatan').select2({
+        theme: "bootstrap-5",
     });
 </script>
 </body>
