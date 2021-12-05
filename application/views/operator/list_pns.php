@@ -30,7 +30,7 @@
                             <td><?= $l['gol'] ?></td>
                             <td><?= $l['level'] ?></td>
                             <td class="text-center">
-                                <a href="<?= base_url('Operator/list/' . $l['id_pns']) ?>" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ubahdata" <?= $l['id_pns'] ?>><i class="far fa-edit"></i> UBAH</a>
+                                <a href="" class="btn btn-primary" data-toggle="modal" data-target="#ubahdata" <?= $l['id_pns'] ?>><i class="far fa-edit"></i> UBAH</a>
                                 <a href="<?= base_url('Operator/delete/' . $l['id_pns']) ?>" class="btn btn-danger"><i class="far fa-trash-alt"></i> HAPUS</a>
                             </td>
                         </tr>
@@ -42,85 +42,6 @@
         </div>
     </main>
 
-    <!-- Button trigger modal -->
-    <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambahdata">
-        Launch demo modal
-    </button> -->
-
-    <!-- Modal -->
-    <!-- <div class="modal fade" id="tambahdata" tabindex="-1" aria-labelledby="tambahdataLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="tambahdataLabel">TAMBAH DATA</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form action="<?= base_url('Operator/insert') ?>" method="post">
-                        <div class="row  ">
-                            <div class="col-4 mt-2">
-                                <label for="inputtext" class="col-form-label">NIP</label>
-                            </div>
-                            <div class="col">
-                                <input type="text" id="inputtext" class="form-control" name="nip" required minlength="16" maxlength="16">
-                            </div>
-                        </div>
-                        <div class="row  ">
-                            <div class="col-4 mt-2">
-                                <label for="inputtext" class="col-form-label">NAMA LENGKAP</label>
-                            </div>
-                            <div class="col">
-                                <input type="text" id="inputtext" class="form-control" name="nama" required>
-                            </div>
-                        </div>
-                        <div class="row  ">
-                            <div class="col-4 mt-2">
-                                <label for="inputtext" class="col-form-label"> UNIT KERJA</label>
-                            </div>
-                            <div class="col">
-                                <input type="text" id="inputtext" class="form-control" name="unit_kerja" required>
-                            </div>
-                        </div>
-                        <div class="row  ">
-                            <div class="col-4 mt-2">
-                                <label for="inputtext" class="col-form-label"> GOLONGAN</label>
-                            </div>
-                            <div class="col">
-                                <select name="gol" class="form-control">
-                                    <option></option>
-                                    <?php
-                                    $gol = $this->db->get('m_golongan')->result_array();
-                                    foreach ($gol as $g) :
-                                    ?>
-                                        <option><?= $g['golongan'] ?></option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="row  ">
-                            <div class="col-4 mt-2">
-                                <label for="inputtext" class="col-form-label">LEVEL</label>
-                            </div>
-                            <div class="col">
-                                <select name="level" class="form-control" id="inputPassword">
-                                    <option></option>
-                                    <?php
-                                    $level = $this->db->get('m_level')->result_array();
-                                    foreach ($level as $l) :
-                                    ?>
-                                        <option><?= $l['level'] ?></option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </div>
-                        </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">TAMBAH DATA</button>
-                </div>
-                </form>
-            </div>
-        </div>
-    </div> -->
 
     <div class="modal fade" id="tambahdata" tabindex="-1" aria-labelledby="komentarLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -202,34 +123,22 @@
     <?php
     foreach ($list as $l) : ?>
         <!-- Modal -->
-        <div class="modal fade" id="ubahdata" <?= $l['id_pns'] ?> tabindex="-1" aria-labelledby="ubahdataLabel" aria-hidden="true">
+
+        <div class="modal fade" id="ubahdata" <?= $l['id_pns'] ?> tabindex="-1" aria-labelledby="komentarLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="ubahdataLabel">Modal title</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <h5 class="modal-title" id="komentarLabel">Data PNS</h5>
                     </div>
                     <div class="modal-body">
                         <form action="<?= base_url('Operator/update') ?>" method="post">
                             <div class="row  ">
-                                <div class="col">
-                                    <input type="text" id="inputtext" class="form-control" name="id_pns" required minlength="16" maxlength="16" value="<?= $l['id_pns'] ?>">
-                                </div>
-                            </div>
-                            <div class="row  ">
+                                <input hidden type="text" id="inputtext" class="form-control" name="id_pns" required minlength="18" maxlength="18" value="<?= $l['id_pns'] ?>">
                                 <div class="col-4 mt-2">
                                     <label for="inputtext" class="col-form-label">NIP</label>
                                 </div>
                                 <div class="col">
-                                    <input type="text" id="inputtext" class="form-control" name="nip" required minlength="16" maxlength="16" value="<?= $l['nip'] ?>">
-                                </div>
-                            </div>
-                            <div class="row  ">
-                                <div class="col-4 mt-2">
-                                    <label for="inputtext" class="col-form-label">NO KARPEG</label>
-                                </div>
-                                <div class="col">
-                                    <input type="text" id="inputtext" class="form-control" name="no_karpeg" value=" <?= $l['no_karpeg'] ?>" required>
+                                    <input type="text" id="inputtext" class="form-control" name="nip" required minlength="18" maxlength="18" value="<?= $l['nip'] ?>">
                                 </div>
                             </div>
                             <div class="row  ">
@@ -237,7 +146,7 @@
                                     <label for="inputtext" class="col-form-label">NAMA LENGKAP</label>
                                 </div>
                                 <div class="col">
-                                    <input type="text" id="inputtext" class="form-control" name="nama" value=" <?= $l['nama'] ?>" required>
+                                    <input type="text" id="inputtext" class="form-control" name="nama" required value="<?= $l['nama'] ?>">
                                 </div>
                             </div>
                             <div class="row  ">
@@ -245,7 +154,7 @@
                                     <label for="inputtext" class="col-form-label"> UNIT KERJA</label>
                                 </div>
                                 <div class="col">
-                                    <input type="text" id="inputtext" class="form-control" name="unit_kerja" value=" <?= $l['unit_kerja'] ?>" required>
+                                    <input type="text" id="inputtext" class="form-control" name="unit_kerja" value="<?= $l['unit_kerja'] ?>" required>
                                 </div>
                             </div>
                             <div class="row  ">
@@ -253,10 +162,33 @@
                                     <label for="inputtext" class="col-form-label"> GOLONGAN</label>
                                 </div>
                                 <div class="col">
-                                    <input type="text" id="inputtext" class="form-control" name="gol" value=" <?= $l['gol'] ?>" required>
+                                    <select name="gol" class="form-control">
+                                        <option><?= $l['gol'] ?></option>
+                                        <?php
+                                        $gol = $this->db->get('m_golongan')->result_array();
+                                        foreach ($gol as $g) :
+                                        ?>
+                                            <option><?= $g['golongan'] ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
                                 </div>
                             </div>
-
+                            <div class="row  ">
+                                <div class="col-4 mt-2">
+                                    <label for="inputtext" class="col-form-label">LEVEL</label>
+                                </div>
+                                <div class="col">
+                                    <select name="level" class="form-control" id="inputPassword">
+                                        <option><?= $l['level'] ?></option>
+                                        <?php
+                                        $level = $this->db->get('m_level')->result_array();
+                                        foreach ($level as $l) :
+                                        ?>
+                                            <option><?= $l['level'] ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                            </div>
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">UBAH DATA</button>

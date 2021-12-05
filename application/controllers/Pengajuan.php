@@ -8,7 +8,8 @@ class Pengajuan extends CI_Controller
         parent::__construct();
         $this->load->model('M_pns', 'pns');
         $this->load->model('M_pengajuan', 'pengajuan');
-        $this->load->library('pdf');
+
+        $this->load->library('Mypdf');
     }
     public function list_pengajuan()
     {
@@ -97,17 +98,27 @@ class Pengajuan extends CI_Controller
 
         redirect('Pengajuan/pimpinan');
     }
-    public function pdf()
-    {
+    // public function pdf()
+    // {
 
-        $data['laporan'] = $this->pengajuan->laporan();
-        $this->load->view('laporan', $data);
-    }
+    //     $data['laporan'] = $this->pengajuan->laporan();
+    //     $this->load->view('laporan', $data);
+    // }
     public function cetak($id_pengajuan)
     {
 
 
         $data['cetak'] = $this->pengajuan->cetakById($id_pengajuan);
+        // $n = $this->pengajuan->cetakById($id_pengajuan);
+        // var_dump($n);
+        // die;
+        $this->load->view('cetak', $data);
+    }
+    public function cetakByUser()
+    {
+
+
+        $data['cetak'] = $this->pengajuan->cetakByUser();
         // $n = $this->pengajuan->cetakById($id_pengajuan);
         // var_dump($n);
         // die;
@@ -125,5 +136,16 @@ class Pengajuan extends CI_Controller
             $size = 4,
             $margin = 1
         );
+    }
+    public function suratpdf()
+    {
+        $data['cetak'] = $this->pengajuan->cetakByUser();
+        // $n = $this->pengajuan->cetakByUser();
+        // var_dump($n);
+        // die;
+        // $this->load->view('cetakpdf', $data);
+
+
+        $this->mypdf->generate('cetak', $data, 'Surat Izin Belajar', 'A4', 'portait');
     }
 }

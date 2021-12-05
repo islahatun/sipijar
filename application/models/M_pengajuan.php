@@ -242,4 +242,12 @@ class M_pengajuan extends CI_Model
 
         return $this->db->query($query)->row_array();
     }
+    public function cetakByUser()
+    {
+        $n = $this->db->get_where('t_pns', ['nip' => $this->session->userdata('nip')])->row_array();
+        $nip = $n['nip'];
+        $query = "SELECT *, t_pns.nama, t_pns.gol, t_pns.pangkat FROM t_pengajuan JOIN t_pns ON t_pns.nip = t_pengajuan.nip WHERE t_pengajuan.nip = $nip AND t_pengajuan.status ='Acc'";
+
+        return $this->db->query($query)->row_array();
+    }
 }

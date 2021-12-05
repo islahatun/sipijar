@@ -34,7 +34,7 @@
                                     <td><?= $p['nip'] ?></td>
                                     <td><?= $p['nama'] ?></td>
                                     <td>
-                                        <a href="<?= base_url('Pengajuan/cetak/') . $p['id_pengajuan'] ?>" <?= $p['id_pengajuan'] ?>>Cetak</a>
+                                        <a target="blank" href="<?= base_url('Pengajuan/cetak/') . $p['id_pengajuan'] ?>" <?= $p['id_pengajuan'] ?>>Cetak</a>
                                     </td>
                                     <!-- <td class="text-center"><button class="btn btn-primary" data-toggle="modal" data-target="#dokumen" <?= $p['id_pengajuan'] ?>>
                                             <i class="far fa-file-alt"></i>

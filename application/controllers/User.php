@@ -13,6 +13,7 @@ class User extends CI_Controller
   {
     $data['menu'] = $this->pns->menu();
     $pengajuan = $this->pengajuan->getPengajuanByUser();
+    $data['cetak'] = $this->pengajuan->cetakByUser();
     // var_dump($pengajuan);
     // die;
     foreach ($pengajuan as $p) {
@@ -96,6 +97,7 @@ class User extends CI_Controller
     $data['menu'] = $this->pns->menu();
     $data['session'] = $this->pns->session();
     $data['pengajuan'] = $this->pengajuan->getPengajuanById($id_pengajuan);
+
 
     $this->load->view('templates/header');
     $this->load->view('templates/topbar', $data);
