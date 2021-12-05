@@ -72,7 +72,7 @@ class Auth extends CI_Controller
 
         $this->form_validation->set_rules('nama', 'Nama Lengkap', 'required|trim');
         $this->form_validation->set_rules('nip', 'NIP', 'required|trim');
-        $this->form_validation->set_rules('id_unit_kerja', 'jabatan', 'required|trim');
+        $this->form_validation->set_rules('unit_kerja', 'jabatan', 'required|trim');
         $this->form_validation->set_rules('jabatan', 'jabatan', 'required|trim');
         $this->form_validation->set_rules('email', 'email', 'required|trim');
         $this->form_validation->set_rules('sandi', 'Password', 'required|trim|min_length[3]|matches[sandi2]', [

@@ -126,7 +126,7 @@ class Pengajuan extends CI_Controller
     }
     public function qrcode()
     {
-        $pimpinan = "SELECT * FROM m_pimpinan";
+        $pimpinan = "nama * FROM m_pimpinan";
         $p = $this->db->query($pimpinan)->row_array();
         // generete qrcode
         qrcode::png(
@@ -137,15 +137,15 @@ class Pengajuan extends CI_Controller
             $margin = 1
         );
     }
-    public function suratpdf()
-    {
-        $data['cetak'] = $this->pengajuan->cetakByUser();
-        // $n = $this->pengajuan->cetakByUser();
-        // var_dump($n);
-        // die;
-        // $this->load->view('cetakpdf', $data);
+    // public function suratpdf()
+    // {
+    //     $data['cetak'] = $this->pengajuan->cetakByUser();
+    //     // $n = $this->pengajuan->cetakByUser();
+    //     // var_dump($n);
+    //     // die;
+    //     // $this->load->view('cetakpdf', $data);
 
 
-        $this->mypdf->generate('cetak', $data, 'Surat Izin Belajar', 'A4', 'portait');
-    }
+    //     $this->mypdf->generate('cetak', $data, 'Surat Izin Belajar', 'A4', 'portait');
+    // }
 }

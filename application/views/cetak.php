@@ -20,8 +20,11 @@
             <h4>
                 <p class="text-center"><B><U>SURAT IZIN BELAJAR</U></B></p>
             </h4>
-            <p class="text-center">NOMOR : 826.5/<?= $cetak['id_pengajuan'] ?>-Diklat/BKPSDM/<?= date('Y') ?></p>
-            <p>Sehubungan surat dari Kepala Bidang Diklat BKPSDM Kota Serang dengan Nomor Rekomendasi <?= $cetak['no_sk'] ?>, Kepala Badan Kepegawaian dan Pengembangan Sumber Daya Manusia Kota Serang memberi ijin kepada Pegawai Negeri Sipil, atas :</p>
+            <div>
+                <p class="text-center">NOMOR : 826.5/<?= $cetak['id_pengajuan'] ?>-Diklat/BKPSDM/<?= date('Y') ?></p>
+                <p>Sehubungan surat dari Kepala Bidang Diklat BKPSDM Kota Serang dengan Nomor Rekomendasi <?= $cetak['no_sk'] ?>, Kepala Badan Kepegawaian dan Pengembangan Sumber Daya Manusia Kota Serang memberi ijin kepada Pegawai Negeri Sipil, atas :</p>
+            </div>
+
             <div class="row">
                 <div class="col-2">
                     Nama
@@ -125,8 +128,8 @@
     </div>
     </div>
 </body>
-<!-- <script>
+<script>
     window.print();
-</script> -->
+</script>
 
 </html>

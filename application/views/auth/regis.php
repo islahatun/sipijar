@@ -24,25 +24,30 @@
                                     <?= form_error('nama', '<small class="text-danger pl-3">', '</small>') ?>
                                 </div>
                                 <div class="form-floating mb-3">
+                                    <!-- <input class="form-control" id="inputtext" type="text" placeholder="email" name="unit_kerja" />
+                                    <label for="inputtext">Unit Kerja</label>
+                                    <?= form_error('unit_kerja', '<small class="text-danger pl-3">', '</small>') ?> -->
                                     <select class="form-control" id="id_unit_kerja" name="unit_kerja">
                                         <option selected>-- Pilih Unit Kerja --</option>
                                         <?php
                                         $unit = $this->db->get('m_unit_kerja')->result_array();
                                         foreach ($unit as $u) : ?>
-                                            <option value="<?= $u['id'] ?>"><?= $u['name'] ?></option>
+                                            <option><?= $u['name'] ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                     <?= form_error('unit_kerja', '<small class="text-danger pl-3">', '</small>') ?>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <select class="form-control" id="jabatan" name="jabatan">
+                                    <input class="form-control" id="inputtext" type="text" placeholder="email" name="jabatan" />
+                                    <label for="inputtext">Jabatan</label>
+                                    <!-- <select class="form-control" id="jabatan" name="jabatan">
                                         <option selected>-- Pilih Jabatan --</option>
                                         <?php
                                         $unit = $this->db->get('m_jabatan')->result_array();
                                         foreach ($unit as $u) : ?>
                                             <option value="<?= $u['id'] ?>"><?= $u['name'] ?></option>
                                         <?php endforeach; ?>
-                                    </select>
+                                    </select> -->
                                     <?= form_error('jabatan', '<small class="text-danger pl-3">', '</small>') ?>
                                 </div>
                                 <div class="form-floating mb-3">
