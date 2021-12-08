@@ -21,6 +21,12 @@
 <script src="<?= base_url('assets/') ?>assets/demo/chart-bar-demo.js"></script> -->
 <!-- <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"></script> -->
 <!-- <script src="<?= base_url('asssets/') ?>js/datatables-simple-demo.js"></script> -->
+
+<script>
+    $(document).ready(function() {
+        $('#table').DataTable();
+    });
+</script>
 </body>
 
 </html>

@@ -1,9 +1,9 @@
 <div id="layoutSidenav_content">
     <main>
         <div class="container">
-            <div class="ml-3">
-                <h1 class="">Selamat Datang <?= $session['nama'] ?></h1>
-                <?= $this->session->flashdata('message') ?>
+            <div class="ml-3 mt-4">
+
+                <?= $this->session->flashdata('alert') ?>
             </div>
 
             <div class="card ">
@@ -14,10 +14,10 @@
                     <p>2. Scan Surat Keterangan PNS </p>
                     <p>3. Scan Jadwal Perkuliahan </p>
                     <p>4. Scan SK Akreditasi Universitas</p>
-
+                    <div class="small mb-2"><a href="<?= base_url('Assets/perwal/perwal_23_2010.pdf') ?>">Klik Untuk Melihat Peraturan Pengajuan Izin Belajar</a></div>
                     <div class="col">
                         <?php if ($cetak['status'] == 'Acc') { ?>
-                            <a target="blank" href="<?= base_url('pengajuan/suratpdf') ?>" class="btn btn-primary">Download</a>
+                            <a target="blank" href="<?= base_url('pengajuan/suratpdf') ?>" class="btn btn-primary btn-sm">Cetak Surat Izin Belajar</a>
                         <?php } else { ?>
                         <?php } ?>
                     </div>
@@ -25,5 +25,4 @@
                 </div>
             </div>
         </div>
-</div>
-</main>
+    </main>

@@ -250,4 +250,40 @@ class M_pengajuan extends CI_Model
 
         return $this->db->query($query)->row_array();
     }
+    public function perbaikan_pengajuan()
+    {
+        $this->db->select('*', 'nama');
+        $this->db->from('t_pengajuan');
+        $this->db->join('t_pns', 't_pengajuan.nip = t_pns.nip');
+        $this->db->where('status', 'Menunggu Perbaikan Pengaju');
+        $query = $this->db->get()->result_array();
+        return $query;
+    }
+    public function acc_pengajuan()
+    {
+        $this->db->select('*', 'nama');
+        $this->db->from('t_pengajuan');
+        $this->db->join('t_pns', 't_pengajuan.nip = t_pns.nip');
+        $this->db->where('status', 'Acc');
+        $query = $this->db->get()->result_array();
+        return $query;
+    }
+    public function validasi_pengajuan()
+    {
+        $this->db->select('*', 'nama');
+        $this->db->from('t_pengajuan');
+        $this->db->join('t_pns', 't_pengajuan.nip = t_pns.nip');
+        $this->db->where('status', 'Validasi Pengajuan');
+        $query = $this->db->get()->result_array();
+        return $query;
+    }
+    public function proses_pengajuan()
+    {
+        $this->db->select('*', 'nama');
+        $this->db->from('t_pengajuan');
+        $this->db->join('t_pns', 't_pengajuan.nip = t_pns.nip');
+        $this->db->where('status', 'Proses Pengajuan');
+        $query = $this->db->get()->result_array();
+        return $query;
+    }
 }

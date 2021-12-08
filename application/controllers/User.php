@@ -14,8 +14,15 @@ class User extends CI_Controller
     $data['menu'] = $this->pns->menu();
     $pengajuan = $this->pengajuan->getPengajuanByUser();
     $data['cetak'] = $this->pengajuan->cetakByUser();
+    $data['session'] = $this->pns->session();
+    $session = $this->pns->session();
     // var_dump($pengajuan);
     // die;
+    $this->session->set_flashdata('alert', '
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>Selamat Datang! </strong>' . $session['nama'] . '
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>');
     foreach ($pengajuan as $p) {
       if ($p['status'] == 'Menunggu Perbaikan Pengajuan') {
         $this->session->set_flashdata('message', '
@@ -29,7 +36,6 @@ class User extends CI_Controller
     }
 
 
-    $data['session'] = $this->pns->session();
     $this->load->view('templates/header');
     $this->load->view('templates/topbar', $data);
     $this->load->view('templates/sidebar', $data);

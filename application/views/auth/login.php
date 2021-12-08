@@ -34,6 +34,7 @@
                             </div>
                             <div class="card-footer text-center py-3">
                                 <div class="small"><a href="<?= base_url('Auth/Regist') ?>">Belum Mempunyai AKun? Daftar Sekarang!</a></div>
+                                <div class="small"><a href="<?= base_url('Assets/perwal/perwal_23_2010.pdf') ?>">Klik Untuk Melihat Peraturan Pengajuan Izin Belajar</a></div>
                             </div>
                         </div>
                     </div>

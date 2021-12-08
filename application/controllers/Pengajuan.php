@@ -148,4 +148,52 @@ class Pengajuan extends CI_Controller
 
     //     $this->mypdf->generate('cetak', $data, 'Surat Izin Belajar', 'A4', 'portait');
     // }
+    public function proses_pengajuan()
+    {
+        $data['menu'] = $this->pns->menu();
+        $data['session'] = $this->pns->session();
+        $data['pengajuan'] = $this->pengajuan->proses_pengajuan();
+        $this->load->view('templates/header');
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('pengajuan/proses_pengajuan', $data);
+        $this->load->view('templates/footer');
+    }
+    public function acc_pengajuan()
+    {
+        $data['menu'] = $this->pns->menu();
+        $data['session'] = $this->pns->session();
+        $data['pengajuan'] = $this->pengajuan->acc_pengajuan();
+
+        $this->load->view('templates/header');
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('pengajuan/acc_pengajuan', $data);
+        $this->load->view('templates/footer');
+    }
+    public function validasi_pengajuan()
+    {
+        $data['menu'] = $this->pns->menu();
+        $data['session'] = $this->pns->session();
+        $data['pengajuan'] = $this->pengajuan->validasi_pengajuan();
+
+
+        $this->load->view('templates/header');
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('pengajuan/validasi_pengajuan', $data);
+        $this->load->view('templates/footer');
+    }
+    public function perbaikan_pengajuan()
+    {
+        $data['menu'] = $this->pns->menu();
+        $data['session'] = $this->pns->session();
+        $data['pengajuan'] = $this->pengajuan->perbaikan_pengajuan();
+
+        $this->load->view('templates/header');
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('pengajuan/perbaikan_pengajuan', $data);
+        $this->load->view('templates/footer');
+    }
 }
