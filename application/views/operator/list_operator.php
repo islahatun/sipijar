@@ -8,7 +8,6 @@
                     <a href="" class="btn btn-primary fw-bold mb-2" data-toggle="modal" data-target="#tambahdata"><i class="fa fa-plus"></i> TAMBAH</a>
                 </div>
             </div>
-            <?= $this->session->flashdata('message') ?>
             <table id="table" class="table table-bordered mt-3 table-responsive-sm">
                 <thead>
                     <tr class="bg-primary text-center">
@@ -133,7 +132,6 @@
                         <h5 class="modal-title" id="komentarLabel">Data PNS</h5>
                     </div>
                     <div class="modal-body">
-
                         <form action="<?= base_url('Operator/update') ?>" method="post">
                             <div class="row  ">
                                 <input hidden type="text" id="inputtext" class="form-control" name="id_pns" required minlength="18" maxlength="18" value="<?= $l['id_pns'] ?>">

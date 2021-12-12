@@ -17,13 +17,13 @@
                                 <th scope="col">No</th>
                                 <th scope="col">NIP</th>
                                 <th scope="col">NAMA</th>
+                                <th scope="col">STATUS</th>
+                                <th scope="col">KOMENTAR</th>
                                 <?php if ($session['level'] == 'Operator') { ?>
                                     <th scope="col">NOMOR SURAT</th>
                                 <?php } else { ?>
                                     <th scope="col">DETAIL</th>
                                 <?php } ?>
-                                <th scope="col">STATUS</th>
-                                <th scope="col">KOMENTAR</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -40,9 +40,17 @@
                                         <td><?= $p['nip'] ?></td>
                                         <td><?= $p['nama'] ?></td>
                                         <?php if ($session['level'] == 'Operator') { ?>
-                                            <td>Nomor Surat</td>
                                             <td><?= $p['status'] ?></td>
                                             <td><?= $p['komentar'] ?></td>
+                                            <?php if ($p['no_surat'] == null) { ?>
+                                                <td>
+                                                    <a href="" data-toggle="modal" data-target="#exampleModal" <?= $p['nip'] ?>><i class="far fa-file-alt"></i></a>
+                                                </td>
+                                            <?php } else { ?>
+                                                <td>
+                                                    <?= $p['no_surat'] ?>
+                                                </td>
+                                            <?php } ?>
                                         <?php } else { ?>
                                             <td>
                                                 <a target="blank" href="<?= base_url('Pengajuan/cetak/') . $p['id_pengajuan'] ?>" <?= $p['id_pengajuan'] ?>>Cetak</a>
@@ -78,8 +86,39 @@
             </div>
     </main>
 
-    <script>
-        $(document).ready(function() {
-            $('#table').DataTable();
-        });
-    </script>
+    <!-- Button trigger modal -->
+    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Launch demo modal
+    </button> -->
+    <?php
+    foreach ($pengajuan as $p) : ?>
+        ?>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" <?= $p['nip'] ?> tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="<?= base_url('pengajuan/no_surat') ?>" method="post">
+                            <div class="form-group row">
+                                <label for="inputinput" class="col-sm-3 col-form-label">Nomor Surat</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="inputinput" name="no_surat">
+                                    <input type="hidden" class="form-control" id="inputinput" name="id_pengajuan" value="<?= $p['id_pengajuan'] ?>">
+                                </div>
+                            </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    <?php endforeach; ?>

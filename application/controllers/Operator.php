@@ -26,11 +26,11 @@ class Operator extends CI_Controller
     }
     public function list_pns()
     {
-
-
-        $data['list'] = $this->pns->getpns();
+        $data['list'] = $this->pns->list_pns();
         $data['menu'] = $this->pns->menu();
         $data['session'] = $this->pns->session();
+
+        //$this->load->set_rules('nip', 'Nip',);
 
         $this->load->view('templates/header');
         $this->load->view('templates/topbar', $data);
@@ -38,9 +38,45 @@ class Operator extends CI_Controller
         $this->load->view('operator/list_pns', $data);
         $this->load->view('templates/footer');
     }
+    public function list_operator()
+    {
+        $data['list'] = $this->db->get_where('t_pns', ['level' => 'Operator'])->result_array();
+        $data['menu'] = $this->pns->menu();
+        $data['session'] = $this->pns->session();
+
+        //$this->load->set_rules('nip', 'Nip',);
+
+        $this->load->view('templates/header');
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('operator/list_operator', $data);
+        $this->load->view('templates/footer');
+    }
+    public function list_pimpinan()
+    {
+        $data['list'] = $this->db->get_where('t_pns', ['level' => 'Pimpinan'])->result_array();
+        $data['menu'] = $this->pns->menu();
+        $data['session'] = $this->pns->session();
+
+        //$this->load->set_rules('nip', 'Nip',);
+
+        $this->load->view('templates/header');
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('operator/list_pimpinan', $data);
+        $this->load->view('templates/footer');
+    }
     public function insert()
     {
-        $this->pns->insert_pns();
+        $show = $this->db->get_where('t_pns', ['nip' => $this->input->post('nip')])->row_array();
+        if ($show['nip'] > 0) {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger talert-dismissible fade show" role="alert">
+            <strong>NIP Sudah Ada</strong> 
+            </div>');
+        } else {
+            $this->pns->insert_pns();
+        }
+
 
         redirect('Operator/list_pns');
     }

@@ -6,7 +6,9 @@
                     <div class="col-lg-5">
                         <div class="card shadow-lg border-0 rounded-lg mt-5">
                             <div class="card-header">
-                                <h3 class="text-center font-weight-light my-4">Masuk</h3>
+                                <h3 class="text-center font-weight-light my-4">
+                                    <img src="<?= base_url('assets/Logo_kabupaten_serang.png') ?>" style="width: 100px;">
+                                </h3>
                                 <div class="row">
                                     <div class="col ml-1 mr-1">
                                         <?= $this->session->flashdata('message') ?>
@@ -33,8 +35,8 @@
                                 </form>
                             </div>
                             <div class="card-footer text-center py-3">
-                                <div class="small"><a href="<?= base_url('Auth/Regist') ?>">Belum Mempunyai AKun? Daftar Sekarang!</a></div>
-                                <div class="small"><a href="<?= base_url('Assets/perwal/perwal_23_2010.pdf') ?>">Klik Untuk Melihat Peraturan Pengajuan Izin Belajar</a></div>
+                                <div class="small"><a style="text-decoration: none" href="<?= base_url('Auth/Regist') ?>">Belum Mempunyai AKun? Daftar Sekarang!</a></div>
+                                <div class="small"><a style="text-decoration: none" href="<?= base_url('Assets/perwal/perwal_23_2010.pdf') ?>">Klik Untuk Melihat Peraturan Pengajuan Izin Belajar</a></div>
                             </div>
                         </div>
                     </div>

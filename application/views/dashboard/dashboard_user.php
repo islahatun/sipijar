@@ -17,7 +17,7 @@
                     <div class="small mb-2"><a href="<?= base_url('Assets/perwal/perwal_23_2010.pdf') ?>">Klik Untuk Melihat Peraturan Pengajuan Izin Belajar</a></div>
                     <div class="col">
                         <?php if ($cetak['status'] == 'Acc') { ?>
-                            <a target="blank" href="<?= base_url('pengajuan/suratpdf') ?>" class="btn btn-primary btn-sm">Cetak Surat Izin Belajar</a>
+                            <a style="text-decoration: none" target="blank" href="<?= base_url('pengajuan/suratpdf') ?>" class="btn btn-primary btn-sm">Cetak Surat Izin Belajar</a>
                         <?php } else { ?>
                         <?php } ?>
                     </div>

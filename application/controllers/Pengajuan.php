@@ -196,4 +196,15 @@ class Pengajuan extends CI_Controller
         $this->load->view('pengajuan/perbaikan_pengajuan', $data);
         $this->load->view('templates/footer');
     }
+    public function no_surat()
+    {
+        $data = $this->input->post('no_surat');
+        $id = $this->input->post('id_pengajuan');
+
+        $this->db->set('no_surat', $data);
+        $this->db->where('id_pengajuan', $id);
+        $this->db->update('t_pengajuan');
+
+        redirect('pengajuan/acc_pengajuan');
+    }
 }

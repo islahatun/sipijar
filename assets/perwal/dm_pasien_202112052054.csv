@@ -1,0 +1,6 @@
+"pasien_id","identitas_id","name","tempat_lahir","tgl_lahir","jenis_kelamin","gol_darah","telp","email","telp_lain","nama_lain","pekerjaan_id","prov_id","kab_id","kec_id","alamat","agama_id","pendidikan_id","perkawinan_id","date_add","date_modify"
+RM20211203001,"001",Pasien 001,Lebak,"1989-01-04","",O,"001","001@email.com","0",Nama Keluar Pasien,3,"36","3602","3602170",Alamat,1,4,1,"2021-12-03 08:24:17","2021-12-03 08:24:17"
+RM20211203002,"002",Pasien 002,Lebak,"1989-01-04","",O,"002","002@email.com","0",Nama Keluar Pasien,1,"36","3604","3604200",Alamat 002,1,4,1,"2021-12-03 08:35:58","2021-12-03 08:35:58"
+RM20211203003,"003",Pasien 003,Lebak,"1989-01-04","",O,"001","001@email.com","0",Nama Keluar Pasien,3,"36","3602","3602090",Alamat,5,3,1,"2021-12-03 08:36:50","2021-12-03 08:36:50"
+RM20211203004,"004",Pasien 004,Lebak,"1989-01-04",L,O,"004","004@email.com","0",Nama Keluar Pasien,4,"36","3601","3601121",Alamat 004,1,6,1,"2021-12-03 08:43:31","2021-12-03 08:43:31"
+RM20211203005,"005",Pasien 005,Lebak,"1989-01-03",P,"","005","005@email.com","0",Nama Keluar Pasien,3,"36","3601","3601030",Alamat 005,1,6,2,"2021-12-03 08:48:56","2021-12-03 08:48:56"
