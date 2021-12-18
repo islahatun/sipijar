@@ -83,8 +83,15 @@
             </div>
             <div class="col">
                 <div class="form-floating mb-3">
-                    <input class="form-control" id="inputEmail" type="text" name="unit_kerja" value="<?= $session['unit_kerja'] ?>" />
-                    <label for="inputEmail">Unit Kerja</label>
+                    <select class="form-control" name="unit_kerja">
+                        <option selected>-- Pilih Unit Kerja --</option>
+                        <?php
+                        $unit = $this->db->get('m_unit_kerja')->result_array();
+                        foreach ($unit as $u) : ?>
+                            <option><?= $u['name'] ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                    <?= form_error('unit_kerja', '<small class="text-danger pl-3">', '</small>') ?>
                 </div>
                 <div class="row mb-3">
                     <div class="col-md-6">

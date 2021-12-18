@@ -18,6 +18,7 @@ class Operator extends CI_Controller
         $data['Perbaikan'] = $this->pengajuan->listPerbaikan();
         $data['Validasi'] = $this->pengajuan->listValidasi();
 
+
         $this->load->view('templates/header');
         $this->load->view('templates/topbar', $data);
         $this->load->view('templates/sidebar', $data);

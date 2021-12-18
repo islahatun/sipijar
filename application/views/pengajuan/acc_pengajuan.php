@@ -44,7 +44,7 @@
                                             <td><?= $p['komentar'] ?></td>
                                             <?php if ($p['no_surat'] == null) { ?>
                                                 <td>
-                                                    <a href="" data-toggle="modal" data-target="#exampleModal" <?= $p['nip'] ?>><i class="far fa-file-alt"></i></a>
+                                                    <a href="" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" <?= $p['nip'] ?>><i class="far fa-file-alt"></i> Inpu Nomor Surat</a>
                                                 </td>
                                             <?php } else { ?>
                                                 <td>
@@ -53,7 +53,7 @@
                                             <?php } ?>
                                         <?php } else { ?>
                                             <td>
-                                                <a target="blank" href="<?= base_url('Pengajuan/cetak/') . $p['id_pengajuan'] ?>" <?= $p['id_pengajuan'] ?>>Cetak</a>
+                                                <a target="blank" class="btn btn-success" href="<?= base_url('Pengajuan/cetak/') . $p['id_pengajuan'] ?>" <?= $p['id_pengajuan'] ?>>Cetak</a>
                                             </td>
                                             <td><?= $p['status'] ?></td>
                                             <td>

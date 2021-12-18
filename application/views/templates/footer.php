@@ -26,6 +26,13 @@
     $(document).ready(function() {
         $('#table').DataTable();
     });
+
+    $('#id_unit').select2({
+        theme: "bootstrap-5"
+    });
+    $('#jabatan').select2({
+        theme: "bootstrap-5",
+    });
 </script>
 </body>
 

@@ -230,7 +230,7 @@ class M_pengajuan extends CI_Model
     }
     public function listPerbaikan()
     {
-        return  $this->db->get_where('t_pengajuan', ['status' => 'Menunggu Perbaikan Pengajuan'])->num_rows();
+        return  $this->db->get_where('t_pengajuan', ['status' => 'Menunngu Perbaikan Pengaju'])->num_rows();
     }
     public function listPengajuan()
     {
@@ -255,7 +255,7 @@ class M_pengajuan extends CI_Model
         $this->db->select('*', 'nama');
         $this->db->from('t_pengajuan');
         $this->db->join('t_pns', 't_pengajuan.nip = t_pns.nip');
-        $this->db->where('status', 'Menunggu Perbaikan Pengaju');
+        $this->db->where('status', 'Menunngu Perbaikan Pengaju');
         $query = $this->db->get()->result_array();
         return $query;
     }

@@ -17,7 +17,7 @@
                                 <th scope="col">No</th>
                                 <th scope="col">NIP</th>
                                 <th scope="col">NAMA</th>
-                                <?php if ($session['level'] == 'Operator') { ?>
+                                <?php if ($session['level'] == 'Pimpinan') { ?>
                                     <th scope="col">NOMOR SURAT</th>
                                 <?php } else { ?>
                                     <th scope="col">DETAIL</th>
@@ -39,7 +39,7 @@
                                         <th scope="row"><?= $i ?></th>
                                         <td><?= $p['nip'] ?></td>
                                         <td><?= $p['nama'] ?></td>
-                                        <?php if ($session['level'] == 'Operator') { ?>
+                                        <?php if ($session['level'] == 'Pimpinan') { ?>
                                             <td>Nomor Surat</td>
                                         <?php } else { ?>
                                             <td>
