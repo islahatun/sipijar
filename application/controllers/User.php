@@ -24,7 +24,7 @@ class User extends CI_Controller
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>');
     foreach ($pengajuan as $p) {
-      if ($p['status'] == 'Menunggu Perbaikan Pengajuan') {
+      if ($p['status'] == 'Menunngu Perbaikan Pengaju') {
         $this->session->set_flashdata('message', '
           <div class="alert alert-success d-flex align-items-center mr-3" role="alert">
           <i class="fas fa-check-circle"></i> 
@@ -33,6 +33,13 @@ class User extends CI_Controller
           </div>
         </div>');
       }
+      $this->session->set_flashdata('tracking', '
+      <div class="alert alert-success d-flex align-items-center mr-3" role="alert">
+      <i class="fas fa-check-circle"></i> 
+      <div>
+        ' . $p['status'] . '
+      </div>
+    </div>');
     }
 
 

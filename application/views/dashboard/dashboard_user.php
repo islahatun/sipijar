@@ -2,8 +2,9 @@
     <main>
         <div class="container">
             <div class="ml-3 mt-4">
-
+                <?= $this->session->flashdata('tracking') ?>
                 <?= $this->session->flashdata('alert') ?>
+                <?= $this->session->flashdata('message') ?>
             </div>
 
             <div class="card ">

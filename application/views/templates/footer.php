@@ -26,6 +26,9 @@
     $(document).ready(function() {
         $('#table').DataTable();
     });
+    $(document).ready(function() {
+        $('#table_acc').DataTable();
+    });
 
     $('#id_unit').select2({
         theme: "bootstrap-5"

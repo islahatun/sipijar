@@ -9,10 +9,18 @@
 
     <!-- Navbar-->
     <ul class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+        <div class="row">
+            <div class="col">
+                <a class="nav-link " role="button" aria-expanded="false"><?= $session['nama'] ?> </a>
+            </div>
+            <div class="col">
+                <!-- <a class="nav-link " role="button" aria-expanded="false"><?= $session['nama'] ?> </a>  -->
+                <a class="text-primary btn btn-info" href="<?= base_url('Auth') ?>">
+                    <!-- <i class="fas fa-sign-out-alt text-primary"></i> --> Logout
+                </a>
+            </div>
+        </div>
 
-        <a class="nav-link " role="button" aria-expanded="false"><?= $session['nama'] ?> </a>
-
-        <a class="text-primary" href="<?= base_url('Auth') ?>"><i class="fas fa-sign-out-alt text-primary"></i>Logout</a>
 
     </ul>
 </nav>

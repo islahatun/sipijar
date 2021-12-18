@@ -98,12 +98,12 @@ class Pengajuan extends CI_Controller
 
         redirect('Pengajuan/pimpinan');
     }
-    // public function pdf()
-    // {
+    public function pdf()
+    {
 
-    //     $data['laporan'] = $this->pengajuan->laporan();
-    //     $this->load->view('laporan', $data);
-    // }
+        $data['laporan'] = $this->pengajuan->laporan();
+        $this->load->view('laporan', $data);
+    }
     public function cetak($id_pengajuan)
     {
 

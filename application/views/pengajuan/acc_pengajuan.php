@@ -11,7 +11,11 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <table class="table table-striped" id="table">
+                    <div class="mb-3">
+                        <a href="<?= base_url('Pengajuan/pdf') ?>" target="blank" class="btn btn-primary"><i class="fas fa-print"></i> Print Laporan</a>
+                    </div>
+
+                    <table class="table table-striped" id="table_acc">
                         <thead>
                             <tr>
                                 <th scope="col">No</th>
@@ -44,7 +48,7 @@
                                             <td><?= $p['komentar'] ?></td>
                                             <?php if ($p['no_surat'] == null) { ?>
                                                 <td>
-                                                    <a href="" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" <?= $p['nip'] ?>><i class="far fa-file-alt"></i> Inpu Nomor Surat</a>
+                                                    <a href="" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" <?= $p['nip'] ?>><i class="far fa-file-alt"></i> Input Nomor Surat</a>
                                                 </td>
                                             <?php } else { ?>
                                                 <td>
@@ -92,7 +96,7 @@
     </button> -->
     <?php
     foreach ($pengajuan as $p) : ?>
-        ?>
+
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" <?= $p['nip'] ?> tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
