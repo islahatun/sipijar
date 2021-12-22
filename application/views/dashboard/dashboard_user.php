@@ -15,7 +15,7 @@
                     <p>2. Scan Surat Keterangan PNS </p>
                     <p>3. Scan Jadwal Perkuliahan </p>
                     <p>4. Scan SK Akreditasi Universitas</p>
-                    <div class="small mb-2"><a href="<?= base_url('Assets/perwal/perwal_23_2010.pdf') ?>">Klik Untuk Melihat Peraturan Pengajuan Izin Belajar</a></div>
+                    <div class="small mb-2"><a style="text-decoration: none" href="<?= base_url('Assets/perwal/perwal_23_2010.pdf') ?>">Klik Untuk Melihat Peraturan Pengajuan Izin Belajar</a></div>
                     <div class="col">
                         <?php if ($cetak['status'] == 'Acc') { ?>
                             <a style="text-decoration: none" target="blank" href="<?= base_url('pengajuan/suratpdf') ?>" class="btn btn-primary btn-sm">Cetak Surat Izin Belajar</a>

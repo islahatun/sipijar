@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Dokument</title>
+    <title>Document</title>
     <link href="<?= base_url('assets/') ?>css/styles.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
@@ -15,23 +15,31 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container ml-4">
         <div class="ml-4">
-            <table>
+            <table class="mt-4 pr-5 " border="3">
                 <tr>
+                    <td width="30"></td>
                     <td>
                         <img src="<?= base_url('assets/Logo_kabupaten_serang.png') ?>" style="width: 80px;">
                     </td>
+                    <td width="50"></td>
                     <td>
-                        <p class="text-center"><B>DINAS PEMERINTAHAN</U></p>
+                        <p class="text-center ">
+                        <h4 class="text-center "><B>DINAS PEMERINTAHAN KABUPATEN SERANG</b></h4>
+                        Jl. Jenderal Sudirman No. 5, Kota Serang Banten 42122
+                        </p>
+
                     </td>
+                    <td width="50"></td>
                 </tr>
-            </table>
+            </table rules="rows">
+            <hr>
             <h4>
                 <p class="text-center"><B><U>SURAT IZIN BELAJAR</U></B></p>
             </h4>
             <div>
-                <p class="text-center">NOMOR : <?= $cetak['no_surat'] ?></p>
+                <p class="text-center text-justify">NOMOR : <?= $cetak['no_surat'] ?></p>
                 <p>Sehubungan surat dari Kepala Bidang Diklat BKPSDM Kota Serang dengan Nomor Rekomendasi <?= $cetak['no_sk'] ?>, Kepala Badan Kepegawaian dan Pengembangan Sumber Daya Manusia Kota Serang memberi ijin kepada Pegawai Negeri Sipil, atas :</p>
             </div>
 
@@ -76,10 +84,10 @@
                 </div>
             </div>
             <br>
-            <p>Untuk mengikuti perkuliahan Program Pendidikan <?= $cetak['jenjang_pendidikan'] ?> Jurusan <?= $cetak['program_kuliah'] ?> pada <?= $cetak['instansi_pendidikan'] ?>.
+            <p class="text-justify">Untuk mengikuti perkuliahan Program Pendidikan <?= $cetak['jenjang_pendidikan'] ?> Jurusan <?= $cetak['program_kuliah'] ?> pada <?= $cetak['instansi_pendidikan'] ?>.
                 Dengan ketentuan :
             </p>
-            <ul>
+            <ul class="text-justify">
                 1. Ijin belajar ini diberikan diluar jam kerja;<br>
                 2. Tidak mengganggu tugas-tugas kedinasan;<br>
                 3. Biaya pendidikan ditanggung sepenuhnya oleh yang bersangkutan;<br>
@@ -92,7 +100,7 @@
                     <div class="col">
                         a.
                     </div>
-                    <div class="col-10">
+                    <div class="col-10 text-justify">
                         Dalam proses belajar mengajar yang ditempuh oleh yang bersangkutan ternyata melanggar ketentuan standar dan norma akademik berdasarkan peraturan perundang-undangan yang berlaku;
                     </div>
                 </div>
@@ -103,16 +111,17 @@
                     <div class="col">
                         b.
                     </div>
-                    <div class="col-10">
+                    <div class="col-10 text-justify">
                         Dikemudian hari terbukti perolehan ijazah tanda kelulusannya melanggar ketentuan perundang-undangan yang berlaku.
                     </div>
                 </div>
                 6. Pelanggaran dalam cara memperoleh dan kepemilikan ijazah secara tidak sah akan dikenai sanksi menurut perundang-undangan yang berlaku.<br>
             </ul>
-            <p>Demikian surat ijin belajar ini dibuat agar dipergunakan sebagaimana mestinya.</p>
+            <p class="text-justify">Demikian surat ijin belajar ini dibuat agar dipergunakan sebagaimana mestinya.</p>
             <table>
                 <tr>
-                    <td width="300"></td>
+                    <td width=" 300">
+                    </td>
                     <td>
                         <p class="text-end"><?= date('D-M-Y') ?></p>
                         <p class="text-center">KEPALA BADAN KEPEGAWAIAN DAN PENGEMBANGAN SUMBER DAYA MANUSIA

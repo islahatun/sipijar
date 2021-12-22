@@ -106,8 +106,8 @@ class Pengajuan extends CI_Controller
     }
     public function cetak($id_pengajuan)
     {
-
-
+        $tgl = date('D-M-Y');
+        $data['tgl'] = $this->pns->tgl_indo($tgl);
         $data['cetak'] = $this->pengajuan->cetakById($id_pengajuan);
         // $n = $this->pengajuan->cetakById($id_pengajuan);
         // var_dump($n);
@@ -137,17 +137,17 @@ class Pengajuan extends CI_Controller
             $margin = 1
         );
     }
-    // public function suratpdf()
-    // {
-    //     $data['cetak'] = $this->pengajuan->cetakByUser();
-    //     // $n = $this->pengajuan->cetakByUser();
-    //     // var_dump($n);
-    //     // die;
-    //     // $this->load->view('cetakpdf', $data);
+    public function suratpdf()
+    {
+        $data['cetak'] = $this->pengajuan->cetakByUser();
+        // $n = $this->pengajuan->cetakByUser();
+        // var_dump($n);
+        // die;
+        $this->load->view('cetak', $data);
 
 
-    //     $this->mypdf->generate('cetak', $data, 'Surat Izin Belajar', 'A4', 'portait');
-    // }
+        // $this->mypdf->generate('cetak', $data, 'Surat Izin Belajar', 'A4', 'portait');
+    }
     public function proses_pengajuan()
     {
         $data['menu'] = $this->pns->menu();

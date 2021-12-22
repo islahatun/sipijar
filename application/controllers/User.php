@@ -78,7 +78,7 @@ class User extends CI_Controller
   {
     $data['menu'] = $this->pns->menu();
     $data['session'] = $this->pns->session();
-
+    $data['pengajuan'] = $this->pengajuan->pengajuanByUser();
 
     $this->load->view('templates/header');
     $this->load->view('templates/topbar', $data);
@@ -95,7 +95,6 @@ class User extends CI_Controller
     $this->pengajuan->sk_ptn();
     $this->pengajuan->jadwal_kuliah();
     $this->pengajuan->sk_akreditasi();
-
     $this->session->set_flashdata('message', '
                 <div class="alert alert-success d-flex align-items-center" role="alert">
                 <i class="fas fa-check-circle"></i> 

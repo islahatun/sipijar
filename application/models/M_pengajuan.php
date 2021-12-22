@@ -250,6 +250,14 @@ class M_pengajuan extends CI_Model
 
         return $this->db->query($query)->row_array();
     }
+    public function pengajuanByUser()
+    {
+        $n = $this->db->get_where('t_pns', ['nip' => $this->session->userdata('nip')])->row_array();
+        $nip = $n['nip'];
+        $query = "SELECT * FROM t_pengajuan  WHERE nip = $nip ORDER BY id_pengajuan asc";
+
+        return $this->db->query($query)->row_array();
+    }
     public function perbaikan_pengajuan()
     {
         $this->db->select('*', 'nama');

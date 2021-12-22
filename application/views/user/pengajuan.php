@@ -6,6 +6,7 @@
                 Data Pengajuan Izin Belajar
             </div>
             <div class="card-body">
+
                 <?php echo form_open_multipart('User/insert_pengajuan'); ?>
                 <div class="mb-3 row">
                     <input type="text" class="form-control form-control-sm" id="staticEmail" name="nip" value="<?= $session['nip'] ?>" hidden>
@@ -93,10 +94,17 @@
                         <input type="text" class="form-control form-control-sm" id="staticEmail" name="tgl_pengajuan" value="<?= date('Y/m/d') ?>" hidden>
                     </div>
                 </div>
-                <div class="text-end">
-                    <button class="btn btn-primary" type="submit">Pengajuan</button>
-                </div>
+                <?PHP if ($pengajuan['status'] == "Acc") { ?>
+                    <div class="text-end">
+                        <button class="btn btn-primary" type="submit">Pengajuan</button>
+                    </div>
+                <?php } else { ?>
+                    <div class="text-end">
+                        <button class="btn btn-primary" type="submit" disabled>Pengajuan</button>
+                    </div>
+                <?php } ?>
                 </form>
+
             </div>
         </div>
 
