@@ -98,20 +98,6 @@
                                 <th>SK PTN</th>
                                 <td><a href="<?= base_url('assets/assets/pengajuan/' . $detail['sk_ptn']) ?>" class="btn btn-primary">Lihat</a> </a> <?= $detail['sk_ptn'] ?>
                                 </td>
-                                <!-- <td><?php if ($sts['sts_sk_ptn'] == 1) { ?>
-                                        <div>
-                                            <button class="btn btn-success" disabled><i class="fas fa-check"></i></button>
-                                        </div>
-                                    <?php } else if ($sts['sts_sk_ptn'] == 0) { ?>
-                                        <button class="btn btn-danger" disabled><i class="fas fa-times"></i></button>
-                                    <?php } else { ?>
-                                        <form action="<?= base_url('Pengajuan/sk') ?>" method="post">
-                                            <input type="text" value="<?= $detail['id_pengajuan'] ?>" hidden>
-                                            <input type="text" value="<?= $detai['nip'] ?>" hidden>
-                                            <input type="text" value="1" name="sts_sk_ptn" hidden>
-                                            <button class="btn btn-primary">Acc</button>
-                                        </form>
-                                    <?php } ?> -->
                                 </td>
                             </tr>
                             <tr>
@@ -119,20 +105,6 @@
                                 <td><a href="<?= base_url('assets/assets/pengajuan/' . $detail['jadwal_kuliah']) ?>" class="btn btn-primary">Lihat</a> </a> <?= $detail['jadwal_kuliah'] ?>
                                 </td>
                                 <td>
-                                    <!-- <?php if ($sts['sts_jadwal_kuliah'] == 1) { ?>
-                                        <div>
-                                            <button class="btn btn-success" disabled><i class="fas fa-check"></i></button>
-                                        </div>
-                                    <?php } else if ($sts['sts_jadwal_kuliah'] == 0) { ?>
-                                        <button class="btn btn-danger" disabled><i class="fas fa-times"></i></button>
-                                    <?php } else { ?>
-                                        <form action="<?= base_url('Pengajuan/sk') ?>" method="post">
-                                            <input type="text" value="<?= $detail['id_pengajuan'] ?>" hidden>
-                                            <input type="text" value="<?= $detai['nip'] ?>" hidden>
-                                            <input type="text" value="1" name="sts_jadwal_kuliah" hidden>
-                                            <button class="btn btn-primary">Acc</button>
-                                        </form>
-                                    <?php } ?> -->
                                 </td>
                             </tr>
                             <tr>
@@ -140,20 +112,6 @@
                                 <td><a href="<?= base_url('assets/assets/pengajuan/' . $detail['sk_akreditasi']) ?>" class="btn btn-primary">Lihat</a> </a> <?= $detail['sk_akreditasi'] ?>
                                 </td>
                                 <td>
-                                    <!-- <?php if ($sts['sts_akreditasi'] == 1) { ?>
-                                        <div>
-                                            <button class="btn btn-success" disabled><i class="fas fa-check"></i></button>
-                                        </div>
-                                    <?php } else if ($sts['sts_akreditasi'] == 0) { ?>
-                                        <button class="btn btn-danger" disabled><i class="fas fa-times"></i></button>
-                                    <?php } else { ?>
-                                        <form action="<?= base_url('Pengajuan/sk') ?>" method="post">
-                                            <input type="text" value="<?= $detail['id_pengajuan'] ?>" hidden>
-                                            <input type="text" value="<?= $detai['nip'] ?>" hidden>
-                                            <input type="text" value="1" name="sts_akreditasi" hidden>
-                                            <button class="btn btn-primary">Acc</button>
-                                        </form>
-                                    <?php } ?> -->
                                 </td>
                             </tr>
                         </table>
@@ -176,11 +134,6 @@
 
         </div>
     </main>
-
-    <!-- Button trigger modal -->
-    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#komentar">
-        Launch demo modal
-    </button> -->
 
     <!-- Modal -->
     <div class="modal fade" id="komentar" tabindex="-1" aria-labelledby="komentarLabel" aria-hidden="true">
@@ -210,30 +163,3 @@
             </div>
         </div>
     </div>
-
-    <!-- <div class="modal fade" id="tolak" tabindex="-1" aria-labelledby="tambahdataLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="tambahdataLabel">Komentar</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form action="<?= base_url('Pengajuan/acc/' . $detail['id_pengajuan']) ?>" method="post">
-                        <div class="row  ">
-                            <div class="row  ">
-                                <input type="text" value="<?= $detail['id_pengajuan'] ?>" hidden>
-                                <input type="text" value="Menunggu Perbaikan Pengajuan" name="status" hidden>
-                                <div class="col">
-                                    <textarea type="text" id="inputtext" class="form-control" name="komentar" required></textarea>
-                                </div>
-                            </div>
-                        </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Beri Komentar</button>
-                </div>
-                </form>
-            </div>
-        </div>
-    </div> -->

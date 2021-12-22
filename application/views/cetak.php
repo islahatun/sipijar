@@ -17,11 +17,21 @@
 <body>
     <div class="container">
         <div class="ml-4">
+            <table>
+                <tr>
+                    <td>
+                        <img src="<?= base_url('assets/Logo_kabupaten_serang.png') ?>" style="width: 80px;">
+                    </td>
+                    <td>
+                        <p class="text-center"><B>DINAS PEMERINTAHAN</U></p>
+                    </td>
+                </tr>
+            </table>
             <h4>
                 <p class="text-center"><B><U>SURAT IZIN BELAJAR</U></B></p>
             </h4>
             <div>
-                <p class="text-center">NOMOR : 826.5/<?= $cetak['id_pengajuan'] ?>-Diklat/BKPSDM/<?= date('Y') ?></p>
+                <p class="text-center">NOMOR : <?= $cetak['no_surat'] ?></p>
                 <p>Sehubungan surat dari Kepala Bidang Diklat BKPSDM Kota Serang dengan Nomor Rekomendasi <?= $cetak['no_sk'] ?>, Kepala Badan Kepegawaian dan Pengembangan Sumber Daya Manusia Kota Serang memberi ijin kepada Pegawai Negeri Sipil, atas :</p>
             </div>
 

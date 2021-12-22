@@ -36,9 +36,9 @@
                                 <a href="" class="btn btn-primary" data-toggle="modal" data-target="#ubahdata" <?= $l['id_pns'] ?>><i class="far fa-edit"></i> UBAH</a>
                                 <a href="<?= base_url('Operator/delete/' . $l['id_pns']) ?>" class="btn btn-danger"><i class="far fa-trash-alt"></i> HAPUS</a>
                             </td>
+                            <?php $i++ ?>
+                        <?php endforeach; ?>
                         </tr>
-                        <?php $i++ ?>
-                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>

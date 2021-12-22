@@ -11,8 +11,9 @@
                                 <?= $m['menu'] ?>
                             </a>
                         <?php } else { ?>
+
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" href="<?= base_url($m['url']) ?>" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
                                     <div class="sb-nav-link-icon"><i class="<?= $m['icon'] ?>"></i></div> <?= $m['menu'] ?>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
