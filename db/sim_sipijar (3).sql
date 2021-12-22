@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 05, 2021 at 05:04 AM
+-- Generation Time: Dec 22, 2021 at 01:30 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.24
 
@@ -19,17 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `sim_sipijar`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `jabatan`
---
-
-CREATE TABLE `jabatan` (
-  `id_jabatan` int(11) NOT NULL,
-  `jabatan` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -52,12 +41,15 @@ INSERT INTO `m_akses_user` (`id`, `id_menu`, `level`) VALUES
 (2, 1, 'Operator'),
 (3, 3, 'Pimpinan'),
 (4, 3, 'Operator'),
-(5, 8, 'User'),
-(6, 2, 'User'),
+(5, 2, 'User'),
+(6, 3, 'User'),
 (8, 5, 'Pimpinan'),
-(10, 3, 'User'),
+(10, 8, 'User'),
 (11, 9, 'Operator'),
-(12, 4, 'Operator');
+(12, 4, 'Operator'),
+(13, 10, 'Operator'),
+(14, 11, 'Operator'),
+(15, 12, 'Operator');
 
 -- --------------------------------------------------------
 
@@ -143,6 +135,7 @@ INSERT INTO `m_level` (`id_level`, `level`) VALUES
 
 CREATE TABLE `m_menu` (
   `id_menu` int(11) NOT NULL,
+  `id_parrent` int(1) NOT NULL,
   `menu` varchar(20) NOT NULL,
   `icon` varchar(50) NOT NULL,
   `url` varchar(50) NOT NULL
@@ -152,14 +145,16 @@ CREATE TABLE `m_menu` (
 -- Dumping data for table `m_menu`
 --
 
-INSERT INTO `m_menu` (`id_menu`, `menu`, `icon`, `url`) VALUES
-(1, 'Dashboard', 'fas fa-fw fa-tachometer-alt', 'Pimpinan'),
-(2, 'Dashboard', 'fas fa-fw fa-tachometer-alt', 'User'),
-(3, 'Edit Profil', 'fas fa-user-alt', 'User/profile'),
-(4, 'Verifikasi', 'fas fa-fw fa-clipboard', 'Pengajuan/list_pengajuan'),
-(5, 'Acc Data', 'fas fa-fw fa-clipboard', 'Pengajuan/pimpinan'),
-(8, 'Pengajuan', 'fas fa-fw fa-clipboard', 'User/pengajuan'),
-(9, 'Daftar PNS', 'fas fa-user-alt', 'Operator/list_pns');
+INSERT INTO `m_menu` (`id_menu`, `id_parrent`, `menu`, `icon`, `url`) VALUES
+(1, 1, 'Dashboard', 'fas fa-fw fa-tachometer-alt', 'Pimpinan'),
+(2, 1, 'Dashboard', 'fas fa-fw fa-tachometer-alt', 'User'),
+(3, 1, 'Profil saya', 'fas fa-user-alt', 'User/profile'),
+(5, 1, 'Acc Data', 'fas fa-fw fa-clipboard', 'Pengajuan/pimpinan'),
+(8, 1, 'Pengajuan', 'fas fa-fw fa-clipboard', 'User/pengajuan'),
+(9, 1, 'Daftar User', 'fas fa-user-alt', 'Operator/list_pns'),
+(10, 1, 'Daftar PNS', '', 'Operator/list_pns'),
+(11, 1, 'Daftar Operator', '', 'Operator/list_operator'),
+(12, 1, 'Daftar Pimpinan', '', 'Operator/list_pimpinan');
 
 -- --------------------------------------------------------
 
@@ -224,18 +219,6 @@ INSERT INTO `m_unit_kerja` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `m_user_akses`
---
-
-CREATE TABLE `m_user_akses` (
-  `id` int(11) NOT NULL,
-  `id_level` int(11) NOT NULL,
-  `id_menu` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `t_pengajuan`
 --
 
@@ -253,16 +236,17 @@ CREATE TABLE `t_pengajuan` (
   `sk_akreditasi` varchar(50) NOT NULL,
   `program_kuliah` varchar(50) NOT NULL,
   `status` varchar(255) NOT NULL,
-  `komentar` varchar(255) NOT NULL
+  `komentar` varchar(255) NOT NULL,
+  `no_surat` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `t_pengajuan`
 --
 
-INSERT INTO `t_pengajuan` (`id_pengajuan`, `nip`, `tgl_pengajuan`, `sk_pns`, `sk_rekom`, `sk_ptn`, `no_sk`, `instansi_pendidikan`, `jenjang_pendidikan`, `jadwal_kuliah`, `sk_akreditasi`, `program_kuliah`, `status`, `komentar`) VALUES
-(9, '1234567891234566', '2021-11-11', 'Aldo_Dianata4.pdf', 'Akte_Islahatun5.pdf', 'Laporan_Pengajuan_Izin_Belajar.pdf', '12345654321', 'Universitas Banten Jaya', 'S1', '5270-14964-1-PB.pdf', '5270-14964-1-PB1.pdf', 'Sistem Informasi', 'Acc', 'Acc'),
-(10, '1234567891234566', '2021-12-04', 'Aldo_Dianata4.pdf', 'Akte_Islahatun5.pdf', 'Laporan_Pengajuan_Izin_Belajar.pdf', '12345678910', 'Universitas Banten Jaya', 'S2', '5270-14964-1-PB.pdf', '5270-14964-1-PB1.pdf', 'Sistem Informasi', 'Menunngu Perbaikan Pengaju', 'Acc');
+INSERT INTO `t_pengajuan` (`id_pengajuan`, `nip`, `tgl_pengajuan`, `sk_pns`, `sk_rekom`, `sk_ptn`, `no_sk`, `instansi_pendidikan`, `jenjang_pendidikan`, `jadwal_kuliah`, `sk_akreditasi`, `program_kuliah`, `status`, `komentar`, `no_surat`) VALUES
+(9, '1234567891234566', '2021-11-11', 'fgtftdd.pdf', 'Akte_Islahatun5.pdf', 'Laporan_Pengajuan_Izin_Belajar.pdf', '12345654321', 'Universitas Banten Jaya', 'S1', '5270-14964-1-PB.pdf', '5270-14964-1-PB1.pdf', 'Sistem Informasi', 'Acc', 'Acc', '123/4567/dghj/2021'),
+(10, '1234567891234566', '2021-12-04', 'k;lpjjg.pdf', 'Ajjjjj5.pdf', 'Laporan_Pengajuan_Izin_Belajar.pdf', '12345678910', 'Universitas Banten Jaya', 'S2', '5270-14964-1-PB.pdf', '5270-14964-1-PB1.pdf', 'Sistem Informasi', 'Validasi Pengajuan', 'Persyaratan Sudah Lengkap', '');
 
 -- --------------------------------------------------------
 
@@ -273,7 +257,6 @@ INSERT INTO `t_pengajuan` (`id_pengajuan`, `nip`, `tgl_pengajuan`, `sk_pns`, `sk
 CREATE TABLE `t_pns` (
   `id_pns` int(11) NOT NULL,
   `nip` varchar(20) NOT NULL,
-  `no_karpeg` varchar(10) NOT NULL,
   `nama` varchar(50) NOT NULL,
   `gelar_depan` varchar(20) NOT NULL,
   `gelar_belakang` varchar(20) NOT NULL,
@@ -302,46 +285,18 @@ CREATE TABLE `t_pns` (
 -- Dumping data for table `t_pns`
 --
 
-INSERT INTO `t_pns` (`id_pns`, `nip`, `no_karpeg`, `nama`, `gelar_depan`, `gelar_belakang`, `tmpt_lahir`, `tgl_lahir`, `jk`, `agama`, `sandi`, `unit_kerja`, `pangkat`, `gol`, `profil`, `no_sk_pns`, `jabatan`, `pendidikan`, `jurusan`, `penempatan_kerja`, `status_kawin`, `alamat`, `email`, `level`, `aktif`) VALUES
-(7, '1234567891234567', '', 'UMMI ATHIYAH', '', '', '', '0000-00-00', '', 'ISLAM', '', 'OPERATOR', '', 'IC / JURU', '0000-00-00', '', 'Anggota', '', '', '', '', '', 'edi@gmail.com', 'User', 1),
-(9, '0987654321123456', '1234', 'SISKA', '', '', '', '0000-00-00', '', '', '$2y$10$qnVcLYhyLRcerEmmgAztzuOzwK8Fns13./gN.Fr4TB2F9ejOSHJcy', 'OPERATOR', '', '', '', '', 'Anggota', '', '', '', '', '', 'edi@gmail.com', 'Operator', 1),
-(11, '1234567891234566', '', 'ISLAHATUN NUFUSI', '', '', '', '0000-00-00', 'PEREMPUAN', 'ISLAM', '$2y$10$f7BoqHqiczSZKvI4rJErt.T2MKHEMx067aT3rZRRLKVBdZZSYZrMW', 'SEKRETARIS', '', 'IIIC / PENATA', 'bitmap.png', '', '', '', '', '', 'BELUM MENIKAH', '', 'islahatunnufusi@gmail.com', 'User', 1),
-(12, '0987654321098765', '', 'BEM', '', '', '', '0000-00-00', 'LAKI-LAKI', 'ISLAM', '$2y$10$r3PDTXzZVTK6LBgVa99JOOnIC/VYoR6pAAMj6j2oZAs6j2rPv2a7y', 'PIMPINAN', '', 'IVE / PEMBINA UTAMA', '', '', 'PIMPINAN', '', '', '', 'MENIKAH', '', 'pimpinan@gmail.com', 'Pimpinan', 1),
-(13, '1234567876543212', '', 'Bambang', '', '', '', '0000-00-00', 'LAKI-LAKI', 'ISLAM', '', 'Dinas Kesahatan', '', 'IIIA / PENATA MUDA', '', '', '', '', '', '', 'MENIKAH', '', '', 'User', 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `t_sts_pengajuan`
---
-
-CREATE TABLE `t_sts_pengajuan` (
-  `id` int(11) NOT NULL,
-  `id_pengajuan` int(11) NOT NULL,
-  `nip` varchar(16) NOT NULL,
-  `sts_sk_rekom` char(1) DEFAULT NULL,
-  `sts_sk_pns` char(1) DEFAULT NULL,
-  `sts_akreditasi` char(1) DEFAULT NULL,
-  `sts_jadwal_kuliah` char(1) DEFAULT NULL,
-  `sts_sk_ptn` int(1) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `t_sts_pengajuan`
---
-
-INSERT INTO `t_sts_pengajuan` (`id`, `id_pengajuan`, `nip`, `sts_sk_rekom`, `sts_sk_pns`, `sts_akreditasi`, `sts_jadwal_kuliah`, `sts_sk_ptn`) VALUES
-(1, 7, '1234567891234566', '1', '1', '1', '0', 1);
+INSERT INTO `t_pns` (`id_pns`, `nip`, `nama`, `gelar_depan`, `gelar_belakang`, `tmpt_lahir`, `tgl_lahir`, `jk`, `agama`, `sandi`, `unit_kerja`, `pangkat`, `gol`, `profil`, `no_sk_pns`, `jabatan`, `pendidikan`, `jurusan`, `penempatan_kerja`, `status_kawin`, `alamat`, `email`, `level`, `aktif`) VALUES
+(7, '1234567891234567', 'UMMI ATHIYAH', '', '', '', '0000-00-00', '', 'ISLAM', '', 'OPERATOR', '', 'IC / JURU', '0000-00-00', '', 'Anggota', '', '', '', '', '', 'edi@gmail.com', 'User', 1),
+(9, '0987654321123456', 'SISKA', '', '', '', '0000-00-00', '', '', '$2y$10$qnVcLYhyLRcerEmmgAztzuOzwK8Fns13./gN.Fr4TB2F9ejOSHJcy', 'OPERATOR', '', '', '', '', 'Anggota', '', '', '', '', '', 'edi@gmail.com', 'Operator', 1),
+(11, '1234567891234566', 'PNS', '', '', '', '0000-00-00', 'PEREMPUAN', 'ISLAM', '$2y$10$f7BoqHqiczSZKvI4rJErt.T2MKHEMx067aT3rZRRLKVBdZZSYZrMW', 'SEKRETARIS', '', 'IIIC / PENATA', 'rm21-background-tong-0581.jpg', '', '', '', '', '', 'BELUM MENIKAH', '', 'islahatunnufusi@gmail.com', 'User', 1),
+(12, '0987654321098765', 'DPM', '', '', '', '0000-00-00', '', 'ISLAM', '$2y$10$r3PDTXzZVTK6LBgVa99JOOnIC/VYoR6pAAMj6j2oZAs6j2rPv2a7y', 'PIMPINAN', '', 'IVE / PEMBINA UTAMA', 'coba_lagi.png', '', 'PIMPINAN', '', '', '', 'MENIKAH', '', 'pimpinan@gmail.com', 'Pimpinan', 1),
+(14, '123456789098765533', 'jika', '', '', '', '0000-00-00', 'LAKI-LAKI', 'ISLAM', '', 'OPERATOR', '', 'IVA / PEMBINA', '', '', '', '', '', '', 'MENIKAH', '', '', 'User', 1),
+(15, '098765432112345678', 'Humanika', '', '', '', '0000-00-00', 'LAKI-LAKI', 'ISLAM', '', 'OPERATOR', '', 'IIIC / PENATA', '', '', '', '', '', '', 'MENIKAH', '', '', 'Operator', 1),
+(16, '989898989898989898', 'ida', '', '', '', '0000-00-00', 'LAKI-LAKI', 'ISLAM', '', 'ghgh', '', 'IIIA / PENATA MUDA', '', '', '', '', '', '', 'MENIKAH', '', '', 'Operator', 1);
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `jabatan`
---
-ALTER TABLE `jabatan`
-  ADD PRIMARY KEY (`id_jabatan`);
 
 --
 -- Indexes for table `m_akses_user`
@@ -386,12 +341,6 @@ ALTER TABLE `m_unit_kerja`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `m_user_akses`
---
-ALTER TABLE `m_user_akses`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `t_pengajuan`
 --
 ALTER TABLE `t_pengajuan`
@@ -404,25 +353,14 @@ ALTER TABLE `t_pns`
   ADD PRIMARY KEY (`id_pns`);
 
 --
--- Indexes for table `t_sts_pengajuan`
---
-ALTER TABLE `t_sts_pengajuan`
-  ADD PRIMARY KEY (`id`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `jabatan`
---
-ALTER TABLE `jabatan`
-  MODIFY `id_jabatan` int(11) NOT NULL AUTO_INCREMENT;
---
 -- AUTO_INCREMENT for table `m_akses_user`
 --
 ALTER TABLE `m_akses_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `m_golongan`
 --
@@ -442,7 +380,7 @@ ALTER TABLE `m_level`
 -- AUTO_INCREMENT for table `m_menu`
 --
 ALTER TABLE `m_menu`
-  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `m_pendidikan`
 --
@@ -454,11 +392,6 @@ ALTER TABLE `m_pendidikan`
 ALTER TABLE `m_unit_kerja`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT for table `m_user_akses`
---
-ALTER TABLE `m_user_akses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
 -- AUTO_INCREMENT for table `t_pengajuan`
 --
 ALTER TABLE `t_pengajuan`
@@ -467,12 +400,7 @@ ALTER TABLE `t_pengajuan`
 -- AUTO_INCREMENT for table `t_pns`
 --
 ALTER TABLE `t_pns`
-  MODIFY `id_pns` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
---
--- AUTO_INCREMENT for table `t_sts_pengajuan`
---
-ALTER TABLE `t_sts_pengajuan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_pns` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
