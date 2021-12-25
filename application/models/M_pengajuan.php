@@ -169,7 +169,7 @@ class M_pengajuan extends CI_Model
     }
     public function list_acc_pimpinan()
     {
-        $query = "SELECT *, t_pns.nama, t_pns.gol, t_pns.pangkat FROM t_pengajuan JOIN t_pns ON t_pns.nip = t_pengajuan.nip WHERE t_pengajuan.komentar ='Persyaratan Sudah Lengkap' or t_pengajuan.komentar ='Acc'  ";
+        $query = "SELECT *, t_pns.nama, t_pns.gol, t_pns.pangkat FROM t_pengajuan JOIN t_pns ON t_pns.nip = t_pengajuan.nip WHERE t_pengajuan.status ='Persyaratan Sudah Lengkap' or t_pengajuan.komentar ='Acc'  ";
 
         return $this->db->query($query)->result_array();
     }
@@ -246,7 +246,7 @@ class M_pengajuan extends CI_Model
     {
         $n = $this->db->get_where('t_pns', ['nip' => $this->session->userdata('nip')])->row_array();
         $nip = $n['nip'];
-        $query = "SELECT *, t_pns.nama, t_pns.gol, t_pns.pangkat FROM t_pengajuan JOIN t_pns ON t_pns.nip = t_pengajuan.nip WHERE t_pengajuan.nip = $nip AND t_pengajuan.status ='Acc'";
+        $query = "SELECT *, t_pns.nama, t_pns.gol, t_pns.pangkat FROM t_pengajuan JOIN t_pns ON t_pns.nip = t_pengajuan.nip WHERE t_pengajuan.nip = $nip AND t_pengajuan.status ='Acc' ORDER BY t_pengajuan.tgl_pengajuan ASC ";
 
         return $this->db->query($query)->row_array();
     }

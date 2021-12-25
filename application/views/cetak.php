@@ -128,7 +128,20 @@
                             KOTA SERANG
                         </p>
                         <p class="text-center">
-                            <img src="<?= base_url('Pengajuan/qrcode') ?>" alt="">
+                            <?php
+
+                            $pimpinan = "SELECT nama FROM m_pimpinan";
+                            $p = $this->db->query($pimpinan)->row_array();
+                            // generete qrcode
+                            $params['data'] = $p;
+                            $params['level'] = 'H';
+                            $params['size'] = 5;
+                            $params['savename'] = FCPATH . 'tes.png';
+                            $this->ciqrcode->generate($params);
+
+                            echo '<img src="' . base_url() . 'tes.png" />';
+
+                            ?>
                         </p>
                         <?php
                         $pimpinan = "SELECT * FROM m_pimpinan";

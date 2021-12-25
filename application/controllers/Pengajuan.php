@@ -8,7 +8,7 @@ class Pengajuan extends CI_Controller
         parent::__construct();
         $this->load->model('M_pns', 'pns');
         $this->load->model('M_pengajuan', 'pengajuan');
-
+        $this->load->library('Ciqrcode');
         $this->load->library('Mypdf');
     }
     public function list_pengajuan()
@@ -126,16 +126,17 @@ class Pengajuan extends CI_Controller
     }
     public function qrcode()
     {
-        $pimpinan = "nama * FROM m_pimpinan";
+
+        $pimpinan = "SELECT nama FROM m_pimpinan";
         $p = $this->db->query($pimpinan)->row_array();
         // generete qrcode
-        qrcode::png(
-            $kode = $p,
-            $outfile = false,
-            $level = QR_ECLEVEL_H,
-            $size = 4,
-            $margin = 1
-        );
+        $params['data'] = $p;
+        $params['level'] = 'H';
+        $params['size'] = 10;
+        $params['savename'] = FCPATH . 'tes.png';
+        $this->ciqrcode->generate($params);
+
+        echo '<img src="' . base_url() . 'tes.png" />';
     }
     public function suratpdf()
     {
