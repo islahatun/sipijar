@@ -190,7 +190,16 @@ class M_pengajuan extends CI_Model
     }
     public function getPengajuanByUser()
     {
-        return  $this->db->get_where('t_pengajuan', ['nip' => $this->session->userdata('nip')])->result_array();
+
+        $this->db->select('*');
+        $this->db->from("t_pengajuan");
+        $this->db->where("nip", $this->session->userdata('nip'));
+        $this->db->order_by("id_pengajuan", "DESC");
+
+        $finalResponse =  $this->db->get_where()->row_array();
+        return $finalResponse;
+
+        // return  $this->db->get_where('t_pengajuan', ['nip' => $this->session->userdata('nip')])->result_array();
     }
     public function edit_pengajuan()
     {
@@ -254,7 +263,7 @@ class M_pengajuan extends CI_Model
     {
         $n = $this->db->get_where('t_pns', ['nip' => $this->session->userdata('nip')])->row_array();
         $nip = $n['nip'];
-        $query = "SELECT * FROM t_pengajuan  WHERE nip = $nip ORDER BY id_pengajuan asc";
+        $query = "SELECT * FROM t_pengajuan  WHERE nip = $nip ORDER BY id_pengajuan desc";
 
         return $this->db->query($query)->row_array();
     }
@@ -269,12 +278,15 @@ class M_pengajuan extends CI_Model
     }
     public function acc_pengajuan()
     {
-        $this->db->select('*', 'nama');
-        $this->db->from('t_pengajuan');
-        $this->db->join('t_pns', 't_pengajuan.nip = t_pns.nip');
-        $this->db->where('status', 'Acc');
-        $query = $this->db->get()->result_array();
-        return $query;
+        $db = "SELECT *, nama FROM t_pengajuan JOIN t_pns ON t_pns.nip = t_pengajuan.nip WHERE `status` ='Acc' or `status` = 'Validasi Pengajuan'";
+        return $this->db->query($db)->result_array();
+
+        // $this->db->select('*', 'nama');
+        // $this->db->from('t_pengajuan');
+        // $this->db->join('t_pns', 't_pengajuan.nip = t_pns.nip');
+        // $this->db->where('status', 'Acc' or 'status', 'Validasi Pengajuan');
+        // $query = $this->db->get()->result_array();
+        // return $query;
     }
     public function validasi_pengajuan()
     {
@@ -289,7 +301,7 @@ class M_pengajuan extends CI_Model
     {
         $this->db->select('*', 'nama');
         $this->db->from('t_pengajuan');
-        $this->db->join('t_pns', 't_pengajuan.nip = t_pns.nip');
+        $this->db->join('t_pns', 't_pns.nip = t_pengajuan.nip');
         $this->db->where('status', 'Proses Pengajuan');
         $query = $this->db->get()->result_array();
         return $query;

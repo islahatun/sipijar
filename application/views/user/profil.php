@@ -77,7 +77,7 @@
                     <label for="inputEmail">Alamat</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input class="form-control" id="inputEmail" type="text" name="pemenpatan_kerja" value="<?= $session['penempatan_kerja'] ?>" />
+                    <input class="form-control" id="inputEmail" type="text" name="penempatan_kerja" value="<?= $session['penempatan_kerja'] ?>" />
                     <label for="inputEmail">Penempatan Kerja</label>
                 </div>
             </div>

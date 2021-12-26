@@ -168,7 +168,7 @@ class M_pns extends CI_Model
         $tmpt_lahir = $this->input->post('tmpt_lahir');
         $tgl_lahir = $this->input->post('tgl_lahir');
         $alamat = $this->input->post('alamat');
-        $no_sk_pns = $this->input->post('rt/rw');
+        $no_sk_pns = $this->input->post('no_sk_pns');
         $pendidikan = $this->input->post('pendidikan');
         $email = $this->input->post('email');
         $jabatan = $this->input->post('jabatan');

@@ -98,9 +98,13 @@
                     <div class="text-end">
                         <button class="btn btn-primary" type="submit">Pengajuan</button>
                     </div>
-                <?php } else { ?>
+                <?php } else if ($pengajuan['status'] == "Proses Pengajuan" or $pengajuan['status'] == "Validasi Pengajuan" or $pengajuan['status'] == "Menunggu Perbaikan Pengajuan") { ?>
                     <div class="text-end">
                         <button class="btn btn-primary" type="submit" disabled>Pengajuan</button>
+                    </div>
+                <?php } else { ?>
+                    <div class="text-end">
+                        <button class="btn btn-primary" type="submit">Pengajuan</button>
                     </div>
                 <?php } ?>
                 </form>

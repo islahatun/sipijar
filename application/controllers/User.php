@@ -23,24 +23,24 @@ class User extends CI_Controller
   <strong>Selamat Datang! </strong>' . $session['nama'] . '
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>');
-    foreach ($pengajuan as $p) {
-      if ($p['status'] == 'Menunngu Perbaikan Pengaju') {
-        $this->session->set_flashdata('message', '
+
+    if ($pengajuan['status'] == 'Menunggu Perbaikan Pengajuan') {
+      $this->session->set_flashdata('message', '
           <div class="alert alert-success d-flex align-items-center mr-3" role="alert">
           <i class="fas fa-check-circle"></i> 
           <div>
-            ' . $p['komentar'] . ' <a href="' . base_url('User/edit_pengajuan/') . $p['id_pengajuan'] . '">klik Untuk memperbaiki</a>
+            ' . $pengajuan['komentar'] . ' <a href="' . base_url('User/edit_pengajuan/') . $pengajuan['id_pengajuan'] . '">klik Untuk memperbaiki</a>
           </div>
         </div>');
-      }
-      $this->session->set_flashdata('tracking', '
+    }
+    $this->session->set_flashdata('tracking', '
       <div class="alert alert-success d-flex align-items-center mr-3" role="alert">
       <i class="fas fa-check-circle"></i> 
       <div>
-        ' . $p['status'] . '
+        ' . $pengajuan['status'] . '
       </div>
     </div>');
-    }
+
 
 
     $this->load->view('templates/header');

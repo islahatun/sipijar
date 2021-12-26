@@ -32,7 +32,7 @@
                             <td><?= $l['gol'] ?></td>
                             <td><?= $l['level'] ?></td>
                             <td class="text-center">
-                                <a href="" class="btn btn-primary" data-toggle="modal" data-target="#ubahdata" <?= $l['id_pns'] ?>><i class="far fa-edit"></i> UBAH</a>
+                                <a href="" class="btn btn-primary" data-toggle="modal" data-target="#ubahdata<?= $l['id_pns'] ?>"><i class="far fa-edit"></i> UBAH</a>
                                 <a href="<?= base_url('Operator/delete/' . $l['id_pns']) ?>" class="btn btn-danger"><i class="far fa-trash-alt"></i> HAPUS</a>
                             </td>
                         </tr>
@@ -73,7 +73,15 @@
                                 <label for="inputtext" class="col-form-label"> UNIT KERJA</label>
                             </div>
                             <div class="col">
-                                <input type="text" id="inputtext" class="form-control" name="unit_kerja" required>
+                                <select name="unit_kerja" class="form-control">
+                                    <option></option>
+                                    <?php
+                                    $gol = $this->db->get('m_unit_kerja')->result_array();
+                                    foreach ($gol as $g) :
+                                    ?>
+                                        <option><?= $g['name'] ?></option>
+                                    <?php endforeach; ?>
+                                </select>
                             </div>
                         </div>
                         <div class="row  ">
@@ -125,7 +133,7 @@
     foreach ($list as $l) : ?>
         <!-- Modal -->
 
-        <div class="modal fade" id="ubahdata" <?= $l['id_pns'] ?> tabindex="-1" aria-labelledby="komentarLabel" aria-hidden="true">
+        <div class="modal fade" id="ubahdata<?= $l['id_pns'] ?>" tabindex="-1" aria-labelledby="komentarLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -155,7 +163,15 @@
                                     <label for="inputtext" class="col-form-label"> UNIT KERJA</label>
                                 </div>
                                 <div class="col">
-                                    <input type="text" id="inputtext" class="form-control" name="unit_kerja" value="<?= $l['unit_kerja'] ?>" required>
+                                    <select name="unit_kerja" class="form-control">
+                                        <option><?= $l['unit_kerja'] ?></option>
+                                        <?php
+                                        $gol = $this->db->get('m_unit_kerja')->result_array();
+                                        foreach ($gol as $g) :
+                                        ?>
+                                            <option><?= $g['name'] ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
                                 </div>
                             </div>
                             <div class="row  ">

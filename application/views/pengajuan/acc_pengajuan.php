@@ -48,7 +48,7 @@
                                             <td><?= $p['komentar'] ?></td>
                                             <?php if ($p['no_surat'] == null) { ?>
                                                 <td>
-                                                    <a href="" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" <?= $p['nip'] ?>><i class="far fa-file-alt"></i> Input Nomor Surat</a>
+                                                    <a href="" class="btn btn-success" data-toggle="modal" data-target="#exampleModal<?= $p['id_pengajuan'] ?>"><i class="far fa-file-alt"></i> Input Nomor Surat</a>
                                                 </td>
                                             <?php } else { ?>
                                                 <td>
@@ -98,7 +98,7 @@
     foreach ($pengajuan as $p) : ?>
 
         <!-- Modal -->
-        <div class="modal fade" id="exampleModal" <?= $p['nip'] ?> tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="exampleModal<?= $p['id_pengajuan'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
