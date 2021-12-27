@@ -193,7 +193,8 @@ class M_pengajuan extends CI_Model
 
         $this->db->select('*');
         $this->db->from("t_pengajuan");
-        $this->db->where("nip", $this->session->userdata('nip'));
+        $this->db->join("t_pns", "t_pns.nip = t_pengajuan.nip");
+        $this->db->where("t_pengajuan.nip", $this->session->userdata('nip'));
         $this->db->order_by("id_pengajuan", "DESC");
 
         $finalResponse =  $this->db->get_where()->row_array();

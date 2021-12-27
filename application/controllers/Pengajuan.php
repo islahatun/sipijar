@@ -164,9 +164,9 @@ class Pengajuan extends CI_Controller
     {
         $data['menu'] = $this->pns->menu();
         $data['session'] = $this->pns->session();
-        $data = $this->pengajuan->acc_pengajuan();
-        var_dump($data);
-        die;
+        $data['pengajuan'] = $this->pengajuan->acc_pengajuan();
+        // var_dump($data);
+        // die;
 
         $this->load->view('templates/header');
         $this->load->view('templates/topbar', $data);
