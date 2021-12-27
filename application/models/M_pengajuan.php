@@ -231,19 +231,23 @@ class M_pengajuan extends CI_Model
 
     public function listAcc()
     {
-        return  $this->db->get_where('t_pengajuan', ['status' => 'Acc'])->num_rows();
+        $db = "SELECT *, nama FROM t_pengajuan JOIN t_pns ON t_pns.nip = t_pengajuan.nip where `status` ='Acc' or `status` ='Validasi Pengajuan'  ";
+        return $this->db->query($db)->num_rows();
     }
     public function listValidasi()
     {
-        return  $this->db->get_where('t_pengajuan', ['status' => 'Validasi Pengajuan'])->num_rows();
+        $db = "SELECT *, nama FROM t_pengajuan JOIN t_pns ON t_pns.nip = t_pengajuan.nip where  `status` ='Validasi Pengajuan'  ";
+        return $this->db->query($db)->num_rows();
     }
     public function listPerbaikan()
     {
-        return  $this->db->get_where('t_pengajuan', ['status' => 'Menunggu Perbaikan Pengajuan'])->num_rows();
+        $db = "SELECT *, nama FROM t_pengajuan JOIN t_pns ON t_pns.nip = t_pengajuan.nip where  `status` ='Menunggu Perbaikan Pengajuan'  ";
+        return $this->db->query($db)->num_rows();
     }
     public function listPengajuan()
     {
-        return  $this->db->get_where('t_pengajuan', ['status' => 'Proses Pengajuan'])->num_rows();
+        $db = "SELECT *, nama FROM t_pengajuan JOIN t_pns ON t_pns.nip = t_pengajuan.nip where  `status` ='Proses Pengajuan'  ";
+        return $this->db->query($db)->num_rows();
     }
     public function cetakById($id_pengajuan)
     {
@@ -278,7 +282,7 @@ class M_pengajuan extends CI_Model
     }
     public function acc_pengajuan()
     {
-        $db = "SELECT *, nama FROM t_pengajuan JOIN t_pns ON t_pns.nip = t_pengajuan.nip WHERE `status` ='Acc' or `status` = 'Validasi Pengajuan'";
+        $db = "SELECT *, nama FROM t_pengajuan JOIN t_pns ON t_pns.nip = t_pengajuan.nip where `status` ='Acc' or `status` ='Validasi Pengajuan'  ";
         return $this->db->query($db)->result_array();
 
         // $this->db->select('*', 'nama');

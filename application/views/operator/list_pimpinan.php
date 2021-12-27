@@ -33,7 +33,7 @@
                             <td><?= $l['level'] ?></td>
                             <td class="text-center">
                                 <a href="" class="btn btn-primary" data-toggle="modal" data-target="#ubahdata<?= $l['id_pns'] ?>"><i class="far fa-edit"></i> UBAH</a>
-                                <a href="<?= base_url('Operator/delete/' . $l['id_pns']) ?>" class="btn btn-danger"><i class="far fa-trash-alt"></i> HAPUS</a>
+                                <a href="<?= base_url('Operator/delete_pimpinan/' . $l['id_pns']) ?>" class="btn btn-danger"><i class="far fa-trash-alt"></i> HAPUS</a>
                             </td>
                         </tr>
                         <?php $i++ ?>
@@ -51,7 +51,7 @@
                     <h5 class="modal-title" id="komentarLabel">Data PNS</h5>
                 </div>
                 <div class="modal-body">
-                    <form action="<?= base_url('Operator/insert') ?>" method="post">
+                    <form action="<?= base_url('Operator/insert_pimpinan') ?>" method="post">
                         <div class="row  ">
                             <div class="col-4 mt-2">
                                 <label for="inputtext" class="col-form-label">NIP</label>
@@ -140,7 +140,7 @@
                         <h5 class="modal-title" id="komentarLabel">Data PNS</h5>
                     </div>
                     <div class="modal-body">
-                        <form action="<?= base_url('Operator/update') ?>" method="post">
+                        <form action="<?= base_url('Operator/update_pimpinan') ?>" method="post">
                             <div class="row  ">
                                 <input hidden type="text" id="inputtext" class="form-control" name="id_pns" required minlength="18" maxlength="18" value="<?= $l['id_pns'] ?>">
                                 <div class="col-4 mt-2">

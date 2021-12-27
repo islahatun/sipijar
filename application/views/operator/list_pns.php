@@ -80,7 +80,7 @@
                                     $gol = $this->db->get('m_unit_kerja')->result_array();
                                     foreach ($gol as $g) :
                                     ?>
-                                        <option><?= $g['unit_kerja'] ?></option>
+                                        <option><?= $g['name'] ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
@@ -171,7 +171,7 @@
                                         $gol = $this->db->get('m_unit_kerja')->result_array();
                                         foreach ($gol as $g) :
                                         ?>
-                                            <option><?= $g['unit_kerja'] ?></option>
+                                            <option><?= $g['name'] ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>

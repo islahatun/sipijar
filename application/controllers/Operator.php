@@ -92,4 +92,54 @@ class Operator extends CI_Controller
         $this->pns->update_pns();
         redirect('Operator/list_pns');
     }
+    public function insert_operator()
+    {
+        $show = $this->db->get_where('t_pns', ['nip' => $this->input->post('nip')])->row_array();
+        if ($show['nip'] > 0) {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger talert-dismissible fade show" role="alert">
+            <strong>NIP Sudah Ada</strong> 
+            </div>');
+        } else {
+            $this->pns->insert_pns();
+        }
+
+
+        redirect('Operator/list_operator');
+    }
+    public function delete_operator($id_pns)
+    {
+        $this->pns->delete_pns($id_pns);
+
+        redirect('Operator/list_operator');
+    }
+    public function update_operator()
+    {
+        $this->pns->update_pns();
+        redirect('Operator/list_operator');
+    }
+    public function insert_pimpinan()
+    {
+        $show = $this->db->get_where('t_pns', ['nip' => $this->input->post('nip')])->row_array();
+        if ($show['nip'] > 0) {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger talert-dismissible fade show" role="alert">
+            <strong>NIP Sudah Ada</strong> 
+            </div>');
+        } else {
+            $this->pns->insert_pns();
+        }
+
+
+        redirect('Operator/list_pimpinan');
+    }
+    public function delete_pimpinan($id_pns)
+    {
+        $this->pns->delete_pns($id_pns);
+
+        redirect('Operator/list_pimpinan');
+    }
+    public function update_pimpinan()
+    {
+        $this->pns->update_pns();
+        redirect('Operator/list_pimpinan');
+    }
 }
