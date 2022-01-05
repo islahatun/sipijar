@@ -115,6 +115,7 @@ class Operator extends CI_Controller
     public function update_operator()
     {
         $this->pns->update_pns();
+        $this->pns->update_pimpinan();
         redirect('Operator/list_operator');
     }
     public function insert_pimpinan()
@@ -125,7 +126,9 @@ class Operator extends CI_Controller
             <strong>NIP Sudah Ada</strong> 
             </div>');
         } else {
-            $this->pns->insert_pns();
+            $this->pns->insert_pimpinan();
+            $this->pns->update_pimpinan();
+            $this->pns->update_qr();
         }
 
 

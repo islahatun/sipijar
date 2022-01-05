@@ -17,30 +17,30 @@
 <body>
     <div class="container ml-4">
         <div class="ml-4">
-            <table class="mt-4 pr-5 " border="3">
+            <table class="mt-4 pr-5 " border="2">
                 <tr>
-                    <td width="30"></td>
+                    <td width="20"></td>
                     <td>
-                        <img src="<?= base_url('assets/Logo_kabupaten_serang.png') ?>" style="width: 80px;">
+                        <img src="<?= base_url('assets/logo_bkpsdm.png') ?>" width="98" height="94" style="width: 80px;">
                     </td>
-                    <td width="50"></td>
+                    <td width="20"></td>
                     <td>
-                        <p class="text-center ">
-                        <h4 class="text-center "><B>DINAS PEMERINTAHAN KABUPATEN SERANG</b></h4>
-                        Jl. Jenderal Sudirman No. 5, Kota Serang Banten 42122
+                        <p class="text-center "><b>PEMERINTAH KOTA SERANG<br>BADAN KEPEGAWAIAN DAN PENGEMBANGAN<br>SUMBER DAYA MANUSIA</b>
+                        <p class="text-center " style="size: 10;">Jl. Jenderal Sudirman Komplek Kota Serang Baru (KSB) Kota Serang - Telp/Fax : (0254) 227921<br>
+                            email : bkdkotaserang@yahoo.com - Website : bkd.serangkota.go.id </br>
                         </p>
-
+                        </p>
                     </td>
                     <td width="50"></td>
                 </tr>
             </table rules="rows">
-            <hr>
+            <br>
             <h4>
                 <p class="text-center"><B><U>SURAT IZIN BELAJAR</U></B></p>
             </h4>
             <div>
                 <p class="text-center text-justify">NOMOR : <?= $cetak['no_surat'] ?></p>
-                <p>Sehubungan surat dari Kepala Bidang Diklat BKPSDM Kota Serang dengan Nomor Rekomendasi <?= $cetak['no_sk'] ?>, Kepala Badan Kepegawaian dan Pengembangan Sumber Daya Manusia Kota Serang memberi ijin kepada Pegawai Negeri Sipil, atas :</p>
+                <p>Sehubungan surat dari Kepala <?= $cetak['unit_kerja'] ?> Kota Serang Nomor <?= $cetak['no_sk'] ?> tanggal <?= $cetak['tgl_rekomendasi'] ?> , Kepala Badan Kepegawaian dan Pengembangan Sumber Daya Manusia Kota Serang memberi ijin kepada Pegawai Negeri Sipil, atas :</p>
             </div>
 
             <div class="row">
@@ -120,41 +120,54 @@
             <p class="text-justify">Demikian surat ijin belajar ini dibuat agar dipergunakan sebagaimana mestinya.</p>
             <table>
                 <tr>
-                    <td width=" 300">
+                    <td width="300">
                     </td>
                     <td>
-                        <p class="text-end"><?= date('D-M-Y') ?></p>
-                        <p class="text-center">KEPALA BADAN KEPEGAWAIAN DAN PENGEMBANGAN SUMBER DAYA MANUSIA
-                            KOTA SERANG
-                        </p>
+                        <p class="text-end">Serang, <?= $cetak['tgl_acc'] ?></p>
+                        <p class="text-center">Ditandatangani secara elektronik oleh:<br>Kepala BKPSDM Kota Serang </p>
                         <p class="text-center">
-                            <?php
+                            <!-- <?php
 
-                            $pimpinan = "SELECT nama FROM m_pimpinan";
-                            $p = $this->db->query($pimpinan)->row_array();
-                            // generete qrcode
-                            $params['data'] = $p;
-                            $params['level'] = 'H';
-                            $params['size'] = 5;
-                            $params['savename'] = FCPATH . 'tes.png';
-                            $this->ciqrcode->generate($params);
+                                    $pimpinan = "SELECT nama FROM m_pimpinan";
+                                    $p = $this->db->query($pimpinan)->row_array();
+                                    // generete qrcode
+                                    $params['data'] = $p;
+                                    $params['level'] = 'H';
+                                    $params['size'] = 5;
+                                    $params['savename'] = FCPATH . 'tes.png';
+                                    $this->ciqrcode->generate($params);
 
-                            echo '<img src="' . base_url() . 'tes.png" />';
+                                    echo '<img src="' . base_url() . 'tes.png" />';
 
-                            ?>
+                                    ?> -->
+                            <img src="<?= base_url('assets/ttd.png') ?>" width="50" height="50">
                         </p>
+
                         <?php
                         $pimpinan = "SELECT * FROM m_pimpinan";
                         $p = $this->db->query($pimpinan)->row_array();
                         ?>
                         <p class="text-center">
                             <?= $p['nama'] ?><br>
-                            <?= $p['nip'] ?>
+                            NIP. <?= $p['nip'] ?>
                         </p>
+
+                    </td>
+                <tr>
+                    <td colspan="2">
+                        <p>
+                        <p><u>Tembusan disampaikan kepada:</u><br>
+                            1. Yth. Sekretaris Daerah Kota Serang (sebagai laporan);<br>
+                            2. Yth. <?= $cetak['unit_kerja'] ?><br>
+                            3. Yth. Ketua <?= $cetak['instansi_pendidikan'] ?>
+                        <p>&nbsp;</p>
                     </td>
                 </tr>
+                <tr>
+                    <td colspan="2"><i>*Dokumen ini ditandatangani dengan menggunakan sertifikat elektronik yang diterbitkan oleh BSrE sesuai UU ITE Pasal 11, tandatangan elektronik memliki kekuatan hukum dan akibat hukum yang sah</i></td>
+                </tr>
+                </tr>
             </table>
-
         </div>
     </div>
     </div>

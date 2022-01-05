@@ -202,4 +202,52 @@ class M_pns extends CI_Model
         $this->db->where('nip', $nip);
         $this->db->update('t_pns');
     }
+    public function insert_pimpinan()
+    {
+        $data = [
+            'nip' => $this->input->post('nip'),
+            'level' => $this->input->post('level'),
+            'nama' => $this->input->post('nama'),
+            'unit_kerja' => $this->input->post('unit_kerja'),
+            'gol' => $this->input->post('gol'),
+            'aktif' => 1
+        ];
+        $this->db->insert('t_pns', $data);
+    }
+    public function update_qr()
+    {
+        $foto = $_FILES['qrcode']['name'];
+        if ($foto) {
+            $config['upload_path']          = './assets/assets/img/';
+            $config['allowed_types']        = 'gif|jpg|png|jpeg';
+            $config['max_size']             = 2048;
+            $this->load->library('upload', $config);
+            if (!$this->upload->do_upload('qr')) {
+                $error = array('error' => $this->upload->display_errors());
+
+                $this->load->view('upload_form', $error);
+            } else {
+                $new_logo = $this->upload->data('file_name');
+                // $n = $this->db->get_where('t_pns', ['nip' => $this->session->userdata('nip')])->row_array();
+                // $nip = $n['nip'];
+
+
+                $nip = $this->input->post('nip');
+                $qr = $new_logo;
+
+                // $this->db->set('qrcode', $qr);
+                // $this->db->where('nip', $nip);
+                $this->db->insert('m_pimpinan', $qr);
+            }
+        }
+    }
+    public function update_pimpinan()
+    {
+        $nama = $this->input->post('nama');
+        $nip = $this->input->post('nip');
+
+        $this->db->set('nama', $nama);
+        $this->db->set('nip', $nip);
+        $this->db->update('m_pimpinan');
+    }
 }

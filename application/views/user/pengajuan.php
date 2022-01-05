@@ -58,6 +58,12 @@
                     </div>
                 </div>
                 <div class="mb-3 row">
+                    <label for="staticEmail" class="col-sm-2 col-form-label">Tanggal Rekomendasi</label>
+                    <div class="col-sm-10">
+                        <input class="form-control form-control-sm" type="date" id="formFile" name="tgl_rekomendasi" required>
+                    </div>
+                </div>
+                <div class="mb-3 row">
                     <label for="staticEmail" class="col-sm-2 col-form-label">Jenjang Pendidikan</label>
                     <div class="col-sm-10">
                         <select class="form-control form-control-sm" id="inputPassword" name="jenjang_pendidikan" required>

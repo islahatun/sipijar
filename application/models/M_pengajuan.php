@@ -158,6 +158,7 @@ class M_pengajuan extends CI_Model
             'program_kuliah' => $this->input->post('program_kuliah'),
             'jenjang_pendidikan' => $this->input->post('jenjang_pendidikan'),
             'instansi_pendidikan' => $this->input->post('instansi_pendidikan'),
+            'tgl_rekomendasi' => $this->input->post('tgl_rekomendasi'),
             'status' => $this->input->post('status')
         ];
         $this->db->insert('t_pengajuan', $data);
@@ -210,6 +211,7 @@ class M_pengajuan extends CI_Model
         $program_kuliah = $this->input->post('program_kuliah');
         $jenjang_pendidikan = $this->input->post('jenjang_pendidikan');
         $instansi_pendidikan = $this->input->post('instansi_pendidikan');
+        $tgl_rekomendasi = $this->input->post('tgl_rekomendasi');
         $status = $this->input->post('status');
 
         $this->db->set('no_sk', $no_sk);
@@ -217,6 +219,7 @@ class M_pengajuan extends CI_Model
         $this->db->set('jenjang_pendidikan', $jenjang_pendidikan);
         $this->db->set('instansi_pendidikan', $instansi_pendidikan);
         $this->db->set('status', $status);
+        $this->db->set('tgl_rekomendasi', $tgl_rekomendasi);
         $this->db->where('id_pengajuan', $id_pengajuan);
         $this->db->update('t_pengajuan');
     }
@@ -252,7 +255,7 @@ class M_pengajuan extends CI_Model
     }
     public function cetakById($id_pengajuan)
     {
-        $query = "SELECT *, t_pns.nama, t_pns.gol, t_pns.pangkat FROM t_pengajuan JOIN t_pns ON t_pns.nip = t_pengajuan.nip WHERE t_pengajuan.id_pengajuan = $id_pengajuan";
+        $query = "SELECT *, t_pns.nama, t_pns.gol, t_pns.pangkat, tgl_rekomendasi FROM t_pengajuan JOIN t_pns ON t_pns.nip = t_pengajuan.nip WHERE t_pengajuan.id_pengajuan = $id_pengajuan";
 
         return $this->db->query($query)->row_array();
     }
@@ -260,7 +263,7 @@ class M_pengajuan extends CI_Model
     {
         $n = $this->db->get_where('t_pns', ['nip' => $this->session->userdata('nip')])->row_array();
         $nip = $n['nip'];
-        $query = "SELECT *, t_pns.nama, t_pns.gol, t_pns.pangkat FROM t_pengajuan JOIN t_pns ON t_pns.nip = t_pengajuan.nip WHERE t_pengajuan.nip = $nip AND t_pengajuan.status ='Acc' ORDER BY t_pengajuan.tgl_pengajuan ASC ";
+        $query = "SELECT *, t_pns.nama, t_pns.gol, t_pns.pangkat, tgl_rekomendasi FROM t_pengajuan JOIN t_pns ON t_pns.nip = t_pengajuan.nip WHERE t_pengajuan.nip = $nip AND t_pengajuan.status ='Acc' ORDER BY t_pengajuan.tgl_pengajuan ASC ";
 
         return $this->db->query($query)->row_array();
     }

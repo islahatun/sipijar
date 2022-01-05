@@ -7,7 +7,7 @@
                         <div class="card shadow-lg border-0 rounded-lg mt-5">
                             <div class="card-header">
                                 <h3 class="text-center font-weight-light my-4">
-                                    <img src="<?= base_url('assets/Logo_kabupaten_serang.png') ?>" style="width: 100px;">
+                                    <img src="<?= base_url('assets/logo_bkpsdm.png') ?>" style="width: 100px;">
                                 </h3>
                                 <div class="row">
                                     <div class="col ml-1 mr-1">

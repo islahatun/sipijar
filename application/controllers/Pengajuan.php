@@ -203,8 +203,10 @@ class Pengajuan extends CI_Controller
     {
         $data = $this->input->post('no_surat');
         $id = $this->input->post('id_pengajuan');
+        $tgl = $this->input->post('tgl_acc');
 
         $this->db->set('no_surat', $data);
+        $this->db->set('tgl_acc', $tgl);
         $this->db->where('id_pengajuan', $id);
         $this->db->update('t_pengajuan');
 

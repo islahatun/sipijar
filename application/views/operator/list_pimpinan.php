@@ -51,71 +51,79 @@
                     <h5 class="modal-title" id="komentarLabel">Data PNS</h5>
                 </div>
                 <div class="modal-body">
-                    <form action="<?= base_url('Operator/insert_pimpinan') ?>" method="post">
-                        <div class="row  ">
-                            <div class="col-4 mt-2">
-                                <label for="inputtext" class="col-form-label">NIP</label>
-                            </div>
-                            <div class="col">
-                                <input type="text" id="inputtext" class="form-control" name="nip" required minlength="18" maxlength="18">
-                            </div>
+                    <?php echo form_open_multipart('Operator/insert_pimpinan'); ?>
+                    <div class="row  ">
+                        <div class="col-4 mt-2">
+                            <label for="inputtext" class="col-form-label">NIP</label>
                         </div>
-                        <div class="row  ">
-                            <div class="col-4 mt-2">
-                                <label for="inputtext" class="col-form-label">NAMA LENGKAP</label>
-                            </div>
-                            <div class="col">
-                                <input type="text" id="inputtext" class="form-control" name="nama" required>
-                            </div>
+                        <div class="col">
+                            <input type="text" id="inputtext" class="form-control" name="nip" required minlength="18" maxlength="18">
                         </div>
-                        <div class="row  ">
-                            <div class="col-4 mt-2">
-                                <label for="inputtext" class="col-form-label"> UNIT KERJA</label>
-                            </div>
-                            <div class="col">
-                                <select name="unit_kerja" class="form-control">
-                                    <option></option>
-                                    <?php
-                                    $gol = $this->db->get('m_unit_kerja')->result_array();
-                                    foreach ($gol as $g) :
-                                    ?>
-                                        <option><?= $g['name'] ?></option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </div>
+                    </div>
+                    <div class="row  ">
+                        <div class="col-4 mt-2">
+                            <label for="inputtext" class="col-form-label">NAMA LENGKAP</label>
                         </div>
-                        <div class="row  ">
-                            <div class="col-4 mt-2">
-                                <label for="inputtext" class="col-form-label"> GOLONGAN</label>
-                            </div>
-                            <div class="col">
-                                <select name="gol" class="form-control">
-                                    <option></option>
-                                    <?php
-                                    $gol = $this->db->get('m_golongan')->result_array();
-                                    foreach ($gol as $g) :
-                                    ?>
-                                        <option><?= $g['golongan'] ?></option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </div>
+                        <div class="col">
+                            <input type="text" id="inputtext" class="form-control" name="nama" required>
                         </div>
-                        <div class="row  ">
-                            <div class="col-4 mt-2">
-                                <label for="inputtext" class="col-form-label">LEVEL</label>
-                            </div>
-                            <div class="col">
-                                <select name="level" class="form-control" id="inputPassword">
-                                    <option></option>
-                                    <?php
-                                    $level = $this->db->get('m_level')->result_array();
-                                    foreach ($level as $l) :
-                                    ?>
-                                        <option><?= $l['level'] ?></option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </div>
+                    </div>
+                    <div class="row  ">
+                        <div class="col-4 mt-2">
+                            <label for="inputtext" class="col-form-label"> UNIT KERJA</label>
                         </div>
+                        <div class="col">
+                            <select name="unit_kerja" class="form-control">
+                                <option></option>
+                                <?php
+                                $gol = $this->db->get('m_unit_kerja')->result_array();
+                                foreach ($gol as $g) :
+                                ?>
+                                    <option><?= $g['name'] ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row  ">
+                        <div class="col-4 mt-2">
+                            <label for="inputtext" class="col-form-label"> GOLONGAN</label>
+                        </div>
+                        <div class="col">
+                            <select name="gol" class="form-control">
+                                <option></option>
+                                <?php
+                                $gol = $this->db->get('m_golongan')->result_array();
+                                foreach ($gol as $g) :
+                                ?>
+                                    <option><?= $g['golongan'] ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row  ">
+                        <div class="col-4 mt-2">
+                            <label for="inputtext" class="col-form-label">LEVEL</label>
+                        </div>
+                        <div class="col">
+                            <select name="level" class="form-control" id="inputPassword">
+                                <option></option>
+                                <?php
+                                $level = $this->db->get('m_level')->result_array();
+                                foreach ($level as $l) :
+                                ?>
+                                    <option><?= $l['level'] ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row  ">
+                        <div class="col-4 mt-2">
+                            <label for="inputtext" class="col-form-label">Tanda Tangan QR</label>
+                        </div>
+                        <div class="col">
+                            <input type="file" id="inputtext" class="form-control" name="qrcode" required>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">TAMBAH DATA</button>
@@ -140,72 +148,80 @@
                         <h5 class="modal-title" id="komentarLabel">Data PNS</h5>
                     </div>
                     <div class="modal-body">
-                        <form action="<?= base_url('Operator/update_pimpinan') ?>" method="post">
-                            <div class="row  ">
-                                <input hidden type="text" id="inputtext" class="form-control" name="id_pns" required minlength="18" maxlength="18" value="<?= $l['id_pns'] ?>">
-                                <div class="col-4 mt-2">
-                                    <label for="inputtext" class="col-form-label">NIP</label>
-                                </div>
-                                <div class="col">
-                                    <input type="text" id="inputtext" class="form-control" name="nip" required minlength="18" maxlength="18" value="<?= $l['nip'] ?>">
-                                </div>
+                        <?php echo form_open_multipart('Operator/update_pimpinan'); ?>
+                        <div class="row  ">
+                            <input hidden type="text" id="inputtext" class="form-control" name="id_pns" required minlength="18" maxlength="18" value="<?= $l['id_pns'] ?>">
+                            <div class="col-4 mt-2">
+                                <label for="inputtext" class="col-form-label">NIP</label>
                             </div>
-                            <div class="row  ">
-                                <div class="col-4 mt-2">
-                                    <label for="inputtext" class="col-form-label">NAMA LENGKAP</label>
-                                </div>
-                                <div class="col">
-                                    <input type="text" id="inputtext" class="form-control" name="nama" required value="<?= $l['nama'] ?>">
-                                </div>
+                            <div class="col">
+                                <input type="text" id="inputtext" class="form-control" name="nip" required minlength="18" maxlength="18" value="<?= $l['nip'] ?>">
                             </div>
-                            <div class="row  ">
-                                <div class="col-4 mt-2">
-                                    <label for="inputtext" class="col-form-label"> UNIT KERJA</label>
-                                </div>
-                                <div class="col">
-                                    <select name="unit_kerja" class="form-control">
-                                        <option><?= $l['unit_kerja'] ?></option>
-                                        <?php
-                                        $gol = $this->db->get('m_unit_kerja')->result_array();
-                                        foreach ($gol as $g) :
-                                        ?>
-                                            <option><?= $g['name'] ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div>
+                        </div>
+                        <div class="row  ">
+                            <div class="col-4 mt-2">
+                                <label for="inputtext" class="col-form-label">NAMA LENGKAP</label>
                             </div>
-                            <div class="row  ">
-                                <div class="col-4 mt-2">
-                                    <label for="inputtext" class="col-form-label"> GOLONGAN</label>
-                                </div>
-                                <div class="col">
-                                    <select name="gol" class="form-control">
-                                        <option><?= $l['gol'] ?></option>
-                                        <?php
-                                        $gol = $this->db->get('m_golongan')->result_array();
-                                        foreach ($gol as $g) :
-                                        ?>
-                                            <option><?= $g['golongan'] ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div>
+                            <div class="col">
+                                <input type="text" id="inputtext" class="form-control" name="nama" required value="<?= $l['nama'] ?>">
                             </div>
-                            <div class="row  ">
-                                <div class="col-4 mt-2">
-                                    <label for="inputtext" class="col-form-label">LEVEL</label>
-                                </div>
-                                <div class="col">
-                                    <select name="level" class="form-control" id="inputPassword">
+                        </div>
+                        <div class="row  ">
+                            <div class="col-4 mt-2">
+                                <label for="inputtext" class="col-form-label"> UNIT KERJA</label>
+                            </div>
+                            <div class="col">
+                                <select name="unit_kerja" class="form-control">
+                                    <option><?= $l['unit_kerja'] ?></option>
+                                    <?php
+                                    $gol = $this->db->get('m_unit_kerja')->result_array();
+                                    foreach ($gol as $g) :
+                                    ?>
+                                        <option><?= $g['name'] ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row  ">
+                            <div class="col-4 mt-2">
+                                <label for="inputtext" class="col-form-label"> GOLONGAN</label>
+                            </div>
+                            <div class="col">
+                                <select name="gol" class="form-control">
+                                    <option><?= $l['gol'] ?></option>
+                                    <?php
+                                    $gol = $this->db->get('m_golongan')->result_array();
+                                    foreach ($gol as $g) :
+                                    ?>
+                                        <option><?= $g['golongan'] ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row  ">
+                            <div class="col-4 mt-2">
+                                <label for="inputtext" class="col-form-label">LEVEL</label>
+                            </div>
+                            <div class="col">
+                                <select name="level" class="form-control" id="inputPassword">
+                                    <option><?= $l['level'] ?></option>
+                                    <?php
+                                    $level = $this->db->get('m_level')->result_array();
+                                    foreach ($level as $l) :
+                                    ?>
                                         <option><?= $l['level'] ?></option>
-                                        <?php
-                                        $level = $this->db->get('m_level')->result_array();
-                                        foreach ($level as $l) :
-                                        ?>
-                                            <option><?= $l['level'] ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div>
+                                    <?php endforeach; ?>
+                                </select>
                             </div>
+                        </div>
+                        <div class="row  ">
+                            <div class="col-4 mt-2">
+                                <label for="inputtext" class="col-form-label">Tanda Tangan QR</label>
+                            </div>
+                            <div class="col">
+                                <input type="file" id="inputtext" class="form-control" name="qrcode" required>
+                            </div>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">UBAH DATA</button>

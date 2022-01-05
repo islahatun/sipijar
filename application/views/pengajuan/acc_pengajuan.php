@@ -46,7 +46,7 @@
                                         <?php if ($session['level'] == 'Operator') { ?>
                                             <td><?= $p['status'] ?></td>
                                             <td><?= $p['komentar'] ?></td>
-                                            <?php if ($p['no_surat'] == null) { ?>
+                                            <?php if ($p['no_surat'] == null && $p['status'] == 'Acc') { ?>
                                                 <td>
                                                     <a href="" class="btn btn-success" data-toggle="modal" data-target="#exampleModal<?= $p['id_pengajuan'] ?>"><i class="far fa-file-alt"></i> Input Nomor Surat</a>
                                                 </td>
@@ -113,7 +113,14 @@
                                 <label for="inputinput" class="col-sm-3 col-form-label">Nomor Surat</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" id="inputinput" name="no_surat">
+
                                     <input type="hidden" class="form-control" id="inputinput" name="id_pengajuan" value="<?= $p['id_pengajuan'] ?>">
+                                </div>
+                            </div>
+                            <div class="form-group row mt-3">
+                                <label for="inputinput" class="col-sm-3 col-form-label">Tanggal Persetujuan</label>
+                                <div class="col-sm-9">
+                                    <input type="date" class="form-control" id="inputinput" name="tgl_acc">
                                 </div>
                             </div>
                     </div>
