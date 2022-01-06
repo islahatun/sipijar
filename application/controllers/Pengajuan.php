@@ -88,6 +88,18 @@ class Pengajuan extends CI_Controller
         $this->load->view('pengajuan/list_acc', $data);
         $this->load->view('templates/footer');
     }
+    public function list_laporan_acc()
+    {
+        $data['menu'] = $this->pns->menu();
+        $data['session'] = $this->pns->session();
+        $data['pengajuan'] = $this->pengajuan->list_laporan_acc();
+
+        $this->load->view('templates/header');
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('pengajuan/list_acc_operator', $data);
+        $this->load->view('templates/footer');
+    }
     public function accPimpinan($id_pengajuan)
     {
         $this->pengajuan->acc_operator($id_pengajuan);

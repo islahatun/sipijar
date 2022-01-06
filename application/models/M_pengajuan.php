@@ -174,6 +174,20 @@ class M_pengajuan extends CI_Model
 
         return $this->db->query($query)->result_array();
     }
+
+    public function list_laporan_acc()
+    {
+        $keyword = $this->input->post('keyword');
+
+        $query = "SELECT *, t_pns.nama, t_pns.gol, t_pns.pangkat FROM t_pengajuan JOIN t_pns ON t_pns.nip = t_pengajuan.nip WHERE t_pengajuan.no_surat is not null";
+
+        $this->db->like('nama', $keyword);
+        $this->db->or_like('nip', $keyword);
+        $this->db->query($query);
+
+        return $this->db->query($query)->result_array();
+    }
+
     public function getPengajuanById($id_pengajuan)
     {
         $query = "SELECT *, t_pns.nama, t_pns.gol, t_pns.pangkat, t_pns.nip FROM t_pengajuan JOIN t_pns ON t_pns.nip = t_pengajuan.nip WHERE t_pengajuan.id_pengajuan=$id_pengajuan";

@@ -125,6 +125,10 @@
                     <td>
                         <p class="text-end">Serang, <?= $cetak['tgl_acc'] ?></p>
                         <p class="text-center">Ditandatangani secara elektronik oleh:<br>Kepala BKPSDM Kota Serang </p>
+                        <?php
+                        $pimpinan = "SELECT * FROM m_pimpinan";
+                        $p = $this->db->query($pimpinan)->row_array();
+                        ?>
                         <p class="text-center">
                             <!-- <?php
 
@@ -143,10 +147,7 @@
                             <img src="<?= base_url('assets/ttd.png') ?>" width="50" height="50">
                         </p>
 
-                        <?php
-                        $pimpinan = "SELECT * FROM m_pimpinan";
-                        $p = $this->db->query($pimpinan)->row_array();
-                        ?>
+
                         <p class="text-center">
                             <?= $p['nama'] ?><br>
                             NIP. <?= $p['nip'] ?>
