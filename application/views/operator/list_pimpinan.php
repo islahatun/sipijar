@@ -7,6 +7,7 @@
                 <div class="col mt-3">
                     <a href="" class="btn btn-primary fw-bold mb-2" data-toggle="modal" data-target="#tambahdata"><i class="fa fa-plus"></i> TAMBAH</a>
                 </div>
+                <?= $this->session->flashdata('message') ?>
             </div>
             <table id="table" class="table table-bordered mt-3 table-responsive-sm">
                 <thead>
@@ -105,15 +106,7 @@
                             <label for="inputtext" class="col-form-label">LEVEL</label>
                         </div>
                         <div class="col">
-                            <select name="level" class="form-control" id="inputPassword">
-                                <option></option>
-                                <?php
-                                $level = $this->db->get('m_level')->result_array();
-                                foreach ($level as $l) :
-                                ?>
-                                    <option><?= $l['level'] ?></option>
-                                <?php endforeach; ?>
-                            </select>
+                            <input type="text" id="inputtext" class="form-control" name=" level" value="Pimpinan" required readonly>
                         </div>
                     </div>
                     <div class="row  ">
@@ -121,7 +114,7 @@
                             <label for="inputtext" class="col-form-label">Tanda Tangan QR</label>
                         </div>
                         <div class="col">
-                            <input type="file" id="inputtext" class="form-control" name="qrcode" required>
+                            <input type="file" id="inputtext" class="form-control" name="qrcode">
                         </div>
                     </div>
                 </div>
@@ -203,15 +196,7 @@
                                 <label for="inputtext" class="col-form-label">LEVEL</label>
                             </div>
                             <div class="col">
-                                <select name="level" class="form-control" id="inputPassword">
-                                    <option><?= $l['level'] ?></option>
-                                    <?php
-                                    $level = $this->db->get('m_level')->result_array();
-                                    foreach ($level as $l) :
-                                    ?>
-                                        <option><?= $l['level'] ?></option>
-                                    <?php endforeach; ?>
-                                </select>
+                                <input type="text" id="inputtext" class="form-control" name=" level" value="Pimpinan" required readonly>
                             </div>
                         </div>
                         <div class="row  ">
@@ -219,7 +204,7 @@
                                 <label for="inputtext" class="col-form-label">Tanda Tangan QR</label>
                             </div>
                             <div class="col">
-                                <input type="file" id="inputtext" class="form-control" name="qrcode" required>
+                                <input type="file" id="inputtext" class="form-control" name="qrcode">
                             </div>
                         </div>
                     </div>

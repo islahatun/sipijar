@@ -106,15 +106,7 @@
                                 <label for="inputtext" class="col-form-label">LEVEL</label>
                             </div>
                             <div class="col">
-                                <select name="level" class="form-control" id="inputPassword">
-                                    <option></option>
-                                    <?php
-                                    $level = $this->db->get('m_level')->result_array();
-                                    foreach ($level as $l) :
-                                    ?>
-                                        <option><?= $l['level'] ?></option>
-                                    <?php endforeach; ?>
-                                </select>
+                                <input type="text" id="inputtext" class="form-control" name=" level" value="User" required readonly>
                             </div>
                         </div>
                 </div>
@@ -197,15 +189,7 @@
                                     <label for="inputtext" class="col-form-label">LEVEL</label>
                                 </div>
                                 <div class="col">
-                                    <select name="level" class="form-control" id="inputPassword">
-                                        <option><?= $l['level'] ?></option>
-                                        <?php
-                                        $level = $this->db->get('m_level')->result_array();
-                                        foreach ($level as $l) :
-                                        ?>
-                                            <option><?= $l['level'] ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
+                                    <input type="text" id="inputtext" class="form-control" name=" level" value="User" required readonly>
                                 </div>
                             </div>
                     </div>

@@ -3,6 +3,21 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class M_pns extends CI_Model
 {
+    function tgl_indo($tgl)
+    {
+        $tanggal = substr($tgl, 8, 2);
+        $bulan = $this->bulan_indo(substr($tgl, 5, 2));
+        $tahun = substr($tgl, 0, 4);
+
+        return $tanggal . ' ' . $bulan . ' ' . $tahun;
+    }
+
+    function jam_indo($tgl)
+    {
+        $jam = substr($tgl, 11, 5);
+        return $jam . ' WIB';
+    }
+
     function bulan_indo($bln)
     {
         switch ($bln) {
@@ -44,13 +59,20 @@ class M_pns extends CI_Model
                 break;
         }
     }
-    function tgl_indo($tgl)
-    {
-        $tanggal = substr($tgl, 8, 2);
-        $bulan = $this->bulan_indo(substr($tgl, 5, 2));
-        $tahun = substr($tgl, 0, 4);
 
-        return $tanggal . ' ' . $bulan . ' ' . $tahun;
+    function hari_indo($tgl)
+    {
+        $day = date('D', strtotime($tgl));
+        $dayList = array(
+            'Sun' => 'Minggu',
+            'Mon' => 'Senin',
+            'Tue' => 'Selasa',
+            'Wed' => 'Rabu',
+            'Thu' => 'Kamis',
+            'Fri' => 'Jumat',
+            'Sat' => 'Sabtu'
+        );
+        return $dayList[$day];
     }
 
     public function session()
@@ -222,7 +244,7 @@ class M_pns extends CI_Model
             $config['allowed_types']        = 'gif|jpg|png|jpeg';
             $config['max_size']             = 2048;
             $this->load->library('upload', $config);
-            if (!$this->upload->do_upload('qr')) {
+            if (!$this->upload->do_upload('qrcode')) {
                 $error = array('error' => $this->upload->display_errors());
 
                 $this->load->view('upload_form', $error);
@@ -230,14 +252,12 @@ class M_pns extends CI_Model
                 $new_logo = $this->upload->data('file_name');
                 // $n = $this->db->get_where('t_pns', ['nip' => $this->session->userdata('nip')])->row_array();
                 // $nip = $n['nip'];
-
-
-                $nip = $this->input->post('nip');
                 $qr = $new_logo;
+                $nip = $this->input->post('nip');
 
-                // $this->db->set('qrcode', $qr);
-                // $this->db->where('nip', $nip);
-                $this->db->insert('m_pimpinan', $qr);
+                $this->db->set('qrcode', $qr);
+                $this->db->where('nip', $nip);
+                $this->db->update('m_pimpinan');
             }
         }
     }

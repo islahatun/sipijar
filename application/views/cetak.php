@@ -40,7 +40,7 @@
             </h4>
             <div>
                 <p class="text-center text-justify">NOMOR : <?= $cetak['no_surat'] ?></p>
-                <p>Sehubungan surat dari Kepala <?= $cetak['unit_kerja'] ?> Kota Serang Nomor <?= $cetak['no_sk'] ?> tanggal <?= $cetak['tgl_rekomendasi'] ?> , Kepala Badan Kepegawaian dan Pengembangan Sumber Daya Manusia Kota Serang memberi ijin kepada Pegawai Negeri Sipil, atas :</p>
+                <p>Sehubungan surat dari Kepala <?= $cetak['unit_kerja'] ?> Kota Serang Nomor <?= $cetak['no_sk'] ?> tanggal <?= $this->pns->tgl_indo($cetak['tgl_rekomendasi']); ?> , Kepala Badan Kepegawaian dan Pengembangan Sumber Daya Manusia Kota Serang memberi ijin kepada Pegawai Negeri Sipil, atas :</p>
             </div>
 
             <div class="row">
@@ -123,31 +123,15 @@
                     <td width="300">
                     </td>
                     <td>
-                        <p class="text-end">Serang, <?= $cetak['tgl_acc'] ?></p>
+                        <p class="text-end">Serang, <?= $this->pns->tgl_indo($cetak['tgl_acc']); ?></p>
                         <p class="text-center">Ditandatangani secara elektronik oleh:<br>Kepala BKPSDM Kota Serang </p>
                         <?php
                         $pimpinan = "SELECT * FROM m_pimpinan";
                         $p = $this->db->query($pimpinan)->row_array();
                         ?>
                         <p class="text-center">
-                            <!-- <?php
-
-                                    $pimpinan = "SELECT nama FROM m_pimpinan";
-                                    $p = $this->db->query($pimpinan)->row_array();
-                                    // generete qrcode
-                                    $params['data'] = $p;
-                                    $params['level'] = 'H';
-                                    $params['size'] = 5;
-                                    $params['savename'] = FCPATH . 'tes.png';
-                                    $this->ciqrcode->generate($params);
-
-                                    echo '<img src="' . base_url() . 'tes.png" />';
-
-                                    ?> -->
-                            <img src="<?= base_url('assets/ttd.png') ?>" width="50" height="50">
+                            <img src="<?= base_url('assets/assets/img/') . $p['qrcode'] ?>" class="img-thumbnail" alt="..." width="200" height="200">
                         </p>
-
-
                         <p class="text-center">
                             <?= $p['nama'] ?><br>
                             NIP. <?= $p['nip'] ?>
