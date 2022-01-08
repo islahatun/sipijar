@@ -10,60 +10,53 @@
                         <?= $this->session->flashdata('message') ?>
                     </div>
                 </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="mb-3 col-3">
-                            <a href="<?= base_url('Pengajuan/pdf') ?>" target="blank" class="btn btn-primary"><i class="fas fa-print"></i> Print Laporan</a>
-                        </div>
-                        <div class="mb-3 ">
-                            <form class="form-inline" action="<?= base_url('Pengajuan/list_laporan_acc') ?>" method="post">
-                                <div class="form-group mx-sm-3 mb-2 col-4">
-                                    <label for="inputPassword2" class="sr-only">Password</label>
-                                    <input type="password" class="form-control" id="inputPassword2" placeholder="Cari Berdasarkan Nip atau Nama" name="keyword">
-                                </div>
-                                <div class="col-4">
-                                    <button type="submit" class="btn btn-primary mb-2">Confirm identity</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <table id="table" class="table table-bordered">
-                        <thead>
-                            <tr class="text-center">
-                                <th scope="col">NO</th>
+                <form class="form-inline" action="<?= base_url('Pengajuan/list_laporan_acc') ?>" method="post">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-6 mb-3">
+                                <a href="<?= base_url('Pengajuan/pdf') ?>" target="blank" class="btn btn-primary"><i class="fas fa-print"></i> Print Laporan</a>
+                            </div>
+                </form>
+            </div>
+        </div>
 
-                                <th scope="col">NIP</th>
-                                <th scope="col">NAMA</th>
-                                <th scope="col">DOKUMEN</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+        <table id="table" class="table table-bordered">
+            <thead>
+                <tr class="text-center table-primary">
+                    <th scope="col" size='1'>NO</th>
 
-                            <?php $i = 1 ?>
-                            <?php foreach ($pengajuan as $p) : ?>
-                                <tr>
-                                    <th scope="row"><?= $i ?></th>
-                                    <td><?= $p['nip'] ?></td>
-                                    <td><?= $p['nama'] ?></td>
-                                    <td class="text-center">
-                                        <a target="blank" href="<?= base_url('Pengajuan/cetak/') . $p['id_pengajuan'] ?>" <?= $p['id_pengajuan'] ?>>
-                                            <button class="btn btn-primary"><i class="fas fa-print"></i>
-                                                Cetak
-                                            </button>
-                                        </a>
-                                    </td>
-                                    <!-- <td class="text-center"><button class="btn btn-primary" data-toggle="modal" data-target="#dokumen" <?= $p['id_pengajuan'] ?>>
+                    <th scope="col">NIP</th>
+                    <th scope="col">NAMA</th>
+                    <th scope="col">DOKUMEN</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <?php $i = 1 ?>
+                <?php foreach ($pengajuan as $p) : ?>
+                    <tr>
+                        <th scope="row" class="text-center"><?= $i ?></th>
+                        <td><?= $p['nip'] ?></td>
+                        <td><?= $p['nama'] ?></td>
+                        <td class="text-center">
+                            <a target="blank" href="<?= base_url('Pengajuan/cetak/') . $p['id_pengajuan'] ?>" <?= $p['id_pengajuan'] ?>>
+                                <button class="btn btn-primary"><i class="fas fa-print"></i>
+                                    Cetak
+                                </button>
+                            </a>
+                        </td>
+                        <!-- <td class="text-center"><button class="btn btn-primary" data-toggle="modal" data-target="#dokumen" <?= $p['id_pengajuan'] ?>>
                                             <i class="far fa-file-alt"></i>
                                         </button>
                                     </td> -->
-                                </tr>
-                                <?php $i++ ?>
-                            <?php endforeach; ?>
+                    </tr>
+                    <?php $i++ ?>
+                <?php endforeach; ?>
 
-                        </tbody>
-                    </table>
+            </tbody>
+        </table>
 
-                    <!-- <table id="table" class="table table-bordered mt-3 table-responsive-sm">
+        <!-- <table id="table" class="table table-bordered mt-3 table-responsive-sm">
                         <thead>
                             <tr class="text-center">
                                 <th scope="col">NO</th>
@@ -98,17 +91,17 @@
                             <?php endforeach; ?>
                         </tbody>
                     </table> -->
-                </div>
-            </div>
-    </main>
+</div>
+</div>
+</main>
 
-    <!-- Button trigger modal -->
-    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#dokumen">
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#dokumen">
         Launch demo modal
     </button> -->
-    <!-- <?php foreach ($pengajuan as $p) : ?> -->
-    <!-- Modal -->
-    <!-- <div class="modal fade" id="dokumen" <?= $p['id_pengajuan'] ?> tabindex="-1" aria-labelledby="komentarLabel" aria-hidden="true">
+<!-- <?php foreach ($pengajuan as $p) : ?> -->
+<!-- Modal -->
+<!-- <div class="modal fade" id="dokumen" <?= $p['id_pengajuan'] ?> tabindex="-1" aria-labelledby="komentarLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-body">
